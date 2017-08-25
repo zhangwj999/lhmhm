@@ -1,0 +1,328 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/context/mytags.jsp"%>
+
+<style type="text/css">
+body {
+	background-color:#96C3E4;
+	color:#222248;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+td {
+	color:#222248;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+ul {
+	margin-left:5px;
+	padding: 0px;
+	white-space:nowrap;
+}
+li {
+	display:inline-block;
+	list-style-type:none;
+	vertical-align:middle;
+	height:30px;
+}
+#Container {
+	width: 980px;
+	background-color:#f5f5f5;
+	padding-top:0px;
+	position: absolute;
+ left: expression((body.clientWidth-980)/2);
+	height:100%;
+	top:0;
+}
+#TopLogo {
+	width: 100%;
+	padding-top:10px;
+	height:50px;
+	font-size:24px;
+}
+#TopMenu {
+	width: 100%;
+	height:50px;
+	padding:0;
+}
+#MainBody {
+	width: 100%;
+ height:expression(body.clientHeight-50-50-28);
+}
+#BodyLeft {
+	width: 300px;
+	height:100%;
+	float: left;
+	border-right:1px solid #CCC;
+	padding:10px;
+}
+#BodyRight {
+	width: 679px;
+	height:100%;
+	float: right;
+	padding:10px;
+}
+#Foot {
+	width: 100%;
+	height:22px;
+	background-color:#E2E7EB;
+	padding-top:5px;
+}
+#OperatLogTitle {
+	width:100%;
+	height:22px;
+	padding-top:3px;
+	padding-left:5px;
+	font-weight:bold;
+	background-color:#EBEBEB;
+}
+#OCXBody {
+	width:600px;
+	height:450px;
+	margin-bottom:5px;
+}
+#OperatLogBody {
+	width:100%;
+	height:150px;
+	overflow:auto;
+	padding:5px;
+	border:1px solid #EBEBEB;
+}
+.normalinput {
+	width:100px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+.longinput {
+	width:150px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+.distanceleft {
+	padding-left:10px;
+}
+.normalbtn {
+	background-color: #3FF;
+	border:1px solid #0CF;
+	vertical-align:middle;
+	height:22px;
+	padding-top:2px;
+}
+.smallocxdiv{float:left;display:; width:10px; height:10px;}
+</style>
+<script type="text/javascript">
+//全局变量定义
+var m_iNowChanNo = -1;                           //当前通道号
+var m_iLoginUserId = -1;                         //注册设备用户ID
+var m_iChannelNum = -1;							 //模拟通道总数
+var m_bDVRControl = null;						 //OCX控件对象
+var m_iProtocolType = 0;                         //协议类型，0 – TCP， 1 - UDP
+var m_iStreamType = 0;                           //码流类型，0 表示主码流， 1 表示子码流
+var m_iPlay = 0;                                 //当前是否正在预览
+var m_iRecord = 0;                               //当前是否正在录像
+var m_iTalk = 0;                                 //当前是否正在对讲 
+var m_iVoice = 0;                                //当前是否打开声音
+var m_iAutoPTZ = 0;                              //当前云台是否正在自转
+var m_iPTZSpeed = 4;                             //云台速度
+</script>
+<body>
+<div id="Container">
+  <div id="TopMenu">
+    <table width="100%" cellspacing="1" cellpadding="0" border="0" bgcolor="#96C3E4">
+      <tr height="22">
+        <td bgcolor="#ebebeb" class="distanceleft">登录信息</td>
+      </tr>
+      <tr bgcolor="#f5f5f5" height="30">
+        <td class="distanceleft"> IP:
+          <input type="text" id="DeviceIP" value="172.7.76.85" class="normalinput">
+          port:
+          <input type="text" id="DevicePort" value="8000" class="normalinput">
+          user:
+          <input type="text" id="DeviceUsername" value="admin" class="normalinput">
+          pwd:
+          <input type="text" id="DevicePasswd" value="12345" class="normalinput">
+          <button class="normalbtn" onClick="ButtonPress('LoginDev')">注册</button>
+          <button class="normalbtn" onClick="ButtonPress('LogoutDev')" style="margin-left:20px;">注销</button></td>
+      </tr>
+    </table>
+  </div>
+  <div id="MainBody">
+    <div id="BodyLeft">
+      <ul>
+        <li>设备名称：
+          <input type="text" name="DeviceName" id="DeviceName" class="longinput" readonly>
+          <button class="normalbtn" onClick="ButtonPress('getDevName')">获取</button>
+        </li>
+        <li>通道列表：
+          <select name="ChannelList" id="ChannelList" class="longinput">
+            <!-- <option value="0">Camera 01</option>
+                <option value="1">Camera 02</option>-->
+          </select>
+          <button class="normalbtn" onClick="ButtonPress('getDevChan')" >获取</button>
+        </li>
+        <li>
+          <button class="normalbtn" onClick="ButtonPress('Preview:start')" style=" margin-left:60px;">&Delta;开始预览</button>
+          <button class="normalbtn" onClick="ButtonPress('Preview:stop')" style=" margin-left:13px;">&nabla;停止预览</button>
+        </li>
+        <li>
+          <button class="normalbtn" onClick="ButtonPress('CatPic:bmp')" style=" margin-left:60px;">抓BMP图</button>
+          <button class="normalbtn" onClick="ButtonPress('CatPic:jpeg')" style=" margin-left:28px;">抓JPEG图</button>
+        </li>
+        <li>
+          <button class="normalbtn" onClick="ButtonPress('Record:start')" style=" margin-left:60px;">开始录像</button>
+          <button class="normalbtn" onClick="ButtonPress('Record:stop')" style=" margin-left:43px;">停止录像</button>
+        </li>
+        <li>
+          <button class="normalbtn" onClick="ButtonPress('talk:start')" style=" margin-left:60px;">开始对讲</button>
+          <button class="normalbtn" onClick="ButtonPress('talk:stop')" style=" margin-left:43px;">停止对讲</button>
+        </li>
+        <li>
+          <button class="normalbtn" onClick="ButtonPress('voice:start')" style=" margin-left:60px;">打开声音</button>
+          <button class="normalbtn" onClick="ButtonPress('voice:stop')" style=" margin-left:43px;">关闭声音</button>
+        </li>
+        <li> 云台控制 </li>
+        <li>
+          <table width="275" height="90" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><table width="120" height="90" border="0" cellspacing="0" cellpadding="0">
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:leftup')" style="width:30px;" >左上</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:up')" style="width:30px;">上</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:rightup')" style="width:30px;">右上</button></td>
+                  </tr>
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:left')" style="width:30px;" >左</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:auto')" style="width:30px;">自转</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:right')" style="width:30px;">右</button></td>
+                  </tr>
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:leftdown')" style="width:30px;" >左下</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:down')" style="width:30px;">下</button></td>
+                    <td><button class="normalbtn" onClick="ButtonPress('PTZ:rightdown')" style="width:30px;">右下</button></td>
+                  </tr>
+                </table></td>
+              <td><button class="normalbtn" onClick="ButtonPress('PTZ:stop')" style="width:30px; background-color:#C00">停止</button></td>
+              <td><table width="120" height="90" border="0" cellspacing="0" cellpadding="0">
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('zoom:in')" style="width:30px;" >+</button></td>
+                    <td>焦距</td>
+                    <td><button class="normalbtn" onClick="ButtonPress('zoom:out')" style="width:30px;">-</button></td>
+                  </tr>
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('focus:in')" style="width:30px;" >+</button></td>
+                    <td>焦点</td>
+                    <td><button class="normalbtn" onClick="ButtonPress('focus:out')" style="width:30px;">-</button></td>
+                  </tr>
+                  <tr  align="center">
+                    <td><button class="normalbtn" onClick="ButtonPress('iris:in')" style="width:30px;" >+</button></td>
+                    <td>光圈</td>
+                    <td><button class="normalbtn" onClick="ButtonPress('iris:out')" style="width:30px;">-</button></td>
+                  </tr>
+                </table></td>
+            </tr>
+          </table>
+        </li>
+        <li> 预置点：
+          <select name="Preset" id="Preset"  class="longinput"  style="width:124px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <button class="normalbtn" onClick="ButtonPress('setPreset')">设置</button>
+          <button class="normalbtn" onClick="ButtonPress('goPreset')" style="margin-left:10px;">调用</button>
+        </li>
+        <li> </li>
+        <li> 图像参数 </li>
+        <li> 亮&nbsp;&nbsp;&nbsp;&nbsp;度：
+          <select name="PicLight" id="PicLight"  class="longinput">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </li>
+        <li> 对比度：
+          <select name="PicContrast" id="PicContrast"  class="longinput">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <button class="normalbtn" onClick="ButtonPress('getImagePar')">获取</button>
+        </li>
+        <li> 饱和度：
+          <select name="PicSaturation" id="PicSaturation"  class="longinput">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <button class="normalbtn" onClick="ButtonPress('setImagePar')">设置</button>
+        </li>
+        <li> 色&nbsp;&nbsp;&nbsp;&nbsp;调：
+          <select name="PicTonal" id="PicTonal"  class="longinput">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+    <div id="BodyRight" align="center">
+      <div id="OCXBody">
+        <div class="smallocxdiv" id="NetPlayOCX1">
+          <object classid="CLSID:CAFCF48D-8E34-4490-8154-026191D73924" codebase="../codebase/NetVideoActiveX23.cab#version=2,3,23,6" standby="Waiting..." id="HIKOBJECT1" width="100%" height="100%" name="HIKOBJECT1" ></object>
+        </div>
+        <div class="smallocxdiv" id="NetPlayOCX2">
+          <object classid="CLSID:CAFCF48D-8E34-4490-8154-026191D73924" standby="Waiting..." id="HIKOBJECT2" width="100%" height="100%" name="HIKOBJECT2" ></object>
+        </div>
+        <div class="smallocxdiv" id="NetPlayOCX3">
+          <object classid="CLSID:CAFCF48D-8E34-4490-8154-026191D73924" standby="Waiting..." id="HIKOBJECT3" width="100%" height="100%" name="HIKOBJECT3" ></object>
+        </div>
+        <div class="smallocxdiv" id="NetPlayOCX4">
+          <object classid="CLSID:CAFCF48D-8E34-4490-8154-026191D73924" standby="Waiting..." id="HIKOBJECT4" width="100%" height="100%" name="HIKOBJECT4" ></object>
+        </div>
+        <div style="float:right; display:none;"></div>
+      </div>
+      
+      <div id="OperatLogBody" align="left"></div>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+	function szqm(id) {
+		createwindow('设置签名', 'channelController.do?addsign&id=' + id);
+	}
+</script>

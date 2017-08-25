@@ -1,0 +1,107 @@
+#title {
+	float: left;
+	width: 50%;
+	line-height: 40px;
+	font-size: 16px;
+	color: #23a8e0;
+}
+
+#content {
+	width: 100%;
+	/*height: 200px;*/
+}
+
+#tab_bar {
+	width: 100%;
+	height: 26px;
+	float: left;
+}
+
+#tab_bar ul {
+	padding: 0px;
+	margin: 0px;
+	height: 20px;
+	text-align: center;
+}
+
+#tab_bar li {
+	list-style-type: none;
+	float: left;
+	width: 133.3px;
+	height: 25px;
+	background-color: #F8F9FD;
+	color: #23a8e0;
+	margin-right: 5px;
+	border: 1px solid #CDD5E0;
+	line-height: 25px;
+	cursor: pointer;
+}
+
+.tab_css {
+	width: 100%;
+	/*height: 200px;*/
+	background-color: #FFF;
+	display: none;
+	float: left;
+}
+
+.wire {
+	float: left;
+	height: 1px;
+	background-color: #CDD5E0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.bluewire {
+	float: left;
+	height: 1px;
+	background-color: #23a8e0;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.btn {
+	float: right;
+	width: 85px;
+	height: 30px;
+	background: #428BCA;
+	color: #FFFFFF;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.formtable{
+	border:1px solid #dde7f0;
+	font-style:normal;
+	font-weight:normal;
+	font-size:12px;
+}
+
+.center{
+	text-align:center;
+}
+
+.formtable th{
+	height:30px;
+	line-height:30px;
+	background-color:#ECF0F1;
+}
+
+.formtable td{
+	height:30px;
+	line-height:30px;
+}
+
+.onsp{
+	height:30px;
+	width:30px;
+	float:left;
+	margin-right:10px;
+	margin-left:10px;
+	color:#1ea7dd;
+}
+
+.onsp:hover{
+	cursor:pointer;
+}
