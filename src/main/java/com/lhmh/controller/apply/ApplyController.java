@@ -478,36 +478,8 @@ public class ApplyController extends BaseController {
 	 */
 	@RequestMapping(params = "videoCap")
 	public ModelAndView videoCap( ApplyEntity apply, HttpServletRequest request ) {
-		// 部门编码
-		TSUser user = ResourceUtil.getSessionUserName();
-		TSDepart dept = user.getTSDepart();
-		
-		String sql = "SELECT ROOT_ID FROM FILEROOT WHERE DEPT_ID = '"+dept.getId()+"'";
-		List<String> fileId = systemService.findListbySql(sql);
-		
-		String id = request.getParameter("id");
-		apply = applyService.getEntity(ApplyEntity.class, id);
-
-		String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '"+apply.getApplyId()+"'";
-		List<String> seqList = systemService.findListbySql(sql1);
-
-		int seq = 0;
-		if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
-			seq = Integer.parseInt(seqList.get(0)) + 1;
-		}
 		
 		request.getSession( true ).setAttribute("videoCap_applyId", apply.getApplyId());
-		
-		// 会诊申请ID
-		request.setAttribute("applyId", apply.getApplyId());
-		// 公司编码
-		request.setAttribute("comId", apply.getComId());
-		// 程序路径编码
-		request.setAttribute("fileId", fileId.get(0));
-		// 文件序号
-		request.setAttribute("seq", seq+"");
-		// 文件类型    1：申请资料  2：完成资料
-		request.setAttribute("fileType", "1");
 		
 		return new ModelAndView("com/lhmh/apply/videocap");
 	}
@@ -516,7 +488,7 @@ public class ApplyController extends BaseController {
 	 * 会诊申请列表页面跳转拍照资料上传接收图片
 	 * @return
 	 */
-	@RequestMapping( params = "videoCap" )
+	@RequestMapping( params = "upLoadJpeg" )
 	public AjaxJson upLoadJpeg( HttpServletRequest request, HttpServletResponse response ) {
 		
 		AjaxJson j = new AjaxJson();

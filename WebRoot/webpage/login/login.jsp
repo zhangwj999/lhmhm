@@ -83,7 +83,7 @@ label.iPhoneCheckLabelOn span {
                     <%--update-begin--Author:zhangguoming  Date:20140226 for：添加验证码--%>
                     <div class="tip">
                         <input class="randCode" name="randCode" type="text" id="randCode" title="" value="" nullmsg="请输入验证码!" />
-                        <div style="float: right; margin-left:-220px; margin-right: 80px;">
+                        <div style="float: right; margin-left:-220px; margin-right: 60px;">
                             <img id="randCodeImage" src="randCodeImage" />
                         </div>
                     </div>

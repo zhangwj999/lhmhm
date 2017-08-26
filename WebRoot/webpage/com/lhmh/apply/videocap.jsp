@@ -15,12 +15,6 @@
 	<body>
 		<form name="form1" METHOD="POST" ACTION="" ENCTYPE="multipart/form-data">
 			<input class="btn" type="button" onclick="closeit()" value="关闭">
-			<input name="attach" type="FILE" id="attach" size="50"><br/>
-			<input name="applyId" type="hidden" value="${applyId}">
-			<input name="fileId" type="hidden" value="${fileId}">
-			<input name="comId" type="hidden" value="${comId}">
-			<input name="seq" type="hidden" value="${seq}">
-			<input name="fileType" type="hidden" value="${fileType}">
 			
 			<div id="camera_info"></div>
 			<div id="stream_stats"></div>
