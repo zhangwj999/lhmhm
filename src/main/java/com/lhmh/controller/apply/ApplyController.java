@@ -1,11 +1,8 @@
 package com.lhmh.controller.apply;
-import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Blob;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.apache.poi.ss.formula.functions.Hlookup;
 import org.hibernate.SQLQuery;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
@@ -29,7 +25,6 @@ import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.RoletoJson;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.tag.core.easyui.TagUtil;
-import org.jeecgframework.web.demo.entity.test.JeecgBlobDataEntity;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
@@ -42,13 +37,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lhmh.entity.apply.ApplyEntity;
 import com.lhmh.entity.doctor.DoctorEntity;
 import com.lhmh.entity.filepathsave.FilepathsaveEntity;
+import com.lhmh.entity.hishareattach.HiShareAttachEntity;
 import com.lhmh.entity.lhcom.LhcomEntity;
 import com.lhmh.entity.lhdoctor.LhdoctorEntity;
 import com.lhmh.entity.lhoffice.LhOfficeEntity;
 import com.lhmh.entity.lhpatieninfo.LhPatieninfoEntity;
+import com.lhmh.pub.PubTool;
 import com.lhmh.service.apply.ApplyServiceI;
 import com.lhmh.service.filepathsave.FilepathsaveServiceI;
-import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 
 /**   
  * @Title: Controller
@@ -474,6 +470,97 @@ public class ApplyController extends BaseController {
 		
 		return new ModelAndView("com/lhmh/apply/uploading");
 	}
+	
+	/**
+	 * 会诊申请列表页面跳转拍照资料上传
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "videoCap")
+	public ModelAndView videoCap( ApplyEntity apply, HttpServletRequest request ) {
+		// 部门编码
+		TSUser user = ResourceUtil.getSessionUserName();
+		TSDepart dept = user.getTSDepart();
+		
+		String sql = "SELECT ROOT_ID FROM FILEROOT WHERE DEPT_ID = '"+dept.getId()+"'";
+		List<String> fileId = systemService.findListbySql(sql);
+		
+		String id = request.getParameter("id");
+		apply = applyService.getEntity(ApplyEntity.class, id);
+
+		String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '"+apply.getApplyId()+"'";
+		List<String> seqList = systemService.findListbySql(sql1);
+
+		int seq = 0;
+		if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
+			seq = Integer.parseInt(seqList.get(0)) + 1;
+		}
+		
+		request.getSession( true ).setAttribute("videoCap_applyId", apply.getApplyId());
+		
+		// 会诊申请ID
+		request.setAttribute("applyId", apply.getApplyId());
+		// 公司编码
+		request.setAttribute("comId", apply.getComId());
+		// 程序路径编码
+		request.setAttribute("fileId", fileId.get(0));
+		// 文件序号
+		request.setAttribute("seq", seq+"");
+		// 文件类型    1：申请资料  2：完成资料
+		request.setAttribute("fileType", "1");
+		
+		return new ModelAndView("com/lhmh/apply/videocap");
+	}
+	
+	/**
+	 * 会诊申请列表页面跳转拍照资料上传接收图片
+	 * @return
+	 */
+	@RequestMapping( params = "videoCap" )
+	public AjaxJson upLoadJpeg( HttpServletRequest request, HttpServletResponse response ) {
+		
+		AjaxJson j = new AjaxJson();
+		try {
+			// 文件名 命名 applyId + seq + .jpeg，路径 ROOT_ID
+			String applyId = ( String )request.getSession( true )
+					.getAttribute( "videoCap_applyId" );
+
+			// 部门编码
+			TSUser user = ResourceUtil.getSessionUserName();
+			TSDepart dept = user.getTSDepart();
+			
+			String sql = "SELECT ROOT_ID FROM FILEROOT WHERE DEPT_ID = '"+dept.getId()+"'";
+			List<String> fileId = systemService.findListbySql(sql);
+
+			String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '" + applyId + "'";
+			List<String> seqList = systemService.findListbySql(sql1);
+			
+			int seq = 0;
+			if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
+				seq = Integer.parseInt(seqList.get(0)) + 1;
+			}
+		
+			ApplyEntity apply = (ApplyEntity) systemService.findByProperty(
+					ApplyEntity.class, "APPLY_ID", applyId );
+			
+			boolean writeDone = PubTool.writeFile( fileId.get( 0 ) + "/" + applyId + seq + ".jpeg", request.getInputStream() );
+			if( writeDone ){
+				HiShareAttachEntity attach = new HiShareAttachEntity();
+				attach.setSeq( seq + "" );
+				attach.setFileDocId( applyId + seq );
+				attach.setComId( apply.getComId() );
+				attach.setInfoId( applyId );
+				attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
+				systemService.save( attach );
+			}
+		} catch ( Exception e ) {
+			j.setSuccess( false );
+			j.setMsg( e.getMessage() );
+			e.printStackTrace();
+		}
+		return j;
+	}
+	
 	
 	/**
 	 * 生成模板

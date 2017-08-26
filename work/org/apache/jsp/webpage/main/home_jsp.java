@@ -50,12 +50,12 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<div style=\"margin-top: 0px;background-image: url(plug-in/login/images/backgroud.png);\">\r\n");
-      out.write("<table height=\"1000\">\r\n");
-      out.write("</table>\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<div style=\"margin-top: 0px;background-image: url(plug-in/login/images/backgroud.png);\">\n");
+      out.write("<table height=\"1000\">\n");
+      out.write("</table>\n");
+      out.write("\n");
       out.write("</div>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

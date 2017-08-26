@@ -63,17 +63,15 @@ public final class shortcut_005ftop_jsp extends org.apache.jasper.runtime.HttpJs
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -89,15 +87,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<link rel=\"stylesheet\" href=\"plug-in/accordion/css/icons.css\" type=\"text/css\"></link>\r\n");
-      out.write("<link rel=\"stylesheet\" href=\"plug-in/accordion/css/accordion.css\" type=\"text/css\"></link>\r\n");
-      out.write("<script type=\"text/javascript\" src=\"plug-in/accordion/js/left_shortcut_menu.js\"></script>\r\n");
+      out.write("\n");
+      out.write("<link rel=\"stylesheet\" href=\"plug-in/accordion/css/icons.css\" type=\"text/css\"></link>\n");
+      out.write("<link rel=\"stylesheet\" href=\"plug-in/accordion/css/accordion.css\" type=\"text/css\"></link>\n");
+      out.write("<script type=\"text/javascript\" src=\"plug-in/accordion/js/left_shortcut_menu.js\"></script>\n");
       if (_jspx_meth_t_005fmenu_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write('\n');
+      out.write('\n');
+      out.write('\n');
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

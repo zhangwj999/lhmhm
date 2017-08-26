@@ -284,3 +284,5 @@ Caused by: java.lang.NullPointerException
 [INFO][2017-06-11 11:34:54,649][org.jeecgframework.codegenerate.generate.CodeGenerate]----jeecg----Code----Generation-----[单表模型：PATIENINFO]------ 生成完成。。。
 [INFO][2017-06-11 11:35:02,762][org.jeecgframework.codegenerate.generate.CodeGenerate]----jeecg---Code----Generation----[单表模型:PATIENINFO]------- 生成中。。。
 [INFO][2017-06-11 11:35:03,557][org.jeecgframework.codegenerate.generate.CodeGenerate]----jeecg----Code----Generation-----[单表模型：PATIENINFO]------ 生成完成。。。
+[INFO][2017-08-26 22:46:47,821][org.jeecgframework.codegenerate.generate.CodeGenerate]----jeecg---Code----Generation----[单表模型:hi_share_attach]------- 生成中。。。
+[INFO][2017-08-26 22:46:48,118][org.jeecgframework.codegenerate.generate.CodeGenerate]----jeecg----Code----Generation-----[单表模型：hi_share_attach]------ 生成完成。。。

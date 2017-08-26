@@ -20,10 +20,9 @@ public final class channelList_jsp extends org.apache.jasper.runtime.HttpJspBase
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdatagrid_0026_005ftitle_005fqueryMode_005fname_005fidField_005ffit_005factionUrl;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fhidden_005ffield_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgDelOpt_0026_005furl_005ftitle_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody;
@@ -39,10 +38,9 @@ public final class channelList_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdatagrid_0026_005ftitle_005fqueryMode_005fname_005fidField_005ffit_005factionUrl = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fhidden_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdgDelOpt_0026_005furl_005ftitle_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -54,10 +52,9 @@ public final class channelList_jsp extends org.apache.jasper.runtime.HttpJspBase
     _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.release();
     _005fjspx_005ftagPool_005ft_005fdatagrid_0026_005ftitle_005fqueryMode_005fname_005fidField_005ffit_005factionUrl.release();
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fhidden_005ffield_005fnobody.release();
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.release();
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.release();
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.release();
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.release();
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.release();
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.release();
     _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.release();
     _005fjspx_005ftagPool_005ft_005fdgDelOpt_0026_005furl_005ftitle_005fnobody.release();
     _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody.release();
@@ -87,17 +84,15 @@ public final class channelList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -113,14 +108,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<div class=\"easyui-layout\" fit=\"true\">\r\n");
-      out.write("  <div region=\"center\" style=\"padding:1px;\">\r\n");
+      out.write("\n");
+      out.write("<div class=\"easyui-layout\" fit=\"true\">\n");
+      out.write("  <div region=\"center\" style=\"padding:1px;\">\n");
       out.write("  ");
       if (_jspx_meth_t_005fdatagrid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("  </div>\r\n");
+      out.write("\n");
+      out.write("  </div>\n");
       out.write(" </div>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -149,63 +144,78 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     _jspx_th_t_005fdatagrid_005f0.setTitle("通道管理");
     // /webpage/com/lhmh/channel/channelList.jsp(5,2) name = actionUrl type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdatagrid_005f0.setActionUrl("channelController.do?datagrid");
+    // /webpage/com/lhmh/channel/channelList.jsp(5,2) name = queryMode type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdatagrid_005f0.setQueryMode("group");
     // /webpage/com/lhmh/channel/channelList.jsp(5,2) name = idField type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdatagrid_005f0.setIdField("id");
     // /webpage/com/lhmh/channel/channelList.jsp(5,2) name = fit type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdatagrid_005f0.setFit(true);
-    // /webpage/com/lhmh/channel/channelList.jsp(5,2) name = queryMode type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdatagrid_005f0.setQueryMode("group");
     int _jspx_eval_t_005fdatagrid_005f0 = _jspx_th_t_005fdatagrid_005f0.doStartTag();
     if (_jspx_eval_t_005fdatagrid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("   \r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f3(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f4(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
-        out.write('\n');
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f5(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgCol_005f6(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
+        out.write("   ");
+        if (_jspx_meth_t_005fdgCol_005f7(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("      ");
+        if (_jspx_meth_t_005fdgCol_005f8(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
+          return true;
+        out.write("   \n");
+        out.write("   ");
+        if (_jspx_meth_t_005fdgCol_005f9(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("   ");
+        if (_jspx_meth_t_005fdgCol_005f10(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
+          return true;
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgDelOpt_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgToolBar_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgToolBar_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
+        out.write("\n");
         out.write("   ");
         if (_jspx_meth_t_005fdgToolBar_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("  ");
+        out.write('\n');
+        out.write(' ');
+        out.write(' ');
         int evalDoAfterBody = _jspx_th_t_005fdatagrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -228,7 +238,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     _jspx_th_t_005fdgCol_005f0.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
     // /webpage/com/lhmh/channel/channelList.jsp(6,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f0.setTitle("编号");
+    _jspx_th_t_005fdgCol_005f0.setTitle("序号");
     // /webpage/com/lhmh/channel/channelList.jsp(6,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgCol_005f0.setField("id");
     // /webpage/com/lhmh/channel/channelList.jsp(6,3) name = hidden type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
@@ -247,23 +257,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  t:dgCol
-    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f1 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f1 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f1.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
     // /webpage/com/lhmh/channel/channelList.jsp(7,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f1.setTitle("银行");
+    _jspx_th_t_005fdgCol_005f1.setTitle("设备序号");
     // /webpage/com/lhmh/channel/channelList.jsp(7,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f1.setField("bankId");
-    // /webpage/com/lhmh/channel/channelList.jsp(7,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f1.setQuery(true);
-    // /webpage/com/lhmh/channel/channelList.jsp(7,3) name = replace type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f1.setReplace((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${departsReplace}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+    _jspx_th_t_005fdgCol_005f1.setField("cpk");
     int _jspx_eval_t_005fdgCol_005f1 = _jspx_th_t_005fdgCol_005f1.doStartTag();
     if (_jspx_th_t_005fdgCol_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f1);
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f1);
       return true;
     }
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f1);
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f1);
     return false;
   }
 
@@ -272,21 +278,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  t:dgCol
-    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f2 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f2 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f2.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
     // /webpage/com/lhmh/channel/channelList.jsp(8,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f2.setTitle("编号");
+    _jspx_th_t_005fdgCol_005f2.setTitle("手术室");
     // /webpage/com/lhmh/channel/channelList.jsp(8,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f2.setField("channelId");
+    _jspx_th_t_005fdgCol_005f2.setField("officeId");
     // /webpage/com/lhmh/channel/channelList.jsp(8,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgCol_005f2.setQuery(true);
+    // /webpage/com/lhmh/channel/channelList.jsp(8,3) name = replace type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f2.setReplace((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${OfficesReplace}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
     int _jspx_eval_t_005fdgCol_005f2 = _jspx_th_t_005fdgCol_005f2.doStartTag();
     if (_jspx_th_t_005fdgCol_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f2);
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f2);
       return true;
     }
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f2);
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005freplace_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f2);
     return false;
   }
 
@@ -295,21 +303,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  t:dgCol
-    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f3 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f3 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f3.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
     // /webpage/com/lhmh/channel/channelList.jsp(9,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f3.setTitle("名称");
+    _jspx_th_t_005fdgCol_005f3.setTitle("视频编号");
     // /webpage/com/lhmh/channel/channelList.jsp(9,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f3.setField("channelName");
-    // /webpage/com/lhmh/channel/channelList.jsp(9,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f3.setQuery(true);
+    _jspx_th_t_005fdgCol_005f3.setField("chanId");
     int _jspx_eval_t_005fdgCol_005f3 = _jspx_th_t_005fdgCol_005f3.doStartTag();
     if (_jspx_th_t_005fdgCol_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f3);
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f3);
       return true;
     }
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f3);
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f3);
     return false;
   }
 
@@ -318,23 +324,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  t:dgCol
-    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f4 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f4 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f4.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
     // /webpage/com/lhmh/channel/channelList.jsp(10,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f4.setTitle("是否启用");
+    _jspx_th_t_005fdgCol_005f4.setTitle("视频名称");
     // /webpage/com/lhmh/channel/channelList.jsp(10,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f4.setField("status");
-    // /webpage/com/lhmh/channel/channelList.jsp(10,3) name = dictionary type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f4.setDictionary("status");
-    // /webpage/com/lhmh/channel/channelList.jsp(10,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f4.setQuery(true);
+    _jspx_th_t_005fdgCol_005f4.setField("chanName");
     int _jspx_eval_t_005fdgCol_005f4 = _jspx_th_t_005fdgCol_005f4.doStartTag();
     if (_jspx_th_t_005fdgCol_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f4);
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f4);
       return true;
     }
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f4);
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f4);
     return false;
   }
 
@@ -346,10 +348,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f5 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f5.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(12,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f5.setTitle("备注");
-    // /webpage/com/lhmh/channel/channelList.jsp(12,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f5.setField("note");
+    // /webpage/com/lhmh/channel/channelList.jsp(11,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f5.setTitle("IP地址");
+    // /webpage/com/lhmh/channel/channelList.jsp(11,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f5.setField("ip");
     int _jspx_eval_t_005fdgCol_005f5 = _jspx_th_t_005fdgCol_005f5.doStartTag();
     if (_jspx_th_t_005fdgCol_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f5);
@@ -364,21 +366,113 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  t:dgCol
-    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f6 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f6 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
     _jspx_th_t_005fdgCol_005f6.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgCol_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f6.setTitle("操作");
-    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f6.setField("opt");
-    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = width type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdgCol_005f6.setWidth(new Integer(100));
+    // /webpage/com/lhmh/channel/channelList.jsp(12,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f6.setTitle("端口");
+    // /webpage/com/lhmh/channel/channelList.jsp(12,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f6.setField("port");
     int _jspx_eval_t_005fdgCol_005f6 = _jspx_th_t_005fdgCol_005f6.doStartTag();
     if (_jspx_th_t_005fdgCol_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f6);
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f6);
       return true;
     }
-    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f6);
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f6);
+    return false;
+  }
+
+  private boolean _jspx_meth_t_005fdgCol_005f7(javax.servlet.jsp.tagext.JspTag _jspx_th_t_005fdatagrid_005f0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  t:dgCol
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f7 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    _jspx_th_t_005fdgCol_005f7.setPageContext(_jspx_page_context);
+    _jspx_th_t_005fdgCol_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
+    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f7.setTitle("设备类型");
+    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f7.setField("omc");
+    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = dictionary type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f7.setDictionary("devicetype");
+    // /webpage/com/lhmh/channel/channelList.jsp(13,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f7.setQuery(true);
+    int _jspx_eval_t_005fdgCol_005f7 = _jspx_th_t_005fdgCol_005f7.doStartTag();
+    if (_jspx_th_t_005fdgCol_005f7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f7);
+      return true;
+    }
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f7);
+    return false;
+  }
+
+  private boolean _jspx_meth_t_005fdgCol_005f8(javax.servlet.jsp.tagext.JspTag _jspx_th_t_005fdatagrid_005f0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  t:dgCol
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f8 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    _jspx_th_t_005fdgCol_005f8.setPageContext(_jspx_page_context);
+    _jspx_th_t_005fdgCol_005f8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
+    // /webpage/com/lhmh/channel/channelList.jsp(14,6) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f8.setTitle("存储IP");
+    // /webpage/com/lhmh/channel/channelList.jsp(14,6) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f8.setField("nvrip");
+    int _jspx_eval_t_005fdgCol_005f8 = _jspx_th_t_005fdgCol_005f8.doStartTag();
+    if (_jspx_th_t_005fdgCol_005f8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f8);
+      return true;
+    }
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f8);
+    return false;
+  }
+
+  private boolean _jspx_meth_t_005fdgCol_005f9(javax.servlet.jsp.tagext.JspTag _jspx_th_t_005fdatagrid_005f0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  t:dgCol
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f9 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    _jspx_th_t_005fdgCol_005f9.setPageContext(_jspx_page_context);
+    _jspx_th_t_005fdgCol_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
+    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f9.setTitle("是否启用");
+    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f9.setField("status");
+    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = dictionary type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f9.setDictionary("status");
+    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = query type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f9.setQuery(true);
+    int _jspx_eval_t_005fdgCol_005f9 = _jspx_th_t_005fdgCol_005f9.doStartTag();
+    if (_jspx_th_t_005fdgCol_005f9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f9);
+      return true;
+    }
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005ftitle_005fquery_005ffield_005fdictionary_005fnobody.reuse(_jspx_th_t_005fdgCol_005f9);
+    return false;
+  }
+
+  private boolean _jspx_meth_t_005fdgCol_005f10(javax.servlet.jsp.tagext.JspTag _jspx_th_t_005fdatagrid_005f0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  t:dgCol
+    org.jeecgframework.tag.core.easyui.DataGridColumnTag _jspx_th_t_005fdgCol_005f10 = (org.jeecgframework.tag.core.easyui.DataGridColumnTag) _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridColumnTag.class);
+    _jspx_th_t_005fdgCol_005f10.setPageContext(_jspx_page_context);
+    _jspx_th_t_005fdgCol_005f10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
+    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f10.setTitle("操作");
+    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f10.setField("opt");
+    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = width type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdgCol_005f10.setWidth(new Integer(100));
+    int _jspx_eval_t_005fdgCol_005f10 = _jspx_th_t_005fdgCol_005f10.doStartTag();
+    if (_jspx_th_t_005fdgCol_005f10.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f10);
+      return true;
+    }
+    _005fjspx_005ftagPool_005ft_005fdgCol_0026_005fwidth_005ftitle_005ffield_005fnobody.reuse(_jspx_th_t_005fdgCol_005f10);
     return false;
   }
 
@@ -390,9 +484,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DataGridDelOptTag _jspx_th_t_005fdgDelOpt_005f0 = (org.jeecgframework.tag.core.easyui.DataGridDelOptTag) _005fjspx_005ftagPool_005ft_005fdgDelOpt_0026_005furl_005ftitle_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridDelOptTag.class);
     _jspx_th_t_005fdgDelOpt_005f0.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgDelOpt_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(14,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgDelOpt_005f0.setTitle("删除");
-    // /webpage/com/lhmh/channel/channelList.jsp(14,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = url type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgDelOpt_005f0.setUrl("channelController.do?del&id={id}");
     int _jspx_eval_t_005fdgDelOpt_005f0 = _jspx_th_t_005fdgDelOpt_005f0.doStartTag();
     if (_jspx_th_t_005fdgDelOpt_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -411,13 +505,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DataGridToolBarTag _jspx_th_t_005fdgToolBar_005f0 = (org.jeecgframework.tag.core.easyui.DataGridToolBarTag) _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridToolBarTag.class);
     _jspx_th_t_005fdgToolBar_005f0.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgToolBar_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(18,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f0.setTitle("录入");
-    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(18,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f0.setIcon("icon-add");
-    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(18,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f0.setUrl("channelController.do?addorupdate");
-    // /webpage/com/lhmh/channel/channelList.jsp(15,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(18,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f0.setFunname("add");
     int _jspx_eval_t_005fdgToolBar_005f0 = _jspx_th_t_005fdgToolBar_005f0.doStartTag();
     if (_jspx_th_t_005fdgToolBar_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -436,13 +530,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DataGridToolBarTag _jspx_th_t_005fdgToolBar_005f1 = (org.jeecgframework.tag.core.easyui.DataGridToolBarTag) _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridToolBarTag.class);
     _jspx_th_t_005fdgToolBar_005f1.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgToolBar_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(19,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f1.setTitle("编辑");
-    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(19,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f1.setIcon("icon-edit");
-    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(19,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f1.setUrl("channelController.do?addorupdate");
-    // /webpage/com/lhmh/channel/channelList.jsp(16,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(19,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f1.setFunname("update");
     int _jspx_eval_t_005fdgToolBar_005f1 = _jspx_th_t_005fdgToolBar_005f1.doStartTag();
     if (_jspx_th_t_005fdgToolBar_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -461,13 +555,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DataGridToolBarTag _jspx_th_t_005fdgToolBar_005f2 = (org.jeecgframework.tag.core.easyui.DataGridToolBarTag) _005fjspx_005ftagPool_005ft_005fdgToolBar_0026_005furl_005ftitle_005ficon_005ffunname_005fnobody.get(org.jeecgframework.tag.core.easyui.DataGridToolBarTag.class);
     _jspx_th_t_005fdgToolBar_005f2.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdgToolBar_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fdatagrid_005f0);
-    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(20,3) name = title type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f2.setTitle("查看");
-    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(20,3) name = icon type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f2.setIcon("icon-search");
-    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(20,3) name = url type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f2.setUrl("channelController.do?addorupdate");
-    // /webpage/com/lhmh/channel/channelList.jsp(17,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channelList.jsp(20,3) name = funname type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdgToolBar_005f2.setFunname("detail");
     int _jspx_eval_t_005fdgToolBar_005f2 = _jspx_th_t_005fdgToolBar_005f2.doStartTag();
     if (_jspx_th_t_005fdgToolBar_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
