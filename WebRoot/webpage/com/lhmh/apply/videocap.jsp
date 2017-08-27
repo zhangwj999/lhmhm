@@ -29,15 +29,16 @@
 				</div>
 			</div><br>
 	
-			<button id="take_snapshots">Take more snapshots</button>
-			<button id="show_stream">Show stream</button><br>
+			<input type="button" id="take_snapshots" value="拍照" />
+			<button id="show_stream" style="display:none;">Show stream</button>
+			<br>
 	
 			<div id="snapshots"></div>
 	
-			<button id="discard_snapshot">Discard snapshot</button>
-			<button id="upload_snapshot">Upload to URL</button><br>
+			<input type="button"  id="discard_snapshot" value="删除" />
+			<input type="button"  id="upload_snapshot" value="上传" /><br>
 	
-			<input type="hidden" id="api_url" placeholder="<%=path %>/applyController.do?upLoadJpeg"><br>
+			<input type="hidden" id="api_url" value="<%=path %>/applyController.do?upLoadJpeg&applyId=${applyId}"><br>
 	
 			<img src="loader.gif" id="loader">
 			<div id="upload_status"></div>

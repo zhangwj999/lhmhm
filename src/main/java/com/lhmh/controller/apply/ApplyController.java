@@ -478,8 +478,10 @@ public class ApplyController extends BaseController {
 	 */
 	@RequestMapping(params = "videoCap")
 	public ModelAndView videoCap( ApplyEntity apply, HttpServletRequest request ) {
-		
-		request.getSession( true ).setAttribute("videoCap_applyId", apply.getApplyId());
+		String id = request.getParameter("id"); 
+		apply = applyService.getEntity(ApplyEntity.class, id);
+		System.out.println( "apply.getApplyId() = " + apply.getApplyId() );
+		request.setAttribute("applyId", apply.getApplyId());
 		
 		return new ModelAndView("com/lhmh/apply/videocap");
 	}
@@ -489,42 +491,14 @@ public class ApplyController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping( params = "upLoadJpeg" )
+	@ResponseBody
 	public AjaxJson upLoadJpeg( HttpServletRequest request, HttpServletResponse response ) {
 		
 		AjaxJson j = new AjaxJson();
 		try {
-			// 文件名 命名 applyId + seq + .jpeg，路径 ROOT_ID
-			String applyId = ( String )request.getSession( true )
-					.getAttribute( "videoCap_applyId" );
-
-			// 部门编码
-			TSUser user = ResourceUtil.getSessionUserName();
-			TSDepart dept = user.getTSDepart();
-			
-			String sql = "SELECT ROOT_ID FROM FILEROOT WHERE DEPT_ID = '"+dept.getId()+"'";
-			List<String> fileId = systemService.findListbySql(sql);
-
-			String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '" + applyId + "'";
-			List<String> seqList = systemService.findListbySql(sql1);
-			
-			int seq = 0;
-			if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
-				seq = Integer.parseInt(seqList.get(0)) + 1;
-			}
-		
-			ApplyEntity apply = (ApplyEntity) systemService.findByProperty(
-					ApplyEntity.class, "APPLY_ID", applyId );
-			
-			boolean writeDone = PubTool.writeFile( fileId.get( 0 ) + "/" + applyId + seq + ".jpeg", request.getInputStream() );
-			if( writeDone ){
-				HiShareAttachEntity attach = new HiShareAttachEntity();
-				attach.setSeq( seq + "" );
-				attach.setFileDocId( applyId + seq );
-				attach.setComId( apply.getComId() );
-				attach.setInfoId( applyId );
-				attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
-				systemService.save( attach );
-			}
+			String applyId = request.getParameter( "applyId" );
+			PubTool.saveAttachEntity( applyId, request.getInputStream(), systemService );
+			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
 			j.setSuccess( false );
 			j.setMsg( e.getMessage() );

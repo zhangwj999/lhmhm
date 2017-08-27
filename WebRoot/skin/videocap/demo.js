@@ -58,7 +58,7 @@ $(function() {
       var snapshot = $(this).addClass("selected").data("snapshot");
       $("#discard_snapshot, #upload_snapshot").show();
       snapshot.show();
-      $("#show_stream").show();
+//      $("#show_stream").show();
     };
 
     var clear_upload_data = function() {

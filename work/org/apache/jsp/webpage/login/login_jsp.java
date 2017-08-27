@@ -169,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.write("\n");
       out.write("                    <div class=\"tip\">\n");
       out.write("                        <input class=\"randCode\" name=\"randCode\" type=\"text\" id=\"randCode\" title=\"\" value=\"\" nullmsg=\"请输入验证码!\" />\n");
-      out.write("                        <div style=\"float: right; margin-left:-220px; margin-right: 80px;\">\n");
+      out.write("                        <div style=\"float: right; margin-left:-220px; margin-right: 60px;\">\n");
       out.write("                            <img id=\"randCodeImage\" src=\"randCodeImage\" />\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");

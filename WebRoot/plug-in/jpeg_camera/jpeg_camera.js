@@ -8,9 +8,9 @@
 
   JpegCamera = (function() {
     JpegCamera.DefaultOptions = {
-      shutter_ogg_url: "/jpeg_camera/shutter.ogg",
-      shutter_mp3_url: "/jpeg_camera/shutter.mp3",
-      swf_url: "/jpeg_camera/jpeg_camera.swf",
+      shutter_ogg_url: "./shutter.ogg",
+      shutter_mp3_url: "./shutter.mp3",
+      swf_url: "./jpeg_camera.swf",
       on_debug: function(message) {
         if (console && console.log) {
           return console.log("JpegCamera: " + message);
@@ -248,8 +248,8 @@
     }
   };
 
-  if( 1!=1 ){
-//  if (navigator.getUserMedia) { 我不想用HTML5，因为我不想用https
+//  if( 1!=1 ){
+  if (navigator.getUserMedia) { //我不想用HTML5，因为我不想用https
     check_canvas_to_blob();
     vorbis_audio = "audio/ogg; codecs=vorbis";
     mpeg_audio = "audio/mpeg; ";
