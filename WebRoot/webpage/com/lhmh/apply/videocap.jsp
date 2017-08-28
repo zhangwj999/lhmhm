@@ -30,7 +30,7 @@
 			</div><br>
 	
 			<input type="button" id="take_snapshots" value="拍照" />
-			<button id="show_stream" style="display:none;">Show stream</button>
+			<input type="button" id="show_stream" value="显示摄像头" />
 			<br>
 	
 			<div id="snapshots"></div>
