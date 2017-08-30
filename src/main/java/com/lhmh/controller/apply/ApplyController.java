@@ -481,7 +481,7 @@ public class ApplyController extends BaseController {
 		String id = request.getParameter("id"); 
 		apply = applyService.getEntity(ApplyEntity.class, id);
 		System.out.println( "apply.getApplyId() = " + apply.getApplyId() );
-		request.setAttribute("applyId", apply.getApplyId());
+		request.getSession(true).setAttribute("videoCapApplyId", apply.getApplyId());
 		
 		return new ModelAndView("com/lhmh/apply/videocap");
 	}
@@ -496,7 +496,13 @@ public class ApplyController extends BaseController {
 		
 		AjaxJson j = new AjaxJson();
 		try {
-			String applyId = request.getParameter( "applyId" );
+			String applyId = ( String )request.getSession(true).getAttribute("videoCapApplyId");
+			if( logger.isDebugEnabled() ){
+				logger.debug( "upLoadJpeg request.getContentLength() =  " + request.getContentLength() );
+			}
+			while( request.getInputStream().available() == 0 ){
+				System.out.println( "还在等待。。。" );
+			}
 			PubTool.saveAttachEntity( applyId, request.getInputStream(), systemService );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {

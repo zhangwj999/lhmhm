@@ -17,6 +17,14 @@
     <param-value>classpath:spring-*.xml</param-value>
   </context-param>
   <filter>
+    <filter-name>cabFilter</filter-name>
+    <filter-class>com.lhmh.pub.CabFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>cabFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <filter>
     <filter-name>openSessionInViewFilter</filter-name>
     <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
     <init-param>
@@ -172,14 +180,4 @@
   <welcome-file-list>
     <welcome-file>/webpage/login/login.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>VideoCap</display-name>
-    <servlet-name>VideoCap</servlet-name>
-    <servlet-class>com.lhmh.servlet.VideoCap</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>VideoCap</servlet-name>
-    <url-pattern>/VideoCap</url-pattern>
-  </servlet-mapping>
 </web-app>

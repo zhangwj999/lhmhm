@@ -38,7 +38,7 @@
 			<input type="button"  id="discard_snapshot" value="删除" />
 			<input type="button"  id="upload_snapshot" value="上传" /><br>
 	
-			<input type="hidden" id="api_url" value="<%=path %>/applyController.do?upLoadJpeg&applyId=${applyId}"><br>
+			<input type="hidden" id="api_url" value="<%=path %>/applyController.do?upLoadJpeg"><br>
 	
 			<img src="loader.gif" id="loader">
 			<div id="upload_status"></div>

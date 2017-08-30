@@ -5,12 +5,19 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.List;
 
+import javax.servlet.ServletRequest;
+
+import org.apache.log4j.Logger;
 import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import com.lhmh.entity.apply.ApplyEntity;
 import com.lhmh.entity.hishareattach.HiShareAttachEntity;
@@ -22,7 +29,7 @@ import com.lhmh.entity.hishareattach.HiShareAttachEntity;
  *
  */
 public class PubTool{
-	
+	private static final Logger logger = Logger.getLogger(PubTool.class);
 	/**
 	 * 往指定路径写文件
 	 * @param filePath 路径
@@ -31,15 +38,31 @@ public class PubTool{
 	 */
 	@SuppressWarnings("finally")
 	public static boolean writeFile( String filePath, InputStream is ){
+		if( logger.isDebugEnabled() ){
+			logger.debug( "writeFile begin" );
+		}
 		boolean writeDone = true;
 		BufferedOutputStream bs = null;
 		try {
 			File f = new File( filePath );
 			bs = new BufferedOutputStream( new FileOutputStream( f ) );
-			byte[] bytes = new byte[1024];
-			while( ( is.read( bytes ) ) != -1 ){
-				bs.write( bytes );
-			}
+//			byte[] bytes = new sun.misc.BASE64Decoder().decodeBuffer( is );
+//			byte[] bytesTmp = new byte[1024];
+//			while( ( is.read( bytesTmp ) ) != -1 ){
+//				bs.write( bytes );
+//			}
+	        BASE64Decoder decoder = new BASE64Decoder();
+//            //Base64解码
+//            byte[] b = decoder.decodeBuffer( is );
+	        if( logger.isDebugEnabled() ){
+	        	logger.debug( "writeFile is.available() == " + is.available() );
+	        }
+			byte[] bytes = new byte[is.available()];
+			is.read( bytes );
+	        BASE64Encoder encoder = new BASE64Encoder();
+	        String s = encoder.encode( bytes );//返回Base64编码过的字节数组字符串
+	        logger.debug( s );
+			bs.write( decoder.decodeBuffer( s ) );
 			bs.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,6 +72,9 @@ public class PubTool{
 				bs.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+			if( logger.isDebugEnabled() ){
+				logger.debug( "writeFile end" );
 			}
 			return writeDone;
 		}
@@ -64,7 +90,6 @@ public class PubTool{
 	public static boolean saveAttachEntity( String applyId, 
 			InputStream is, SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
-		
 		// 部门编码
 		TSUser user = ResourceUtil.getSessionUserName();
 		TSDepart dept = user.getTSDepart();
@@ -72,12 +97,12 @@ public class PubTool{
 		String sql = "SELECT ROOT_ID FROM FILEROOT WHERE DEPT_ID = '"+dept.getId()+"'";
 		List<String> fileId = systemService.findListbySql(sql);
 
-		String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '" + applyId + "'";
-		List<String> seqList = systemService.findListbySql(sql1);
+		String sql1 = "SELECT MAX( CONVERT( SEQ, SIGNED ) ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '" + applyId + "'";
+		List<BigInteger> seqList = systemService.findListbySql(sql1);
 		
 		int seq = 0;
 		if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
-			seq = Integer.parseInt(seqList.get(0)) + 1;
+			seq = seqList.get(0).intValue() + 1;
 		}
 	
 		// 文件名 命名 applyId + seq + .jpeg，路径 ROOT_ID
@@ -85,7 +110,7 @@ public class PubTool{
 		
 		List<ApplyEntity> applys = systemService.findByProperty(
 				ApplyEntity.class, "applyId", applyId );
-		ApplyEntity apply = applys.get( 0 ) ;
+		ApplyEntity apply = applys.get( 0 );
 		String docBase = fileId.get( 0 );
 		if( docBase == null || "".equals( docBase ) ){
 			throw new RuntimeException( "申请单号" + apply + "对应的文件夹根目录未配置！" );
@@ -104,7 +129,7 @@ public class PubTool{
 			attach.setInfoId( applyId );
 			attach.setSeq( seq + "" );
 			attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
-			attach.setFileDocId( docBase + fileName );
+			attach.setFileDocId( docBase );
 			attach.setFileName( fileName );
 			attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
 		}

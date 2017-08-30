@@ -139,9 +139,9 @@ $(function() {
     $("#show_stream").click(show_stream);
 
     var options = {
-//      shutter_ogg_url: "../../plug-in/jpeg_camera/shutter.ogg",
-//      shutter_mp3_url: "../../plug-in/jpeg_camera/shutter.mp3",
-//      swf_url: "../../plug-in/jpeg_camera/jpeg_camera.swf"
+      shutter_ogg_url: "/jpeg_camera/shutter.ogg",
+      shutter_mp3_url: "/jpeg_camera/shutter.mp3",
+      swf_url: "/jpeg_camera/jpeg_camera.swf"
     }
 
     camera = new JpegCamera("#camera", options).ready(function(info) {
