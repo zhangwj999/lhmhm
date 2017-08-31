@@ -66,7 +66,7 @@ $(function() {
     };
 
     var upload_snapshot = function() {
-      var api_url = $("#api_url").val();
+      var api_url = 'http://' + document.domain + $("#api_url").val();
 
       if (!api_url.length) {
         $("#upload_status").html("Please provide URL for the upload");
@@ -81,11 +81,31 @@ $(function() {
       snapshot.upload({api_url: api_url}).done(upload_done).fail(upload_fail);
     };
 
-    var upload_done = function(response) {
-      $("#upload_snapshot").prop("disabled", false);
-      $("#loader").hide();
-      $("#upload_status").html("Upload successful");
-      $("#upload_result").html(response);
+    var upload_done = function( response ) {
+    	console.log( response )
+    	var rlt = eval('(' + response + ')')
+    	$("#upload_snapshot").prop("disabled", false);
+    	$("#loader").hide();
+    	if( rlt.ok ){
+    		$.ajax({
+    			url:'applyController.do?upLoadJpeg',
+    			method:'GET',
+    			dataType:'json',
+    			data:{path:rlt.data}
+    		}).done( function( data ){
+    			if( data.success ){
+    				alert( '上传图片成功！' )
+    			}else{
+    				alert( '上传图片成功，插入附件表失败！' )
+    			}
+    		})
+    		
+    	}else{
+    		alert( '上传图片失败！' )
+    	}
+    	
+//      $("#upload_status").html("Upload successful");
+//      $("#upload_result").html(response);
     };
 
     var upload_fail = function(code, error, response) {

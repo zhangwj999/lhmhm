@@ -1,14 +1,15 @@
 package com.lhmh.pub;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.List;
-
-import javax.servlet.ServletRequest;
 
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.util.ResourceUtil;
@@ -46,17 +47,11 @@ public class PubTool{
 		try {
 			File f = new File( filePath );
 			bs = new BufferedOutputStream( new FileOutputStream( f ) );
-//			byte[] bytes = new sun.misc.BASE64Decoder().decodeBuffer( is );
-//			byte[] bytesTmp = new byte[1024];
-//			while( ( is.read( bytesTmp ) ) != -1 ){
-//				bs.write( bytes );
-//			}
 	        BASE64Decoder decoder = new BASE64Decoder();
-//            //Base64解码
-//            byte[] b = decoder.decodeBuffer( is );
 	        if( logger.isDebugEnabled() ){
 	        	logger.debug( "writeFile is.available() == " + is.available() );
 	        }
+	        is.read( new byte[0] );
 			byte[] bytes = new byte[is.available()];
 			is.read( bytes );
 	        BASE64Encoder encoder = new BASE64Encoder();
@@ -80,6 +75,22 @@ public class PubTool{
 		}
 	}
 	
+	public static boolean copyFile( String src, String dest ) throws Exception{
+		logger.debug( "图片从  " + src + " 复制到 " + dest );
+		File srcf = new File( src );
+		File destf = new File( dest );
+		BufferedInputStream is = new BufferedInputStream( new FileInputStream(srcf) );
+		BufferedOutputStream os = new BufferedOutputStream( new FileOutputStream(destf) );
+		byte[] bs = new byte[1024];
+		while( ( is.read( bs ) ) != -1 ){
+			os.write( bs );
+		}
+		os.flush();
+		is.close();
+		os.close();
+		srcf.delete();
+		return true;
+	}
 	/**
 	 * 保存一条附件表记录，一些公用的校验
 	 * @param applyId 申请ID
@@ -87,8 +98,8 @@ public class PubTool{
 	 * @param SystemService 调用服务的东西
 	 * @return
 	 */
-	public static boolean saveAttachEntity( String applyId, 
-			InputStream is, SystemService systemService ) throws Exception{
+	public static boolean saveAttachEntity( String applyId, String path,
+			SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
 		// 部门编码
 		TSUser user = ResourceUtil.getSessionUserName();
@@ -122,17 +133,15 @@ public class PubTool{
 		if( !f.exists() ){
 			f.mkdir(); //文件夹不存在先创建文件夹
 		}
-		boolean writeDone = PubTool.writeFile( docBase + fileName, is );
+		copyFile( path, docBase + fileName );
 		HiShareAttachEntity attach = new HiShareAttachEntity();
-		if( writeDone ){
-			attach.setComId( apply.getComId() );
-			attach.setInfoId( applyId );
-			attach.setSeq( seq + "" );
-			attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
-			attach.setFileDocId( docBase );
-			attach.setFileName( fileName );
-			attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
-		}
+		attach.setComId( apply.getComId() );
+		attach.setInfoId( applyId );
+		attach.setSeq( seq + "" );
+		attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
+		attach.setFileDocId( docBase );
+		attach.setFileName( fileName );
+		attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
 		systemService.save( attach );
 		return true;
 	}

@@ -11,13 +11,18 @@
 			src="<%=path %>/plug-in/jpeg_camera/jpeg_camera_with_dependencies.min.js"></script>
 		<script type="text/javascript" src="<%=path %>/skin/videocap/demo.js"></script>
 		<link href="<%=path %>/skin/videocap/demo.css" media="all" rel="stylesheet" type="text/css" /></link>
+		<link href="<%=path%>/webpage/com/lhmh/pub/apply/apply.css" rel="stylesheet" type="text/css" media="screen" />
+		<t:base type="jquery,easyui,tools,DatePicker"></t:base>
 	</head>
 	<body>
 		<form name="form1" METHOD="POST" ACTION="" ENCTYPE="multipart/form-data">
-			<input class="btn" type="button" onclick="closeit()" value="关闭">
+			<div style="width:200px;height:50px;float:right;position:fixed;right:20px;">
+				<input class="btn" style="display:block !important;" 
+					type="button" onclick="closeit()" value="关闭">
+			</div>
 			
 			<div id="camera_info"></div>
-			<div id="stream_stats"></div>
+<!-- 			<div id="stream_stats"></div> -->
 	
 			<div id="camera">
 				<div class="placeholder">
@@ -38,7 +43,7 @@
 			<input type="button"  id="discard_snapshot" value="删除" />
 			<input type="button"  id="upload_snapshot" value="上传" /><br>
 	
-			<input type="hidden" id="api_url" value="<%=path %>/applyController.do?upLoadJpeg"><br>
+			<input type="text" id="api_url" value="/uploadImg"><br>
 	
 			<img src="loader.gif" id="loader">
 			<div id="upload_status"></div>

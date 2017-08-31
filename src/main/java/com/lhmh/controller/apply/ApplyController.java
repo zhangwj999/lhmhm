@@ -497,13 +497,11 @@ public class ApplyController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		try {
 			String applyId = ( String )request.getSession(true).getAttribute("videoCapApplyId");
+			String path = request.getParameter( "path" );
 			if( logger.isDebugEnabled() ){
 				logger.debug( "upLoadJpeg request.getContentLength() =  " + request.getContentLength() );
 			}
-			while( request.getInputStream().available() == 0 ){
-				System.out.println( "还在等待。。。" );
-			}
-			PubTool.saveAttachEntity( applyId, request.getInputStream(), systemService );
+			PubTool.saveAttachEntity( applyId, path, systemService );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
 			j.setSuccess( false );

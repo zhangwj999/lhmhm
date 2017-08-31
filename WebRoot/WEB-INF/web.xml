@@ -17,14 +17,6 @@
     <param-value>classpath:spring-*.xml</param-value>
   </context-param>
   <filter>
-    <filter-name>cabFilter</filter-name>
-    <filter-class>com.lhmh.pub.CabFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>cabFilter</filter-name>
-    <url-pattern>*.do</url-pattern>
-  </filter-mapping>
-  <filter>
     <filter-name>openSessionInViewFilter</filter-name>
     <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
     <init-param>
