@@ -21,6 +21,7 @@
    <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap()"></t:dgToolBar>
    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyController.do?uploading" onclick="openUploading()"></t:dgToolBar>
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="dataDetail()"></t:dgToolBar>
+   <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar>
    <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="detailWord()"></t:dgToolBar>
   </t:datagrid>
   </div>
@@ -85,6 +86,16 @@
 		window.open("applyController.do?datadetail&id="+rowData.id);
 	}
 
+	function listJpeg(){
+		var rowData = $("#applyList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择查看资料的记录");
+			return;
+		}
+		
+		window.open("applyController.do?fileList&id="+rowData.id);
+	}
+	
 	function present(){
 		var rowData = $("#applyList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {

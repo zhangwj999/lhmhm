@@ -81,17 +81,15 @@ public final class typeGroupList_jsp extends org.apache.jasper.runtime.HttpJspBa
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -107,43 +105,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<script type=\"text/javascript\">\r\n");
-      out.write("function typeGridTree_AddType() {\r\n");
-      out.write("\tvar treeCtrlId = \"typeGridTree\";\r\n");
-      out.write("\tvar node = $(\"#\"+treeCtrlId).treegrid('getSelected');\r\n");
-      out.write("\tif (node == null) {\r\n");
-      out.write("\t\ttip(\"请选择一个字典组\");\r\n");
-      out.write("\t\treturn;\r\n");
-      out.write("\t}\r\n");
-      out.write("\tif (node.state == \"closed\" || node.children) {\r\n");
-      out.write("\t} else {//叶结点\r\n");
-      out.write("\t\tnode = $(\"#\"+treeCtrlId).treegrid('getParent', node.id); //获取当前节点的父节点\r\n");
-      out.write("\t}\r\n");
-      out.write("\tvar groupid = node.id.substring(1);\r\n");
-      out.write("\tadd(\"参数值录入(\"+node.text+\")\", \"systemController.do?addorupdateType&typegroupid=\"+groupid, treeCtrlId);\r\n");
-      out.write("}\r\n");
-      out.write("function typeGridTree_UpdateType() {\r\n");
-      out.write("\tvar treeCtrlId = \"typeGridTree\";\r\n");
-      out.write("\tvar node = $(\"#\"+treeCtrlId).treegrid('getSelected');\r\n");
-      out.write("\tif (node == null) {\r\n");
-      out.write("\t\ttip(\"请选择一个编辑对象。\");\r\n");
-      out.write("\t\treturn;\r\n");
-      out.write("\t}\r\n");
-      out.write("\tvar nodeid = node.id.substring(1);\r\n");
-      out.write("\tif (node.state == \"closed\" || node.children) {\r\n");
-      out.write("\t\tcreatewindow(\"字典编辑\", \"systemController.do?aouTypeGroup&id=\"+nodeid);\r\n");
-      out.write("\t} else {//叶结点\r\n");
-      out.write("\t\tvar pnode = $(\"#\"+treeCtrlId).treegrid('getParent', node.id); //获取当前节点的父节点\r\n");
-      out.write("\t\tvar groupid = pnode.id.substring(1);\r\n");
-      out.write("\t\tcreatewindow(\"参数值编辑\", \"systemController.do?addorupdateType&typegroupid=\"+groupid+\"&id=\"+nodeid);\r\n");
-      out.write("\t}\r\n");
-      out.write("}\r\n");
-      out.write("</script>\r\n");
+      out.write("\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("function typeGridTree_AddType() {\n");
+      out.write("\tvar treeCtrlId = \"typeGridTree\";\n");
+      out.write("\tvar node = $(\"#\"+treeCtrlId).treegrid('getSelected');\n");
+      out.write("\tif (node == null) {\n");
+      out.write("\t\ttip(\"请选择一个字典组\");\n");
+      out.write("\t\treturn;\n");
+      out.write("\t}\n");
+      out.write("\tif (node.state == \"closed\" || node.children) {\n");
+      out.write("\t} else {//叶结点\n");
+      out.write("\t\tnode = $(\"#\"+treeCtrlId).treegrid('getParent', node.id); //获取当前节点的父节点\n");
+      out.write("\t}\n");
+      out.write("\tvar groupid = node.id.substring(1);\n");
+      out.write("\tadd(\"参数值录入(\"+node.text+\")\", \"systemController.do?addorupdateType&typegroupid=\"+groupid, treeCtrlId);\n");
+      out.write("}\n");
+      out.write("function typeGridTree_UpdateType() {\n");
+      out.write("\tvar treeCtrlId = \"typeGridTree\";\n");
+      out.write("\tvar node = $(\"#\"+treeCtrlId).treegrid('getSelected');\n");
+      out.write("\tif (node == null) {\n");
+      out.write("\t\ttip(\"请选择一个编辑对象。\");\n");
+      out.write("\t\treturn;\n");
+      out.write("\t}\n");
+      out.write("\tvar nodeid = node.id.substring(1);\n");
+      out.write("\tif (node.state == \"closed\" || node.children) {\n");
+      out.write("\t\tcreatewindow(\"字典编辑\", \"systemController.do?aouTypeGroup&id=\"+nodeid);\n");
+      out.write("\t} else {//叶结点\n");
+      out.write("\t\tvar pnode = $(\"#\"+treeCtrlId).treegrid('getParent', node.id); //获取当前节点的父节点\n");
+      out.write("\t\tvar groupid = pnode.id.substring(1);\n");
+      out.write("\t\tcreatewindow(\"参数值编辑\", \"systemController.do?addorupdateType&typegroupid=\"+groupid+\"&id=\"+nodeid);\n");
+      out.write("\t}\n");
+      out.write("}\n");
+      out.write("</script>\n");
       if (_jspx_meth_t_005fdatagrid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("<input type=\"hidden\" id=\"typeGroupId\" name=\"typeGroupId\" value=\"\">\r\n");
+      out.write("\n");
+      out.write("<input type=\"hidden\" id=\"typeGroupId\" name=\"typeGroupId\" value=\"\">\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -180,47 +178,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_t_005fdatagrid_005f0 = _jspx_th_t_005fdatagrid_005f0.doStartTag();
     if (_jspx_eval_t_005fdatagrid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f3(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgDelOpt_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgToolBar_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgToolBar_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgToolBar_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         int evalDoAfterBody = _jspx_th_t_005fdatagrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

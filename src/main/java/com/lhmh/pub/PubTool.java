@@ -4,12 +4,14 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.util.ResourceUtil;
@@ -75,6 +77,7 @@ public class PubTool{
 		}
 	}
 	
+	//复制文件而已
 	public static boolean copyFile( String src, String dest ) throws Exception{
 		logger.debug( "图片从  " + src + " 复制到 " + dest );
 		File srcf = new File( src );
@@ -144,5 +147,20 @@ public class PubTool{
 		attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
 		systemService.save( attach );
 		return true;
+	}
+	
+	//删除单据下的文件
+	public static boolean delAttachByApplyId( String applyId ){
+		// 删除文件
+		
+		// 删除附件表
+		return true;
+	}
+	
+	// 查询单据所有的附件
+	public static List listAttachByApplyId( String applyId, SystemService systemService ){
+		List<HiShareAttachEntity> list = systemService.findByProperty(
+				HiShareAttachEntity.class, "infoId", applyId );
+		return list;
 	}
 }

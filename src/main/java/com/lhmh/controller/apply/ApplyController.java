@@ -378,6 +378,18 @@ public class ApplyController extends BaseController {
 	}
 	
 	/**
+	 * 资料查看明细页面
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "fileList")
+	public ModelAndView fileList(ApplyEntity apply, HttpServletRequest req) {
+		apply = applyService.getEntity(ApplyEntity.class, apply.getId());
+		req.setAttribute( "applyId", apply.getApplyId() );
+		return new ModelAndView("com/lhmh/apply/filelist");
+	}
+	
+	/**
 	 * 删除文件路径
 	 * 
 	 * @param ids
@@ -511,6 +523,27 @@ public class ApplyController extends BaseController {
 		return j;
 	}
 	
+	/**
+	 * 会诊申请列表页面跳转拍照资料上传接收图片
+	 * @return
+	 */
+	@RequestMapping( params = "listJpeg" )
+	@ResponseBody
+	public AjaxJson listJpeg( HttpServletRequest request, HttpServletResponse response ) {
+		
+		AjaxJson j = new AjaxJson();
+		try {
+			String applyId = request.getParameter( "applyId" );
+			List rltList = PubTool.listAttachByApplyId( applyId, systemService );
+			j.setObj( rltList );
+			j.setMsg( "上传图片成功" );
+		} catch ( Exception e ) {
+			j.setSuccess( false );
+			j.setMsg( e.getMessage() );
+			e.printStackTrace();
+		}
+		return j;
+	}
 	
 	/**
 	 * 生成模板

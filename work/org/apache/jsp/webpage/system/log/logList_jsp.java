@@ -72,17 +72,15 @@ public final class logList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -98,24 +96,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write('\r');
       out.write('\n');
       if (_jspx_meth_t_005fdatagrid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("<div id=\"logListtb\" style=\"padding: 3px; height: 25px\"><!-- update---Author:赵俊夫  Date:20130507 for：需要加name=searchColums属性 -->\r\n");
-      out.write("<div name=\"searchColums\" style=\"float: right; padding-right: 15px;\">日志类型: <!-- update---Author:宋双旺  Date:20130414 for：改变值进行查询 --> <select name=\"loglevel\" id=\"loglevel\"\r\n");
-      out.write("\tonchange=\"logListsearch();\">\r\n");
-      out.write("\t<option value=\"0\">选择日志类型</option>\r\n");
-      out.write("\t<option value=\"1\">登陆</option>\r\n");
-      out.write("\t<option value=\"2\">退出</option>\r\n");
-      out.write("\t<option value=\"3\">插入</option>\r\n");
-      out.write("\t<option value=\"4\">删除</option>\r\n");
-      out.write("\t<option value=\"5\">更新</option>\r\n");
-      out.write("\t<option value=\"6\">上传</option>\r\n");
-      out.write("\t<option value=\"7\">其他</option>\r\n");
-      out.write("</select> <a href=\"#\" class=\"easyui-linkbutton\" iconCls=\"icon-search\" onclick=\"logListsearch();\">查询</a></div>\r\n");
-      out.write("</div>\r\n");
+      out.write("\n");
+      out.write("<div id=\"logListtb\" style=\"padding: 3px; height: 25px\"><!-- update---Author:赵俊夫  Date:20130507 for：需要加name=searchColums属性 -->\n");
+      out.write("<div name=\"searchColums\" style=\"float: right; padding-right: 15px;\">日志类型: <!-- update---Author:宋双旺  Date:20130414 for：改变值进行查询 --> <select name=\"loglevel\" id=\"loglevel\"\n");
+      out.write("\tonchange=\"logListsearch();\">\n");
+      out.write("\t<option value=\"0\">选择日志类型</option>\n");
+      out.write("\t<option value=\"1\">登陆</option>\n");
+      out.write("\t<option value=\"2\">退出</option>\n");
+      out.write("\t<option value=\"3\">插入</option>\n");
+      out.write("\t<option value=\"4\">删除</option>\n");
+      out.write("\t<option value=\"5\">更新</option>\n");
+      out.write("\t<option value=\"6\">上传</option>\n");
+      out.write("\t<option value=\"7\">其他</option>\n");
+      out.write("</select> <a href=\"#\" class=\"easyui-linkbutton\" iconCls=\"icon-search\" onclick=\"logListsearch();\">查询</a></div>\n");
+      out.write("</div>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -156,37 +153,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_t_005fdatagrid_005f0 = _jspx_th_t_005fdatagrid_005f0.doStartTag();
     if (_jspx_eval_t_005fdatagrid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f3(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f4(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f5(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         int evalDoAfterBody = _jspx_th_t_005fdatagrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

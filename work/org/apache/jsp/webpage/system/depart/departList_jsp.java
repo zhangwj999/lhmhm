@@ -78,17 +78,15 @@ public final class departList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -104,57 +102,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<div id=\"main_depart_list\" class=\"easyui-layout\" fit=\"true\">\r\n");
-      out.write("<div region=\"center\" style=\"padding: 1px;\">\r\n");
+      out.write("\n");
+      out.write("<div id=\"main_depart_list\" class=\"easyui-layout\" fit=\"true\">\n");
+      out.write("<div region=\"center\" style=\"padding: 1px;\">\n");
       if (_jspx_meth_t_005fdatagrid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("<div id=\"departListtb\" style=\"padding: 3px; height: 25px\">\r\n");
-      out.write("<div style=\"float: left;\"><a href=\"#\" class=\"easyui-linkbutton\" plain=\"true\" icon=\"icon-add\" onclick=\"add('部门录入','departController.do?add','departList')\">部门录入</a> <a href=\"#\"\r\n");
-      out.write("\tclass=\"easyui-linkbutton\" plain=\"true\" icon=\"icon-edit\" onclick=\"update('部门编辑','departController.do?update','departList')\">部门编辑</a></div>\r\n");
-      out.write("</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("<div data-options=\"region:'east',\r\n");
-      out.write("\ttitle:'成员列表',\r\n");
-      out.write("\tcollapsed:true,\r\n");
-      out.write("\tsplit:true,\r\n");
-      out.write("\tborder:false,\r\n");
-      out.write("\tonExpand : function(){\r\n");
-      out.write("\t\tli_east = 1;\r\n");
-      out.write("\t},\r\n");
-      out.write("\tonCollapse : function() {\r\n");
-      out.write("\t    li_east = 0;\r\n");
-      out.write("\t}\"\r\n");
-      out.write("\tstyle=\"width: 400px; overflow: hidden;\">\r\n");
-      out.write("<div class=\"easyui-panel\" style=\"padding: 1px;\" fit=\"true\" border=\"false\" id=\"userListpanel\"></div>\r\n");
-      out.write("</div>\r\n");
-      out.write("\r\n");
-      out.write("<script type=\"text/javascript\">\r\n");
-      out.write("<!--\r\n");
-      out.write("$(function() {\r\n");
-      out.write("\tvar li_east = 0;\r\n");
-      out.write("});\r\n");
-      out.write("\r\n");
-      out.write("function queryUsersByRowData(rowData){\r\n");
-      out.write("\tfor(x in rowData){\r\n");
-      out.write("\t\tconsole.log(x + \"===\" + rowData.x);\r\n");
-      out.write("\t}\r\n");
-      out.write("\tif(li_east == 0){\r\n");
-      out.write("\t   $('#main_depart_list').layout('expand','east'); \r\n");
-      out.write("\t}\r\n");
-      out.write("\t$('#userListpanel').panel(\"refresh\", \"departController.do?userList&departid=\" + rowData.id);\r\n");
-      out.write("}\r\n");
-      out.write("\r\n");
-      out.write("function queryUsersByDepart(departid){\r\n");
-      out.write("\tconsole.log(\"departid===\" + departid);\r\n");
-      out.write("\tif(li_east == 0){\r\n");
-      out.write("\t   $('#main_depart_list').layout('expand','east'); \r\n");
-      out.write("\t}\r\n");
-      out.write("\t$('#userListpanel').panel(\"refresh\", \"departController.do?userList&departid=\" + departid);\r\n");
-      out.write("}\r\n");
-      out.write("//-->\r\n");
+      out.write("\n");
+      out.write("<div id=\"departListtb\" style=\"padding: 3px; height: 25px\">\n");
+      out.write("<div style=\"float: left;\"><a href=\"#\" class=\"easyui-linkbutton\" plain=\"true\" icon=\"icon-add\" onclick=\"add('部门录入','departController.do?add','departList')\">部门录入</a> <a href=\"#\"\n");
+      out.write("\tclass=\"easyui-linkbutton\" plain=\"true\" icon=\"icon-edit\" onclick=\"update('部门编辑','departController.do?update','departList')\">部门编辑</a></div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("<div data-options=\"region:'east',\n");
+      out.write("\ttitle:'成员列表',\n");
+      out.write("\tcollapsed:true,\n");
+      out.write("\tsplit:true,\n");
+      out.write("\tborder:false,\n");
+      out.write("\tonExpand : function(){\n");
+      out.write("\t\tli_east = 1;\n");
+      out.write("\t},\n");
+      out.write("\tonCollapse : function() {\n");
+      out.write("\t    li_east = 0;\n");
+      out.write("\t}\"\n");
+      out.write("\tstyle=\"width: 400px; overflow: hidden;\">\n");
+      out.write("<div class=\"easyui-panel\" style=\"padding: 1px;\" fit=\"true\" border=\"false\" id=\"userListpanel\"></div>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("<!--\n");
+      out.write("$(function() {\n");
+      out.write("\tvar li_east = 0;\n");
+      out.write("});\n");
+      out.write("\n");
+      out.write("function queryUsersByRowData(rowData){\n");
+      out.write("\tfor(x in rowData){\n");
+      out.write("\t\tconsole.log(x + \"===\" + rowData.x);\n");
+      out.write("\t}\n");
+      out.write("\tif(li_east == 0){\n");
+      out.write("\t   $('#main_depart_list').layout('expand','east'); \n");
+      out.write("\t}\n");
+      out.write("\t$('#userListpanel').panel(\"refresh\", \"departController.do?userList&departid=\" + rowData.id);\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("function queryUsersByDepart(departid){\n");
+      out.write("\tconsole.log(\"departid===\" + departid);\n");
+      out.write("\tif(li_east == 0){\n");
+      out.write("\t   $('#main_depart_list').layout('expand','east'); \n");
+      out.write("\t}\n");
+      out.write("\t$('#userListpanel').panel(\"refresh\", \"departController.do?userList&departid=\" + departid);\n");
+      out.write("}\n");
+      out.write("//-->\n");
       out.write("</script>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
@@ -194,37 +192,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_t_005fdatagrid_005f0 = _jspx_th_t_005fdatagrid_005f0.doStartTag();
     if (_jspx_eval_t_005fdatagrid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f3(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgDelOpt_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgFunOpt_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         int evalDoAfterBody = _jspx_th_t_005fdatagrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

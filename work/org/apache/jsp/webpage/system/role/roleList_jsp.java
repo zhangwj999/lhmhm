@@ -78,17 +78,15 @@ public final class roleList_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -104,41 +102,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<div class=\"easyui-layout\" fit=\"true\">\r\n");
+      out.write("\n");
+      out.write("<div class=\"easyui-layout\" fit=\"true\">\n");
       out.write("<div region=\"center\" style=\"padding: 1px;\">");
       if (_jspx_meth_t_005fdatagrid_005f0(_jspx_page_context))
         return;
-      out.write("</div>\r\n");
-      out.write("</div>\r\n");
-      out.write("<div region=\"east\" style=\"width: 400px;\" split=\"true\">\r\n");
-      out.write("<div tools=\"#tt\" class=\"easyui-panel\" title=\"权限设置\" style=\"padding: 10px;\" fit=\"true\" border=\"false\" id=\"function-panel\"></div>\r\n");
-      out.write("</div>\r\n");
-      out.write("<div id=\"tt\"></div>\r\n");
-      out.write("</div>\r\n");
-      out.write("<script type=\"text/javascript\">\r\n");
-      out.write("function setfunbyrole(id,roleName) {\r\n");
-      out.write("\t$(\"#function-panel\").panel(\r\n");
-      out.write("\t\t{\r\n");
-      out.write("\t\t\ttitle :roleName+\":当前权限\",\r\n");
-      out.write("\t\t\thref:\"roleController.do?fun&roleId=\" + id\r\n");
-      out.write("\t\t}\r\n");
-      out.write("\t);\r\n");
-      out.write("\t$('#function-panel').panel(\"refresh\" );\r\n");
-      out.write("\t\r\n");
-      out.write("}\r\n");
-      out.write("//删除角色\r\n");
-      out.write("function delRole(id){\r\n");
-      out.write("\tvar tabName= 'roleList';\r\n");
-      out.write("\tvar url= 'roleController.do?delRole&id='+id;\r\n");
-      out.write("\t$.dialog.confirm('确定删除该记录吗', function(){\r\n");
-      out.write("\t\tdoSubmit(url,tabName);\r\n");
-      out.write("\t\trowid = '';\r\n");
-      out.write("\t\t$(\"#function-panel\").html(\"\");//删除角色后，清空对应的权限\r\n");
-      out.write("\t}, function(){\r\n");
-      out.write("\t});\r\n");
-      out.write("}\r\n");
-      out.write("</script>\r\n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("<div region=\"east\" style=\"width: 400px;\" split=\"true\">\n");
+      out.write("<div tools=\"#tt\" class=\"easyui-panel\" title=\"权限设置\" style=\"padding: 10px;\" fit=\"true\" border=\"false\" id=\"function-panel\"></div>\n");
+      out.write("</div>\n");
+      out.write("<div id=\"tt\"></div>\n");
+      out.write("</div>\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("function setfunbyrole(id,roleName) {\n");
+      out.write("\t$(\"#function-panel\").panel(\n");
+      out.write("\t\t{\n");
+      out.write("\t\t\ttitle :roleName+\":当前权限\",\n");
+      out.write("\t\t\thref:\"roleController.do?fun&roleId=\" + id\n");
+      out.write("\t\t}\n");
+      out.write("\t);\n");
+      out.write("\t$('#function-panel').panel(\"refresh\" );\n");
+      out.write("\t\n");
+      out.write("}\n");
+      out.write("//删除角色\n");
+      out.write("function delRole(id){\n");
+      out.write("\tvar tabName= 'roleList';\n");
+      out.write("\tvar url= 'roleController.do?delRole&id='+id;\n");
+      out.write("\t$.dialog.confirm('确定删除该记录吗', function(){\n");
+      out.write("\t\tdoSubmit(url,tabName);\n");
+      out.write("\t\trowid = '';\n");
+      out.write("\t\t$(\"#function-panel\").html(\"\");//删除角色后，清空对应的权限\n");
+      out.write("\t}, function(){\n");
+      out.write("\t});\n");
+      out.write("}\n");
+      out.write("</script>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -171,47 +169,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_t_005fdatagrid_005f0 = _jspx_th_t_005fdatagrid_005f0.doStartTag();
     if (_jspx_eval_t_005fdatagrid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f2(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgCol_005f3(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgFunOpt_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgFunOpt_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgToolBar_005f0(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         out.write('	');
         if (_jspx_meth_t_005fdgToolBar_005f1(_jspx_th_t_005fdatagrid_005f0, _jspx_page_context))
           return true;
-        out.write('\r');
         out.write('\n');
         int evalDoAfterBody = _jspx_th_t_005fdatagrid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)

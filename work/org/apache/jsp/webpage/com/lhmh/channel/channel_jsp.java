@@ -76,17 +76,15 @@ public final class channel_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -102,46 +100,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write(" <head>\r\n");
-      out.write("  <title>通道管理</title>\r\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write(" <head>\n");
+      out.write("  <title>通道管理</title>\n");
       out.write("  ");
       if (_jspx_meth_t_005fbase_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write(" </head>\r\n");
-      out.write(" <body style=\"overflow-y: hidden\" scroll=\"no\">\r\n");
+      out.write("\n");
+      out.write(" </head>\n");
+      out.write(" <body style=\"overflow-y: hidden\" scroll=\"no\">\n");
       out.write("  ");
       if (_jspx_meth_t_005fformvalid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write(" </body>\r\n");
-      out.write(" <script type=\"text/javascript\">\r\n");
-      out.write(" \tfunction checkChannelId(){\r\n");
-      out.write(" \t\tvar channelId = $(\"#channelId\").val();\r\n");
-      out.write(" \t\tvar bankId = $(\"#bankId\").val();\r\n");
-      out.write(" \t\t$(\"#channelId\").attr(\"ajaxurl\",\"channelController.do?checkId&code=\"+channelId+\"&bank=\"+bankId);\r\n");
-      out.write("// \t\tvar flag = true;\r\n");
-      out.write("// \t\t  $.ajax({ //一个Ajax过程 \r\n");
-      out.write("//               type : \"get\", //以post方式与后台沟通\r\n");
-      out.write("//               async : false,\r\n");
-      out.write("//               url : \"channelController.do?checkId&code=\"+channelId+\"&bank=\"+bankId,\r\n");
-      out.write("//               dataType : 'text',//\r\n");
-      out.write("//               success : function(json) {\r\n");
-      out.write("//             \t  json=eval( '('+json+' )' );\r\n");
-      out.write("//             \t  if(json.info == '银行下属的通道编码已存在'){\r\n");
-      out.write("//             \t\t  $(\"#channelId\").attr(\"susmsg\",'银行下属的通道编码已存在');\r\n");
-      out.write("//             \t\t  flag = false;\r\n");
-      out.write("//             \t  }else{\r\n");
-      out.write("//             \t\t  $(\"#channelId\").attr(\"susmsg\",'验证通过');\r\n");
-      out.write("//             \t  }\r\n");
-      out.write("//               }\r\n");
-      out.write("//             });\r\n");
-      out.write("// \t\t  return flag;\r\n");
-      out.write(" \t}\r\n");
-      out.write(" </script>");
+      out.write("\n");
+      out.write(" </body>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -189,71 +163,174 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     // /webpage/com/lhmh/channel/channel.jsp(10,2) name = usePlugin type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fformvalid_005f0.setUsePlugin("password");
     // /webpage/com/lhmh/channel/channel.jsp(10,2) name = layout type = java.lang.String reqTime = false required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fformvalid_005f0.setLayout("div");
+    _jspx_th_t_005fformvalid_005f0.setLayout("table");
     // /webpage/com/lhmh/channel/channel.jsp(10,2) name = action type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fformvalid_005f0.setAction("channelController.do?save");
     int _jspx_eval_t_005fformvalid_005f0 = _jspx_th_t_005fformvalid_005f0.doStartTag();
     if (_jspx_eval_t_005fformvalid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("\t\t<input id=\"id\" name=\"id\" type=\"hidden\" value=\"");
+        out.write("\n");
+        out.write("\t\t\t<input id=\"id\" name=\"id\" type=\"hidden\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\">\r\n");
-        out.write("\t\t<fieldset class=\"step\">\r\n");
-        out.write("\t\t\t<div class=\"form\">\r\n");
-        out.write("\t\t      <label class=\"Validform_label\">银行:</label>\r\n");
-        out.write("\t\t      <td class=\"value\"><select id=\"bankId\" name=\"bankId\" datatype=\"*\">\r\n");
-        out.write("\t\t\t\t");
+        out.write("\">\n");
+        out.write("\t\t\t<table style=\"width: 600px;\" cellpadding=\"0\" cellspacing=\"1\" class=\"formtable\">\n");
+        out.write("\t\t\t<tr>\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t设备序号:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"cpk\" name=\"cpk\" \n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.cpk}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\" datatype=\"*\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t手术室:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<select id=\"officeId\" nullmsg=\"请填写手术室\" name=\"officeId\" datatype=\"*\">\n");
+        out.write("\t\t\t\t\t\t");
         if (_jspx_meth_c_005fforEach_005f0(_jspx_th_t_005fformvalid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("\t\t\t</select> <span class=\"Validform_checktip\">请选择银行</span></td>\r\n");
-        out.write("\t\t    </div>\r\n");
-        out.write("\t\t\t<div class=\"form\">\r\n");
-        out.write("\t\t      <label class=\"Validform_label\">编号:</label>\r\n");
-        out.write("\t\t      <input class=\"inputxt\" id=\"channelId\" name=\"channelId\" onchange=\"checkChannelId()\"\r\n");
-        out.write("\t\t\t\t\tajaxurl=\"\"   value=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.channelId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" datatype=\"s2-20\">\r\n");
-        out.write("\t\t      <span class=\"Validform_checktip\">编号范围在2~20位字符</span>\r\n");
-        out.write("\t\t    </div>\r\n");
-        out.write("\t\t\t<div class=\"form\">\r\n");
-        out.write("\t\t      <label class=\"Validform_label\">名称:</label>\r\n");
-        out.write("\t\t      <input class=\"inputxt\" id=\"channelName\" name=\"channelName\" \r\n");
-        out.write("\t\t      ajaxurl=\"channelController.do?checkName&code=");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.channelName }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\"\r\n");
-        out.write("\t\t\t\t\t   value=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.channelName}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" datatype=\"s2-30\">\r\n");
-        out.write("\t\t      <span class=\"Validform_checktip\">请填通道名称</span>\r\n");
-        out.write("\t\t    </div>\r\n");
-        out.write("\t\t\t<div class=\"form\">\r\n");
-        out.write("\t\t      <label class=\"Validform_label\">是否启用:</label>\r\n");
-        out.write("\t\t      ");
+        out.write("\n");
+        out.write("\t\t\t\t\t</select> \n");
+        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t\t\t<tr>\n");
+        out.write("\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t视频编号:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"chanId\" name=\"chanId\" \n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.chanId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\" datatype=\"*\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t</td>\t\t\t\t\t\n");
+        out.write("\t\n");
+        out.write("\t\t\t\t\t\n");
+        out.write("\t\t\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t视频名称:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"chanName\" name=\"chanName\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.chanName}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t\t\t<tr>\n");
+        out.write("\t\t\t\t\n");
+        out.write("\t\t\t\t\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\tIP地址:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"ip\" name=\"ip\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.ip}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t端口:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"port\" name=\"port\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.port}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\" datatype=\"n\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t\t</tr>\n");
+        out.write("\t\t\t\t<tr>\t\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t登录用户:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"user\" name=\"user\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.user}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t登录密码:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"pass\" name=\"pass\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.pass}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t\t\t<tr>\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t设备类型:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t");
         if (_jspx_meth_t_005fdictSelect_005f0(_jspx_th_t_005fformvalid_005f0, _jspx_page_context))
           return true;
-        out.write("\r\n");
-        out.write("\t\t    </div>\r\n");
-        out.write("<!-- \t\t\t<div class=\"form\"> -->\r\n");
-        out.write("<!-- \t\t      \t<label class=\"Validform_label\">联系人:</label> -->\r\n");
-        out.write('\r');
-        out.write('\n');
-        out.write("\r\n");
-        out.write("<!-- \t\t\t\t\treadonly=\"readonly\" datatype=\"*\" /> -->\r\n");
-        out.write("\r\n");
-        out.write("<!-- \t\t      \t<span class=\"Validform_checktip\"></span> -->\r\n");
-        out.write("<!-- \t\t    </div> -->\r\n");
-        out.write("\t\t\t<div class=\"form\">\r\n");
-        out.write("\t\t      <label class=\"Validform_label\">备注:</label>\r\n");
-        out.write("\t\t      <input class=\"inputxt\" id=\"note\" name=\"note\" ignore=\"ignore\"\r\n");
-        out.write("\t\t\t\t\t   value=\"");
-        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.note}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\">\r\n");
-        out.write("\t\t      <span class=\"Validform_checktip\"></span>\r\n");
-        out.write("\t\t    </div>\r\n");
-        out.write("\t    </fieldset>\r\n");
-        out.write("  ");
+        out.write("\n");
+        out.write("\t\t\t\t\t\t</td>\t\t\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t存储IP:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t\t<input class=\"inputxt\" id=\"nvrip\" name=\"nvrip\" ignore=\"ignore\"\n");
+        out.write("\t\t\t\t\t\t\t   value=\"");
+        out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.nvrip}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+        out.write("\">\n");
+        out.write("\t\t\t\t\t\t<span class=\"Validform_checktip\"></span>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\n");
+        out.write("\t\t\t\t\t\n");
+        out.write("\n");
+        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t\t\t<tr>\t\t\t\n");
+        out.write("\n");
+        out.write("\t\t\t\t\t\t\t\t\n");
+        out.write("\t\t\t\t\t<td align=\"right\">\n");
+        out.write("\t\t\t\t\t\t<label class=\"Validform_label\">\n");
+        out.write("\t\t\t\t\t\t\t通道状态:\n");
+        out.write("\t\t\t\t\t\t</label>\n");
+        out.write("\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t\t<td class=\"value\">\n");
+        out.write("\t\t\t\t\t");
+        if (_jspx_meth_t_005fdictSelect_005f1(_jspx_th_t_005fformvalid_005f0, _jspx_page_context))
+          return true;
+        out.write("\n");
+        out.write("\t\t\t\t\t\t</td>\n");
+        out.write("\t\t\t\t</tr>\n");
+        out.write("\t\t\t</table>\n");
+        out.write("\t\t");
         int evalDoAfterBody = _jspx_th_t_005fformvalid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -275,26 +352,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fformvalid_005f0);
-    // /webpage/com/lhmh/channel/channel.jsp(16,4) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/webpage/com/lhmh/channel/channel.jsp(16,4) '${departList}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${departList}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /webpage/com/lhmh/channel/channel.jsp(16,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setVar("depart");
+    // /webpage/com/lhmh/channel/channel.jsp(31,6) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/webpage/com/lhmh/channel/channel.jsp(31,6) '${officesList}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${officesList}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /webpage/com/lhmh/channel/channel.jsp(31,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setVar("terminal");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
-          out.write("\t\t\t\t\t<option value=\"");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${depart.id }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write('"');
-          out.write(' ');
+          out.write("\n");
+          out.write("\t\t\t\t\t\t\t<option value=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${terminal.fid }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("\" \n");
+          out.write("\t\t\t\t\t\t\t");
           if (_jspx_meth_c_005fif_005f0(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
           out.write('>');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${depart.departname}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</option>\r\n");
-          out.write("\t\t\t\t");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${terminal.fname}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</option>\n");
+          out.write("\t\t\t\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -322,8 +399,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
-    // /webpage/com/lhmh/channel/channel.jsp(17,35) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${depart.id==channelPage.bankId}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
+    // /webpage/com/lhmh/channel/channel.jsp(33,7) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.officeId==terminal.fid}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
@@ -349,22 +426,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     org.jeecgframework.tag.core.easyui.DictSelectTag _jspx_th_t_005fdictSelect_005f0 = (org.jeecgframework.tag.core.easyui.DictSelectTag) _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.get(org.jeecgframework.tag.core.easyui.DictSelectTag.class);
     _jspx_th_t_005fdictSelect_005f0.setPageContext(_jspx_page_context);
     _jspx_th_t_005fdictSelect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fformvalid_005f0);
-    // /webpage/com/lhmh/channel/channel.jsp(36,8) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdictSelect_005f0.setField("status");
-    // /webpage/com/lhmh/channel/channel.jsp(36,8) name = typeGroupCode type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdictSelect_005f0.setTypeGroupCode("status");
-    // /webpage/com/lhmh/channel/channel.jsp(36,8) name = defaultVal type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdictSelect_005f0.setDefaultVal("default");
-    // /webpage/com/lhmh/channel/channel.jsp(36,8) name = hasLabel type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /webpage/com/lhmh/channel/channel.jsp(118,5) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f0.setField("omc");
+    // /webpage/com/lhmh/channel/channel.jsp(118,5) name = typeGroupCode type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f0.setTypeGroupCode("devicetype");
+    // /webpage/com/lhmh/channel/channel.jsp(118,5) name = defaultVal type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f0.setDefaultVal((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.omc}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+    // /webpage/com/lhmh/channel/channel.jsp(118,5) name = hasLabel type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_t_005fdictSelect_005f0.setHasLabel(false);
-    // /webpage/com/lhmh/channel/channel.jsp(36,8) name = title type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_t_005fdictSelect_005f0.setTitle("(没有label)");
+    // /webpage/com/lhmh/channel/channel.jsp(118,5) name = title type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f0.setTitle("");
     int _jspx_eval_t_005fdictSelect_005f0 = _jspx_th_t_005fdictSelect_005f0.doStartTag();
     if (_jspx_th_t_005fdictSelect_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.reuse(_jspx_th_t_005fdictSelect_005f0);
       return true;
     }
     _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.reuse(_jspx_th_t_005fdictSelect_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_t_005fdictSelect_005f1(javax.servlet.jsp.tagext.JspTag _jspx_th_t_005fformvalid_005f0, PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  t:dictSelect
+    org.jeecgframework.tag.core.easyui.DictSelectTag _jspx_th_t_005fdictSelect_005f1 = (org.jeecgframework.tag.core.easyui.DictSelectTag) _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.get(org.jeecgframework.tag.core.easyui.DictSelectTag.class);
+    _jspx_th_t_005fdictSelect_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_t_005fdictSelect_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_t_005fformvalid_005f0);
+    // /webpage/com/lhmh/channel/channel.jsp(144,5) name = field type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f1.setField("status");
+    // /webpage/com/lhmh/channel/channel.jsp(144,5) name = typeGroupCode type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f1.setTypeGroupCode("status");
+    // /webpage/com/lhmh/channel/channel.jsp(144,5) name = defaultVal type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f1.setDefaultVal((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${channelPage.status}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+    // /webpage/com/lhmh/channel/channel.jsp(144,5) name = hasLabel type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f1.setHasLabel(false);
+    // /webpage/com/lhmh/channel/channel.jsp(144,5) name = title type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_t_005fdictSelect_005f1.setTitle("性别(没有label)");
+    int _jspx_eval_t_005fdictSelect_005f1 = _jspx_th_t_005fdictSelect_005f1.doStartTag();
+    if (_jspx_th_t_005fdictSelect_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.reuse(_jspx_th_t_005fdictSelect_005f1);
+      return true;
+    }
+    _005fjspx_005ftagPool_005ft_005fdictSelect_0026_005ftypeGroupCode_005ftitle_005fhasLabel_005ffield_005fdefaultVal_005fnobody.reuse(_jspx_th_t_005fdictSelect_005f1);
     return false;
   }
 }

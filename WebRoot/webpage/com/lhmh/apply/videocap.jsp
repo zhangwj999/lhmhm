@@ -9,8 +9,8 @@
 		</script>
 		<script type="text/javascript"
 			src="<%=path %>/plug-in/jpeg_camera/jpeg_camera_with_dependencies.min.js"></script>
-		<script type="text/javascript" src="<%=path %>/skin/videocap/demo.js"></script>
-		<link href="<%=path %>/skin/videocap/demo.css" media="all" rel="stylesheet" type="text/css" /></link>
+		<script type="text/javascript" src="/videocap/demo.js"></script>
+		<link href="/videocap/demo.css" media="all" rel="stylesheet" type="text/css" /></link>
 		<link href="<%=path%>/webpage/com/lhmh/pub/apply/apply.css" rel="stylesheet" type="text/css" media="screen" />
 		<t:base type="jquery,easyui,tools,DatePicker"></t:base>
 	</head>
@@ -45,7 +45,7 @@
 	
 			<input type="text" id="api_url" value="/uploadImg"><br>
 	
-			<img src="loader.gif" id="loader">
+			<img src="<%=path %>/skin/videocap/loader.gif" id="loader">
 			<div id="upload_status"></div>
 			<div id="upload_result"></div>
 		</form>
