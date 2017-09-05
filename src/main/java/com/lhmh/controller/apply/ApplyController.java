@@ -510,10 +510,8 @@ public class ApplyController extends BaseController {
 		try {
 			String applyId = ( String )request.getSession(true).getAttribute("videoCapApplyId");
 			String path = request.getParameter( "path" );
-			if( logger.isDebugEnabled() ){
-				logger.debug( "upLoadJpeg request.getContentLength() =  " + request.getContentLength() );
-			}
-			PubTool.saveAttachEntity( applyId, path, systemService );
+			HiShareAttachEntity attach = PubTool.saveAttachEntity( applyId, path, systemService );
+			j.setObj( attach );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
 			j.setSuccess( false );

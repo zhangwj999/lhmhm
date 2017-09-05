@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>会诊申请单明细</title>
+		<title>会诊申文件清单</title>
 		<script>
 			var applyId = '${applyId}'
 		</script>
@@ -14,6 +14,7 @@
 		<script type="text/javascript" src="/vendor/lodash_backbone.js"></script>
 		<script type="text/javascript" src="/vendor/layer/layer.js"></script>
 		<script type="text/javascript" src="/displayfile/main.js"></script>
+		<link href="<%=path%>/webpage/com/lhmh/pub/apply/apply.css" rel="stylesheet" type="text/css" media="screen" />
 		<t:base type="jquery,easyui,tools,DatePicker"></t:base>
 	</head>
 	<body style="margin: 20px 20px 0px 20px;">

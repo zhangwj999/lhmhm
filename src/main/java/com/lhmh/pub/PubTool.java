@@ -101,7 +101,7 @@ public class PubTool{
 	 * @param SystemService 调用服务的东西
 	 * @return
 	 */
-	public static boolean saveAttachEntity( String applyId, String path,
+	public static HiShareAttachEntity saveAttachEntity( String applyId, String path,
 			SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
 		// 部门编码
@@ -146,7 +146,7 @@ public class PubTool{
 		attach.setFileName( fileName );
 		attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
 		systemService.save( attach );
-		return true;
+		return attach;
 	}
 	
 	//删除单据下的文件
