@@ -521,6 +521,28 @@ public class ApplyController extends BaseController {
 		return j;
 	}
 	
+	
+	/**
+	 * 删除图片
+	 * @return
+	 */
+	@RequestMapping( params = "deleteJpeg" )
+	@ResponseBody
+	public AjaxJson deleteJpeg( HttpServletRequest request, HttpServletResponse response ) {
+		
+		AjaxJson j = new AjaxJson();
+		try {
+			String id = request.getParameter( "id" );
+			PubTool.delAttachById( id, systemService );
+			j.setMsg( "上传图片成功" );
+		} catch ( Exception e ) {
+			j.setSuccess( false );
+			j.setMsg( e.getMessage() );
+			e.printStackTrace();
+		}
+		return j;
+	}
+	
 	/**
 	 * 会诊申请列表页面跳转拍照资料上传接收图片
 	 * @return

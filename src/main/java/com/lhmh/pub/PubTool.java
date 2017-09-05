@@ -101,7 +101,7 @@ public class PubTool{
 	 * @param SystemService 调用服务的东西
 	 * @return
 	 */
-	public static HiShareAttachEntity saveAttachEntity( String applyId, String path,
+	public synchronized static HiShareAttachEntity saveAttachEntity( String applyId, String path,
 			SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
 		// 部门编码
@@ -150,9 +150,25 @@ public class PubTool{
 	}
 	
 	//删除单据下的文件
-	public static boolean delAttachByApplyId( String applyId ){
+	public static boolean delAttachByApplyId( String applyId, SystemService systemService ){
 		// 删除文件
 		
+		// 删除附件表
+		return true;
+	}
+	
+	
+	//删除一条附件
+	public static boolean delAttachById( String id, SystemService systemService ){
+		List<HiShareAttachEntity> list = systemService.findByProperty(
+				HiShareAttachEntity.class, "id", id );
+		if( list == null || list.size() == 0 )
+			return true;
+		HiShareAttachEntity attach = list.get( 0 );
+		String path = attach.getFileDocId() + attach.getFileName();
+		File f = new File( path );
+		f.delete();
+		systemService.delete( attach );
 		// 删除附件表
 		return true;
 	}
