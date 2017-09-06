@@ -19,7 +19,7 @@
 	</head>
 	<body style="margin: 20px 20px 0px 20px;">
 		<form name="form1" METHOD="POST" ACTION="" ENCTYPE="multipart/form-data">
-			<div style="width:200px;height:50px;float:right;position:fixed;right:20px;">
+			<div style="height:50px;">
 				<input class="btn" style="display:block !important;" 
 					type="button" onclick="closeit()" value="关闭">
 			</div>
@@ -31,6 +31,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="big-img-container"><img id="bigImg" /></div>
 			<input type="file" id="hid-input-file" style="display:none;" onchange="fileChangeCallback()">
 		</form>
 	</body>
