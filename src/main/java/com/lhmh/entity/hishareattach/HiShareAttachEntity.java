@@ -34,7 +34,7 @@ public class HiShareAttachEntity implements java.io.Serializable {
 	/**单据编号*/
 	private java.lang.String infoId;
 	/**行号*/
-	private java.lang.String seq;
+	private java.lang.Integer seq;
 	/**文件类型*/
 	private java.lang.String fileType;
 	/**文件路径*/
@@ -79,19 +79,19 @@ public class HiShareAttachEntity implements java.io.Serializable {
 		this.infoId = infoId;
 	}
 	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  行号
+	 *方法: 取得java.lang.Integer
+	 *@return: java.lang.Integer  行号
 	 */
-	@Column(name ="SEQ",nullable=false,length=32)
-	public java.lang.String getSeq(){
+	@Column(name ="SEQ",nullable=false)
+	public java.lang.Integer getSeq(){
 		return this.seq;
 	}
 
 	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  行号
+	 *方法: 设置java.lang.Integer
+	 *@param: java.lang.Integer  行号
 	 */
-	public void setSeq(java.lang.String seq){
+	public void setSeq(java.lang.Integer seq){
 		this.seq = seq;
 	}
 	/**

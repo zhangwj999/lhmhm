@@ -4,8 +4,10 @@
 <html>
 	<head>
 		<title>会诊申文件清单</title>
+		<meta charset="UTF-8"/>
 		<script>
 			var applyId = '${applyId}'
+			var readOnly = true
 		</script>
 		<link href="/vendor/layer/skin/layer.css" media="all" rel="stylesheet" type="text/css" /></link>
 		<link href="/displayfile/main.css" media="all" rel="stylesheet" type="text/css" /></link>

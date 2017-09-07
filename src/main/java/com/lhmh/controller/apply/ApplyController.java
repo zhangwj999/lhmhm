@@ -3,6 +3,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -348,14 +349,14 @@ public class ApplyController extends BaseController {
 		// 根据实体类名和数据名称与值 获取实体List
 //		List<FilepathsaveEntity> filepathList = systemService.findByProperty(FilepathsaveEntity.class,"infoId",apply.getApplyId());
 		List<Object> filepathList = query.list();
-		List<Map<String,String>> filepathPage = new ArrayList<Map<String,String>>();
+		List<Map> filepathPage = new ArrayList<Map>();
 		if (filepathList != null && filepathList.size() > 0){
 			for (int i = 0; i < filepathList.size(); i++) {
 				Object[] temp = (Object[]) filepathList.get(i);
-				Map<String,String> map = new HashMap<String,String>();
+				Map map = new HashMap();
 				map.put("COM_ID", (String)temp[0]);
 				map.put("INFO_ID", (String)temp[1]);
-				map.put("SEQ", (String)temp[2]);
+				map.put("SEQ", (Integer)(temp[2]));
 				
 				// 类型转换
 				String type =  (String)temp[3];
@@ -386,7 +387,12 @@ public class ApplyController extends BaseController {
 	public ModelAndView fileList(ApplyEntity apply, HttpServletRequest req) {
 		apply = applyService.getEntity(ApplyEntity.class, apply.getId());
 		req.setAttribute( "applyId", apply.getApplyId() );
-		return new ModelAndView("com/lhmh/apply/filelist");
+		String editable = req.getParameter( "editable" );
+		if( "true".equals( editable ) ){
+			return new ModelAndView("com/lhmh/apply/filelist_editable");
+		}else{
+			return new ModelAndView("com/lhmh/apply/filelist");
+		}
 	}
 	
 	/**
@@ -418,10 +424,10 @@ public class ApplyController extends BaseController {
 		if (filepathList != null && filepathList.size() > 0){
 			for (int i = 0; i < filepathList.size(); i++) {
 				Object[] temp = (Object[]) filepathList.get(i);
-				Map<String,String> map = new HashMap<String,String>();
+				Map map = new HashMap();
 				map.put("COM_ID", (String)temp[0]);
 				map.put("INFO_ID", (String)temp[1]);
-				map.put("SEQ", (String)temp[2]);
+				map.put("SEQ", (Integer)temp[2]);
 				
 				String type =  (String)temp[3];
 				if("1".equals(type)){
@@ -461,11 +467,11 @@ public class ApplyController extends BaseController {
 		apply = applyService.getEntity(ApplyEntity.class, id);
 
 		String sql1 = "SELECT MAX(SEQ) SEQ FROM HI_SHARE_ATTACH WHERE INFO_ID = '"+apply.getApplyId()+"'";
-		List<String> seqList = systemService.findListbySql(sql1);
+		List seqList = systemService.findListbySql(sql1);
 
 		int seq = 0;
 		if(seqList != null && seqList.size() > 0 && seqList.get(0) != null && !"null".equals(seqList.get(0))){
-			seq = Integer.parseInt(seqList.get(0)) + 1;
+			seq = (Integer)(seqList.get(0)) + 1;
 		}
 		
 		
@@ -493,7 +499,7 @@ public class ApplyController extends BaseController {
 		String id = request.getParameter("id"); 
 		apply = applyService.getEntity(ApplyEntity.class, id);
 		System.out.println( "apply.getApplyId() = " + apply.getApplyId() );
-		request.getSession(true).setAttribute("videoCapApplyId", apply.getApplyId());
+		request.setAttribute( "applyId", apply.getApplyId() );
 		
 		return new ModelAndView("com/lhmh/apply/videocap");
 	}
@@ -508,9 +514,10 @@ public class ApplyController extends BaseController {
 		
 		AjaxJson j = new AjaxJson();
 		try {
-			String applyId = ( String )request.getSession(true).getAttribute("videoCapApplyId");
+			String applyId = request.getParameter( "applyId" );
 			String path = request.getParameter( "path" );
-			HiShareAttachEntity attach = PubTool.saveAttachEntity( applyId, path, systemService );
+			String fileName = request.getParameter( "fileName" );
+			HiShareAttachEntity attach = PubTool.saveAttachEntity( applyId, path, fileName, systemService );
 			j.setObj( attach );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
@@ -534,7 +541,7 @@ public class ApplyController extends BaseController {
 		try {
 			String id = request.getParameter( "id" );
 			PubTool.delAttachById( id, systemService );
-			j.setMsg( "上传图片成功" );
+			j.setMsg( "删除图片成功" );
 		} catch ( Exception e ) {
 			j.setSuccess( false );
 			j.setMsg( e.getMessage() );
@@ -555,6 +562,7 @@ public class ApplyController extends BaseController {
 		try {
 			String applyId = request.getParameter( "applyId" );
 			List rltList = PubTool.listAttachByApplyId( applyId, systemService );
+			request.setAttribute( "applyId", applyId );
 			j.setObj( rltList );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
@@ -838,6 +846,37 @@ public class ApplyController extends BaseController {
 		response.reset();
 		response.setContentType("bin");
 		response.addHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+		// 循环取出流中的数据
+		byte[] b = new byte[100];
+		int len;
+		try {
+			while ((len = inStream.read(b)) > 0)
+			response.getOutputStream().write(b, 0, len);
+			inStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(params = "downloadById")
+	public void downloadById(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 文件的主键
+		String id = request.getParameter("id");
+		
+		List<HiShareAttachEntity> attachs = systemService.findByProperty( HiShareAttachEntity.class,
+				"id", id );
+		
+		HiShareAttachEntity attach = attachs.get( 0 );
+		
+		String fileName = attach.getFileName();
+		// 绝对路径
+		String url = attach.getFileDocId() + fileName;
+		// 读到流中
+		InputStream inStream = new FileInputStream(url);// 文件的存放路径
+		// 设置输出的格式
+		response.reset();
+		response.setContentType("bin");
+		response.addHeader("Content-Disposition", "attachment; filename=\"" + URLEncoder.encode( fileName, "UTF-8" ) + "\"");
 		// 循环取出流中的数据
 		byte[] b = new byte[100];
 		int len;

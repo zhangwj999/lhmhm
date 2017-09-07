@@ -97,12 +97,13 @@ public class PubTool{
 	/**
 	 * 保存一条附件表记录，一些公用的校验
 	 * @param applyId 申请ID
-	 * @param InputStream 文档流
+	 * @param path 缓存路径
+	 * @param fileName 文件名称
 	 * @param SystemService 调用服务的东西
 	 * @return
 	 */
-	public synchronized static HiShareAttachEntity saveAttachEntity( String applyId, String path,
-			SystemService systemService ) throws Exception{
+	public synchronized static HiShareAttachEntity saveAttachEntity( String applyId, 
+			String path, String fileName, SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
 		// 部门编码
 		TSUser user = ResourceUtil.getSessionUserName();
@@ -120,7 +121,8 @@ public class PubTool{
 		}
 	
 		// 文件名 命名 applyId + seq + .jpeg，路径 ROOT_ID
-		String fileName = applyId + seq + ".jpeg";
+		if( null == fileName || fileName.isEmpty() )
+			fileName = applyId + seq + ".jpeg";
 		
 		List<ApplyEntity> applys = systemService.findByProperty(
 				ApplyEntity.class, "applyId", applyId );
@@ -140,7 +142,7 @@ public class PubTool{
 		HiShareAttachEntity attach = new HiShareAttachEntity();
 		attach.setComId( apply.getComId() );
 		attach.setInfoId( applyId );
-		attach.setSeq( seq + "" );
+		attach.setSeq( seq );
 		attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
 		attach.setFileDocId( docBase );
 		attach.setFileName( fileName );
