@@ -1,4 +1,6 @@
 package com.lhmh.controller.apply;
+import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -26,6 +28,7 @@ import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.RoletoJson;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.tag.core.easyui.TagUtil;
+import org.jeecgframework.web.demo.entity.test.WebOfficeEntity;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
@@ -483,7 +486,7 @@ public class ApplyController extends BaseController {
 		request.setAttribute("fileId", fileId.get(0));
 		// 文件序号
 		request.setAttribute("seq", seq+"");
-		// 文件类型    1：申请资料  2：完成资料
+		// 文件类型	1：申请资料  2：完成资料
 		request.setAttribute("fileType", "1");
 		
 		return new ModelAndView("com/lhmh/apply/uploading");
@@ -785,7 +788,7 @@ public class ApplyController extends BaseController {
 			}
 		}
 		sb.append("</select>");
-        j.setMsg(sb.toString());
+		j.setMsg(sb.toString());
 		return j;
 	}
 	
@@ -826,7 +829,7 @@ public class ApplyController extends BaseController {
 		request.setAttribute("fileId", fileId.get(0));
 		// 文件序号
 		request.setAttribute("seq", seq+"");
-		// 文件类型    1：申请资料  2：完成资料
+		// 文件类型	1：申请资料  2：完成资料
 		request.setAttribute("fileType", filepathsave.getFileType());
 		// 提示信息
 		request.setAttribute("msg", "资料上传成功");
@@ -910,5 +913,47 @@ public class ApplyController extends BaseController {
 		String result = date1 + String.format("%1$4s", tableId);
 		result = result.replace(" ", "0");
 		return result;
+	}
+	
+	/**
+	 * WebOffice例子列表页面跳转
+	 * @return
+	 */
+	@RequestMapping(params = "webOffice")
+	public ModelAndView webOffice( ApplyEntity apply, HttpServletRequest req ) {
+		if ( StringUtil.isNotEmpty( apply.getId() ) ) {
+		}
+		req.setAttribute( "fileType", "doc" );//doc,xls,ppt,wps
+		req.setAttribute( "docId", "yesihava" );//麻蛋没鸟用啊
+		
+		return new ModelAndView("com/lhmh/apply/webOffice");
+	}
+	
+	@RequestMapping(params = "getDoc")
+	public void getDoc(HttpServletRequest request, Integer fileId, HttpServletResponse response) {
+		// 从数据库取得数据
+		try {
+			response.setContentType("application/x-msdownload;");
+			response.setHeader("Content-disposition", "attachment; filename="
+					+ new String( ( "会诊单明细.doc" ).getBytes("GBK"), "ISO8859-1"));
+			//从数据库中读取出来	, 输出给下载用
+			HttpServletRequest req = ( ( HttpServletRequest ) request );
+			InputStream bis = new FileInputStream( req.getRealPath( "/" ) + 
+					"export/template/apply_template.docx" );
+			BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+			byte[] buff = new byte[2048];
+			int bytesRead;
+			long lTotalLen = 0;
+			while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+				bos.write(buff, 0, bytesRead);
+				lTotalLen += bytesRead;
+			}
+			response.setHeader("Content-Length", String.valueOf(lTotalLen));
+			bis.close();
+			bos.flush();
+			bos.close();
+		} catch (Exception  e){
+			e.printStackTrace();
+		}
 	}
 }

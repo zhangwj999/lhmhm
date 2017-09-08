@@ -24,6 +24,8 @@
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="dataDetail()"></t:dgToolBar>
    <t:dgToolBar title="资料查看-new" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar>
    <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="detailWord()"></t:dgToolBar>
+   <t:dgToolBar title="模板生成-new" icon="icon-putout" url="applyController.do?webOffice" onclick="webOffice()"></t:dgToolBar>
+   
   </t:datagrid>
   </div>
  </div>
@@ -159,5 +161,14 @@
 		}
 		
 		window.open("applyController.do?detailword&id="+rowData.id);
+	}
+	function webOffice(){
+		var rowData = $("#applyList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择生成模板的记录");
+			return;
+		}
+		
+		window.open("applyController.do?webOffice&id="+rowData.id);
 	}
  </script>
