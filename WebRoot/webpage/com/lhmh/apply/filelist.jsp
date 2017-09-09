@@ -7,6 +7,7 @@
 		<meta charset="UTF-8"/>
 		<script>
 			var applyId = '${applyId}'
+			var type = '${type}'
 			var readOnly = true
 		</script>
 		<link href="/vendor/layer/skin/layer.css" media="all" rel="stylesheet" type="text/css" /></link>

@@ -105,7 +105,7 @@ public class PubTool{
 	 * @return
 	 */
 	public synchronized static HiShareAttachEntity saveAttachEntity( String applyId, 
-			String path, String fileName, SystemService systemService ) throws Exception{
+			String path, String fileName, String type, SystemService systemService ) throws Exception{
 		System.out.println( "saveAttachEntity applyId== " + applyId );
 		// 部门编码
 		TSUser user = ResourceUtil.getSessionUserName();
@@ -146,7 +146,7 @@ public class PubTool{
 		attach.setComId( apply.getComId() );
 		attach.setInfoId( applyId );
 		attach.setSeq( seq );
-		attach.setFileType( "1" ); // 文件类型    1：申请资料  2：完成资料
+		attach.setFileType( type ); // 文件类型    1：申请资料  2：完成资料
 		attach.setFileDocId( docBase );
 		attach.setFileName( fileName );
 		attach.setIsMrb( "1" ); //'是否使用0:否,1:是',
@@ -179,9 +179,12 @@ public class PubTool{
 	}
 	
 	// 查询单据所有的附件
-	public static List listAttachByApplyId( String applyId, SystemService systemService ){
-		List<HiShareAttachEntity> list = systemService.findByProperty(
-				HiShareAttachEntity.class, "infoId", applyId );
+	public static List listAttachByApplyId( String applyId, String type, SystemService systemService ){
+		// type 是 all的时候，全部都查出来
+		List<HiShareAttachEntity> list = systemService.findHql( 
+				"from HiShareAttachEntity where infoId='" + applyId + "'" +
+				( "all".equals( type ) ? "" : " and fileType='" + type + "'" ) );
+//				"select * from hi_share_attach where info_id='" + applyId +"' and file_type='" + type + "'" );
 		return list;
 	}
 	
@@ -189,6 +192,18 @@ public class PubTool{
 	public static List getApplyPrintWordDatas( ApplyEntity apply ){
 		Map attrs = new HashMap(){{
 			put( "patientName", "getPatientName" );
+			put( "comId", "getComId" );
+			put( "officeId", "getOfficeId" );
+			put( "roomId", "getRoomId" );
+			put( "apcomId", "getApcomId" );
+			put( "apofficeId", "getApofficeId" );
+			put( "doctorName", "getDoctorName" );
+			put( "apdate1", "getApdate1" );
+			put( "managerName", "getManagerName" );
+			put( "returnResion", "getReturnResion" );
+			put( "hisSummary", "getHisSummary" );
+			put( "curDetail", "getCurDetail" );
+			put( "meetPurpose", "getMeetPurpose" );
 		}};
 		return getWordPrintDatas( ApplyEntity.class, apply, attrs );
 	}

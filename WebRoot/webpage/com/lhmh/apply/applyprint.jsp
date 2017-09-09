@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
-
+<%@ page isELIgnored="true" %> 
 <script type="text/javascript" src="/vendor/jquery.js"></script>
 
 <%
@@ -19,7 +19,6 @@ var TANGER_OCX_bDocOpen = false;
 var TANGER_OCX_OBJ;
 //onload时调用的方法
 function MyOnloadFunc(){
-	alert(0)
 	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
 	TANGER_OCX_bDocOpen = true;
 	//设置为全屏
@@ -93,8 +92,8 @@ function copyDataToDoc() {
 		//另：要求大于255汉字长度的字段，请在拦截器中进行分割
 		if(value.length()<= 255){
 %>
-		ReplaceText("<%=value.replaceAll("\r\n","^l").replaceAll("\n","^l").replaceAll("&","^l")%>"
-				,"${<%=name%>}");
+		ReplaceText('<%=value.replaceAll("\r\n","^l").replaceAll("\n","^l").replaceAll("&","^l")%>'
+				,'${<%=name%>}');
 <%
 		}
 	}

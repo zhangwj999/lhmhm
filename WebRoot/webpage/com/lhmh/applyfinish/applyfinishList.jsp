@@ -19,8 +19,8 @@
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
    <t:dgConfOpt title="完成" exp="status#eq#33" url="applyfinishController.do?finish&id={id}" message="确定完成吗？"/>
     <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
-  	<t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="dataDetail()"></t:dgToolBar>
-  	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="detailWord()"></t:dgToolBar>
+  	<t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('all')"></t:dgToolBar>
+  	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>
@@ -58,5 +58,24 @@
 		}
 		
 		window.open("applyController.do?detailword&id="+rowData.id);
+	}
+	function applyprint(){
+		var rowData = $("#applyfinishList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择生成模板的记录");
+			return;
+		}
+		
+		window.open("applyController.do?applyprint&id="+rowData.id);
+	}
+	function listJpeg( type ){
+		var rowData = $("#applyfinishList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择查看资料的记录");
+			return;
+		}
+		
+		window.open("applyController.do?fileList&id="+rowData.id + 
+				"&editable=false&type=" + type  );
 	}
 </script>	

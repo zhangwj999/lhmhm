@@ -18,20 +18,16 @@
    <t:dgToolBar title="录入" icon="icon-add" url="applyController.do?add" onclick="openAdd()" height="500" width="1040" funname="add"></t:dgToolBar>
    <t:dgToolBar title="编辑" icon="icon-edit" url="applyController.do?update" onclick="openUpdate()" funname="update"></t:dgToolBar>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
-   <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap()"></t:dgToolBar>
-	<t:dgToolBar title="资料上传-new" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg('true')"></t:dgToolBar>
-   <t:dgToolBar title="资料上传" icon="icon-putout" url="applyController.do?uploading" onclick="openUploading()"></t:dgToolBar>
-   <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="dataDetail()"></t:dgToolBar>
-   <t:dgToolBar title="资料查看-new" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar>
-   <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="detailWord()"></t:dgToolBar>
-   <t:dgToolBar title="模板生成-new" icon="icon-putout" url="applyController.do?webOffice" onclick="webOffice()"></t:dgToolBar>
+   <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap('1')"></t:dgToolBar>
+	<t:dgToolBar title="资料上传" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg('1')"></t:dgToolBar>
+<%--    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar> --%>
+   <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
    
   </t:datagrid>
   </div>
  </div>
- 
+
  <script type="text/javascript">
- 
  	// 初始化将下拉框默认不可选择
 	window.onload = function(){
 	var sels = document.getElementsByName("select");
@@ -89,14 +85,15 @@
 		window.open("applyController.do?datadetail&id="+rowData.id);
 	}
 
-	function listJpeg( editable ){
+	function listJpeg( type ){
 		var rowData = $("#applyList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择查看资料的记录");
 			return;
 		}
 		
-		window.open("applyController.do?fileList&id="+rowData.id + "&editable=" + editable );
+		window.open("applyController.do?fileList&id="+rowData.id + 
+				"&editable=true&type=" + type  );
 	}
 	
 	function present(){
@@ -113,27 +110,7 @@
 		document.forms[0].submit();
 	}
 
-	function openUploading(){
-		var rowData = $("#applyList").datagrid("getSelected");
-		if (!rowData || rowData.length == 0) {
-			tip("请选择上传资料的记录");
-			return;
-		}
-		if (rowData.length > 1) {
-			tip("请选择一条记录再上传资料");
-			return;
-		}
-		
-		var status = rowData.status;
-		if(status != "00" && status != "21"){
-			tip("请选择制单状态或退回状态记录再上传资料");
-			return;
-		}
-		
-		window.open("applyController.do?uploading&id="+rowData.id);
-	}
-
-	function videoCap(){
+	function videoCap( type ){
 		var rowData = $("#applyList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择拍照上传资料的记录");
@@ -150,25 +127,17 @@
 			return;
 		}
 		
-		window.open("applyController.do?videoCap&id="+rowData.id);
+		window.open("applyController.do?videoCap&id="+rowData.id + "&type=" + type );
 	}
 	
-	function detailWord(){
+	function applyprint(){
 		var rowData = $("#applyList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择生成模板的记录");
 			return;
 		}
 		
-		window.open("applyController.do?detailword&id="+rowData.id);
+		window.open("applyController.do?applyprint&id="+rowData.id);
 	}
-	function webOffice(){
-		var rowData = $("#applyList").datagrid("getSelected");
-		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
-			return;
-		}
-		
-		window.open("applyController.do?webOffice&id="+rowData.id);
-	}
+	
  </script>

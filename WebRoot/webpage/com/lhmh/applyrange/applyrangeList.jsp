@@ -20,10 +20,10 @@
    <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/>
    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
-   <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="openUploading()"></t:dgToolBar>
+   <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar>
-   <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="dataDetail()"></t:dgToolBar>
-  	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="detailWord()"></t:dgToolBar>
+   <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
+  	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>
@@ -95,5 +95,27 @@
 		}
 		
 		window.open("applyController.do?detailword&id="+rowData.id);
+	}
+	function applyprint(){
+		var rowData = $("#applyrangeList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择生成模板的记录");
+			return;
+		}
+		
+		window.open("applyController.do?applyprint&id="+rowData.id);
+	}
+	function listJpeg( type ){
+		var rowData = $("#applyrangeList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择查看资料的记录");
+			return;
+		}
+		// 申请资料看明细，完成资料可上传
+		window.open("applyController.do?fileList&id="+rowData.id + 
+				"&editable=" + ( type == '1' ? false : true ) + "&type=" + type  );
+	}
+	function addListJpeg(){
+		listJpeg( '2' )
 	}
 </script>

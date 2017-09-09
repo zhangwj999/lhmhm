@@ -7,6 +7,7 @@
 		<title>拍照上传</title>
 		<script>
 			var applyId = '${applyId}'
+			var type = '${type}'
 		</script>
 		
 		<link href="/vendor/layer/skin/layer.css" media="all" rel="stylesheet" type="text/css" /></link>

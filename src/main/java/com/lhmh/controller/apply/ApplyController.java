@@ -223,9 +223,6 @@ public class ApplyController extends BaseController {
 			String today = sdf.format(Calendar.getInstance().getTime());
 			// 主键
 			String applyId  = getMaxId(today);
-			// 登录人
-			TSUser user = ResourceUtil.getSessionUserName();
-//			ResourceUtil.
 			apply.setApplyId(applyId);
 			apply.setStatus("00");
 			apply.setDate1(today);
@@ -398,6 +395,7 @@ public class ApplyController extends BaseController {
 	public ModelAndView fileList(ApplyEntity apply, HttpServletRequest req) {
 		apply = applyService.getEntity(ApplyEntity.class, apply.getId());
 		req.setAttribute( "applyId", apply.getApplyId() );
+		req.setAttribute( "type", req.getParameter( "type" ) );
 		String editable = req.getParameter( "editable" );
 		if( "true".equals( editable ) ){
 			return new ModelAndView("com/lhmh/apply/filelist_editable");
@@ -511,6 +509,7 @@ public class ApplyController extends BaseController {
 		apply = applyService.getEntity(ApplyEntity.class, id);
 		System.out.println( "apply.getApplyId() = " + apply.getApplyId() );
 		request.setAttribute( "applyId", apply.getApplyId() );
+		request.setAttribute( "type", request.getParameter( "type" ) );
 		
 		return new ModelAndView("com/lhmh/apply/videocap");
 	}
@@ -528,7 +527,8 @@ public class ApplyController extends BaseController {
 			String applyId = request.getParameter( "applyId" );
 			String path = request.getParameter( "path" );
 			String fileName = request.getParameter( "fileName" );
-			HiShareAttachEntity attach = PubTool.saveAttachEntity( applyId, path, fileName, systemService );
+			String type = request.getParameter( "type" );
+			HiShareAttachEntity attach = PubTool.saveAttachEntity( applyId, path, fileName, type, systemService );
 			j.setObj( attach );
 			j.setMsg( "上传图片成功" );
 		} catch ( Exception e ) {
@@ -572,7 +572,8 @@ public class ApplyController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		try {
 			String applyId = request.getParameter( "applyId" );
-			List rltList = PubTool.listAttachByApplyId( applyId, systemService );
+			String type = request.getParameter( "type" );
+			List rltList = PubTool.listAttachByApplyId( applyId, type, systemService );
 			request.setAttribute( "applyId", applyId );
 			j.setObj( rltList );
 			j.setMsg( "上传图片成功" );
@@ -935,6 +936,19 @@ public class ApplyController extends BaseController {
 		req.setAttribute( "docId", "yesihava" );//麻蛋没鸟用啊
 		
 		return new ModelAndView("com/lhmh/apply/webOffice");
+	}
+	
+	/**
+	 * WebOffice例子列表页面跳转
+	 * @return
+	 */
+	@RequestMapping(params = "applyprint")
+	public ModelAndView applyprint( ApplyEntity apply, HttpServletRequest req ) {
+		String id = req.getParameter( "id" );
+		apply = applyService.get( ApplyEntity.class, id );
+		List dataList = PubTool.getApplyPrintWordDatas( apply );
+		req.setAttribute( "docData" , dataList );
+		return new ModelAndView("com/lhmh/apply/applyprint");
 	}
 	
 	@RequestMapping(params = "getDoc")
