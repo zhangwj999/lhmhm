@@ -199,7 +199,15 @@ public class ApplyController extends BaseController {
 	 */
 	@RequestMapping(params = "save")
 	public ModelAndView save(ApplyEntity apply, HttpServletRequest request) {
-		
+
+		TSUser user = ResourceUtil.getSessionUserName();
+		TSDepart dept = user.getTSDepart();
+		// 上级部门
+		TSDepart parentdept = dept.getTSPDepart();
+		if(parentdept.getId() != null){
+			apply.setComId(parentdept.getId());
+		}
+
 		if (StringUtil.isNotEmpty(apply.getId())) {
 			ApplyEntity t = applyService.get(ApplyEntity.class, apply.getId());
 			try {

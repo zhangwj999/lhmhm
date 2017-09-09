@@ -134,9 +134,10 @@ public class PubTool{
 		if( !docBase.endsWith( "/" ) ){
 			docBase += "/";
 		}
+		docBase += dept.getName() + '/' + applyId + '/'; // 配置的根路径 + 部门 + 申请单
 		File f = new File( docBase );
 		if( !f.exists() ){
-			f.mkdir(); //文件夹不存在先创建文件夹
+			f.mkdirs(); //文件夹不存在先创建文件夹
 		}
 		copyFile( path, docBase + fileName );
 		HiShareAttachEntity attach = new HiShareAttachEntity();
