@@ -7,11 +7,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.jeecgframework.core.util.ResourceUtil;
@@ -134,7 +136,7 @@ public class PubTool{
 		if( !docBase.endsWith( "/" ) ){
 			docBase += "/";
 		}
-		docBase += dept.getName() + '/' + applyId + '/'; // 配置的根路径 + 部门 + 申请单
+		docBase += dept.getDepartname() + '/' + applyId + '/'; // 配置的根路径 + 部门 + 申请单
 		File f = new File( docBase );
 		if( !f.exists() ){
 			f.mkdirs(); //文件夹不存在先创建文件夹
@@ -182,4 +184,48 @@ public class PubTool{
 				HiShareAttachEntity.class, "infoId", applyId );
 		return list;
 	}
+	
+	// 申请单打印数据获取
+	public static List getApplyPrintWordDatas( ApplyEntity apply ){
+		Map attrs = new HashMap(){{
+			put( "patientName", "getPatientName" );
+		}};
+		return getWordPrintDatas( ApplyEntity.class, apply, attrs );
+	}
+	
+	/**
+	 * 获取word模板需要的数据
+	 * @param clazz 类
+	 * @param target 对象
+	 * @param attrs 属性 与 方法对应
+	 * @return
+	 */
+	public static List getWordPrintDatas( Class clazz, Object target, Map attrs ){
+		if(logger.isDebugEnabled()){
+			logger.debug("getWordPrintDatas -开始");
+		}
+		List wordlist = new ArrayList();
+		try{
+			Set kes = attrs.keySet();
+			for( Object o : kes ){
+				Map map=new HashMap();
+				String name = ( String )o;
+				String method = ( String )attrs.get( name );
+				Method md = clazz.getMethod( method, null );
+				Object rlt = md.invoke( target, null );
+				map.put( "name", name );
+				map.put( "value", rlt );
+				wordlist.add( map );
+			}
+		}catch(Exception e){
+			if( logger.isDebugEnabled() ){
+				logger.error("getWordPrintDatas e=====",e);
+			}
+		}
+		if(logger.isDebugEnabled()){
+			logger.debug("getWordPrintDatas -结束");
+		}
+		return wordlist;
+	}
+	
 }
