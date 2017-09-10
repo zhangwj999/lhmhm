@@ -66,7 +66,8 @@
 				<tr>
 					<td align="right">
 						<label class="Validform_label">
-							会诊室IP:
+<!-- 							会诊室IP: -->
+							系统登录ID:
 						</label>
 					</td>
 					<td class="value">

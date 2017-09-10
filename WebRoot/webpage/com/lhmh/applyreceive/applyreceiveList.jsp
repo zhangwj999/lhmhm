@@ -2,7 +2,7 @@
 <%@include file="/context/mytags.jsp"%>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:1px;">
-  <t:datagrid name="applyrangeList" title="远程会诊" actionUrl="applyrangeController.do?datagrid" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="applyreceiveList" title="远程会诊" actionUrl="applyreceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
    <t:dgCol title="申请日期" field="date1" query="true"></t:dgCol>
@@ -17,8 +17,8 @@
    <t:dgCol title="结束时间" field="endDate" ></t:dgCol>
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
-   <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/>
-   <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/>
+<%--    <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/> --%>
+<%--    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar>
@@ -29,7 +29,7 @@
  </div>
  <script type="text/javascript">
   	function openDetail(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择查看记录");
 			return;
@@ -40,26 +40,6 @@
 		}
 		
 		window.open("applyController.do?detail&id="+rowData.id);
-	}
-	
-	function openUploading(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
-		if (!rowData || rowData.length == 0) {
-			tip("请选择上传资料的记录");
-			return;
-		}
-		if (rowData.length > 1) {
-			tip("请选择一条记录再上传资料");
-			return;
-		}
-		
-		var status = rowData.status;
-		if(status != "32"){
-			tip("请选择会诊结束状态记录再上传资料");
-			return;
-		}
-		
-		window.open("applyrangeController.do?uploading&id="+rowData.id);
 	}
 	
 	function openreport(){
@@ -78,7 +58,7 @@
 	}
 	
 	function dataDetail(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择查看资料的记录");
 			return;
@@ -88,7 +68,7 @@
 	}
 	
 	function detailWord(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择生成模板的记录");
 			return;
@@ -97,7 +77,7 @@
 		window.open("applyController.do?detailword&id="+rowData.id);
 	}
 	function applyprint(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择生成模板的记录");
 			return;
@@ -106,7 +86,7 @@
 		window.open("applyController.do?applyprint&id="+rowData.id);
 	}
 	function listJpeg( type ){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择查看资料的记录");
 			return;
@@ -116,13 +96,10 @@
 				"&editable=" + ( type == '1' ? false : true ) + "&type=" + type  );
 	}
 	function addListJpeg(){
-		var rowData = $("#applyrangeList").datagrid("getSelected");
+		
+		var rowData = $("#applyreceiveList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择上传资料的记录");
-			return;
-		}
-		if (rowData.length > 1) {
-			tip("请选择一条记录再上传资料");
+			tip("请选择查看资料的记录");
 			return;
 		}
 		
@@ -131,6 +108,7 @@
 			tip("请选择会诊结束状态记录再上传资料");
 			return;
 		}
+		
 		listJpeg( '2' )
 	}
 </script>
