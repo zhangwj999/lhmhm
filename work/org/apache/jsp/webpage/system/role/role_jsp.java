@@ -67,17 +67,15 @@ public final class role_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -93,21 +91,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("<head>\r\n");
-      out.write("<title>角色信息</title>\r\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("<title>角色信息</title>\n");
       if (_jspx_meth_t_005fbase_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("</head>\r\n");
-      out.write("<body style=\"overflow-y: hidden\" scroll=\"no\">\r\n");
+      out.write("\n");
+      out.write("</head>\n");
+      out.write("<body style=\"overflow-y: hidden\" scroll=\"no\">\n");
       if (_jspx_meth_t_005fformvalid_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("</body>\r\n");
-      out.write("</html>\r\n");
+      out.write("\n");
+      out.write("</body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -159,22 +157,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_t_005fformvalid_005f0 = _jspx_th_t_005fformvalid_005f0.doStartTag();
     if (_jspx_eval_t_005fformvalid_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
+        out.write("\n");
         out.write("\t<input name=\"id\" type=\"hidden\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${role.id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\">\r\n");
-        out.write("\t<fieldset class=\"step\">\r\n");
+        out.write("\">\n");
+        out.write("\t<fieldset class=\"step\">\n");
         out.write("\t<div class=\"form\"><label class=\"Validform_label\">角色名称:</label> <input name=\"roleName\" class=\"inputxt\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${role.roleName }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" datatype=\"s2-8\"> <span class=\"Validform_checktip\">角色范围2~8位字符之间,且不为空</span>\r\n");
-        out.write("\t</div>\r\n");
+        out.write("\" datatype=\"s2-8\"> <span class=\"Validform_checktip\">角色范围2~8位字符之间,且不为空</span>\n");
+        out.write("\t</div>\n");
         out.write("\t<div class=\"form\"><label class=\"Validform_label\"> 角色编码: </label> <input name=\"roleCode\" id=\"roleCode\" ajaxurl=\"roleController.do?checkRole&code=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${role.roleCode }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" class=\"inputxt\"\r\n");
+        out.write("\" class=\"inputxt\"\n");
         out.write("\t\tvalue=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${role.roleCode }", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\" datatype=\"s2-15\"> <span class=\"Validform_checktip\">角色编码2~15位字符之间,且不为空</span></div>\r\n");
-        out.write("\t</fieldset>\r\n");
+        out.write("\" datatype=\"s2-15\"> <span class=\"Validform_checktip\">角色编码2~15位字符之间,且不为空</span></div>\n");
+        out.write("\t</fieldset>\n");
         int evalDoAfterBody = _jspx_th_t_005fformvalid_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;

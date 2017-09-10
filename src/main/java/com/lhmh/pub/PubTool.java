@@ -26,6 +26,8 @@ import sun.misc.BASE64Encoder;
 
 import com.lhmh.entity.apply.ApplyEntity;
 import com.lhmh.entity.hishareattach.HiShareAttachEntity;
+import com.lhmh.entity.lhmeetroom.LhMeetRoomEntity;
+import com.lhmh.entity.office.OfficeEntity;
 
 
 /**
@@ -189,7 +191,7 @@ public class PubTool{
 	}
 	
 	// 申请单打印数据获取
-	public static List getApplyPrintWordDatas( ApplyEntity apply ){
+	public static List getApplyPrintWordDatas( ApplyEntity apply, SystemService systemService  ){
 		Map attrs = new HashMap(){{
 			put( "patientName", "getPatientName" );
 			put( "comId", "getComId" );
@@ -205,7 +207,62 @@ public class PubTool{
 			put( "curDetail", "getCurDetail" );
 			put( "meetPurpose", "getMeetPurpose" );
 		}};
-		return getWordPrintDatas( ApplyEntity.class, apply, attrs );
+		List rlt = getWordPrintDatas( ApplyEntity.class, apply, attrs );
+		
+		//公司名
+		String comId = apply.getComId();
+		List<TSDepart> tl = systemService.findHql( "from TSDepart where id='" + comId + "'" );
+		TSDepart t = tl.get( 0 );
+		Map m = new HashMap();
+		m.put( "name", "comName" );
+		m.put( "value", t.getDepartname() );
+		rlt.add( m );
+
+		//拟请会诊单位
+		tl = systemService.findHql( "from TSDepart where id='" + apply.getApcomId() + "'" );
+		t = tl.get( 0 );
+		Map m1 = new HashMap();
+		m1.put( "name", "apcomName" );
+		m1.put( "value", t.getDepartname() );
+		rlt.add( m1 );
+		
+		//科室
+		List<OfficeEntity> ol = systemService.findHql( "from OfficeEntity where id='" + apply.getOfficeId() + "'" );
+		Map m2 = new HashMap();
+		m2.put( "name", "officeName" );
+		if( ol != null && ol.size() > 0 ){
+			OfficeEntity o = ol.get( 0 );
+			m2.put( "value", o.getFname() );
+		}else{
+			m2.put( "value", "" );
+		}
+		rlt.add( m2 );
+		
+		//拟会诊科室
+		ol = systemService.findHql( "from OfficeEntity where id='" + apply.getApofficeId() + "'" );
+		Map m3 = new HashMap();
+		m3.put( "name", "apofficeName" );
+		if( ol != null && ol.size() > 0 ){
+			OfficeEntity o = ol.get( 0 );
+			m3.put( "value", o.getFname() );
+		}else{
+			m3.put( "value", "" );
+		}
+		rlt.add( m3 );
+		
+		//会诊室
+		List<LhMeetRoomEntity> ll = systemService.findHql( "from LhMeetRoomEntity where id='" + apply.getRoomId() + "'" );
+		Map m4 = new HashMap();
+		m4.put( "name", "roomName" );
+		if( ll != null && ll.size() > 0 ){
+			LhMeetRoomEntity l = ll.get( 0 );
+			m4.put( "value", l.getRoomName() );
+		}else{
+			m4.put( "value", "" );
+		}
+		rlt.add( m4 );
+		
+		return rlt;
 	}
 	
 	/**

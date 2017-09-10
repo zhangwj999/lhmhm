@@ -18,10 +18,13 @@ import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
 import org.jeecgframework.core.common.model.json.AjaxJson;
 import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
+import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.RoletoJson;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.core.util.oConvertUtils;
 import org.jeecgframework.tag.core.easyui.TagUtil;
+import org.jeecgframework.web.system.pojo.base.TSDepart;
+import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.core.util.MyBeanUtils;
 
@@ -119,11 +122,19 @@ public class PatieninfoController extends BaseController {
 	@ResponseBody
 	public AjaxJson save(PatieninfoEntity patieninfo, HttpServletRequest request) {
 		AjaxJson j = new AjaxJson();
+		TSUser user = ResourceUtil.getSessionUserName();
+		TSDepart dept = user.getTSDepart();
+		// 上级部门
+		TSDepart parentdept = dept.getTSPDepart();
+
 		if (StringUtil.isNotEmpty(patieninfo.getId())) {
 			message = "病人信息更新成功";
 			PatieninfoEntity t = patieninfoService.get(PatieninfoEntity.class, patieninfo.getId());
 			try {
 				MyBeanUtils.copyBeanNotNull2Bean(patieninfo, t);
+				if(parentdept.getId() != null){
+					t.setComId( parentdept.getId() );
+				}
 				patieninfoService.saveOrUpdate(t);
 				systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
 			} catch (Exception e) {
@@ -132,6 +143,9 @@ public class PatieninfoController extends BaseController {
 			}
 		} else {
 			message = "病人信息添加成功";
+			if(parentdept.getId() != null){
+				patieninfo.setComId( parentdept.getId() );
+			}
 			patieninfoService.save(patieninfo);
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}

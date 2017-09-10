@@ -946,7 +946,7 @@ public class ApplyController extends BaseController {
 	public ModelAndView applyprint( ApplyEntity apply, HttpServletRequest req ) {
 		String id = req.getParameter( "id" );
 		apply = applyService.get( ApplyEntity.class, id );
-		List dataList = PubTool.getApplyPrintWordDatas( apply );
+		List dataList = PubTool.getApplyPrintWordDatas( apply, systemService );
 		req.setAttribute( "docData" , dataList );
 		return new ModelAndView("com/lhmh/apply/applyprint");
 	}

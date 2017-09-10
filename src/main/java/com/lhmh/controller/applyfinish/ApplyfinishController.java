@@ -111,7 +111,7 @@ public class ApplyfinishController extends BaseController {
 		if(status != null && !"".equals(status)){
 			applyfinish.setStatus(status);
 		}else{
-			applyfinish.setStatus("32");
+			applyfinish.setStatus("33");
 		}
 		
 		//查询条件组装器

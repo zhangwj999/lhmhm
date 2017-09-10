@@ -29,6 +29,8 @@ import javax.persistence.SequenceGenerator;
 @DynamicInsert(true)
 @SuppressWarnings("serial")
 public class PatieninfoEntity implements java.io.Serializable {
+	/**公司号*/
+	private java.lang.String comId;
 	/**住院号*/
 	private java.lang.String fid;
 	/**姓名*/
@@ -43,6 +45,15 @@ public class PatieninfoEntity implements java.io.Serializable {
 	private java.lang.String fmemo;
 	/**id*/
 	private java.lang.String id;
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  公司号
+	 */
+	@Column(name ="COM_ID",nullable=false,length=30)
+	public java.lang.String getComId(){
+		return this.comId;
+	}
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -85,6 +96,14 @@ public class PatieninfoEntity implements java.io.Serializable {
 		return this.fage;
 	}
 
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  年龄
+	 */
+	public void setComId(java.lang.String comId){
+		this.comId = comId;
+	}
+	
 	/**
 	 *方法: 设置java.lang.String
 	 *@param: java.lang.String  年龄
