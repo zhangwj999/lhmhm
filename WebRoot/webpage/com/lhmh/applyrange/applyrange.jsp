@@ -13,7 +13,7 @@
 				<tr>
 					<td align="right"><label class="Validform_label">会诊结果：</label></td>
 					<td class="value" colspan="3">
-						<textarea class="inputxt" id="rptDetail" name="rptDetail" style="width:70%;height:70px;" datatype="*">${applyauditPage.rptDetail}</textarea>
+						<textarea class="inputxt" id="rptDetail" name="rptDetail" style="width:70%;height:70px;" datatype="*">${applyrangePage.rptDetail}</textarea>
 						<span class="Validform_checktip"></span>
 					</td>
 				</tr>

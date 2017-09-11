@@ -785,7 +785,8 @@ public class ApplyController extends BaseController {
 	public AjaxJson changeOffice(HttpServletRequest request,HttpServletResponse response) {
 		AjaxJson j = new AjaxJson();
 		String comId = request.getParameter("comId");
-		String sql = "SELECT OFFICE_ID,OFFICE_NAME FROM LH_OFFICE WHERE COM_ID = '"+comId+"'";
+//		String sql = "SELECT OFFICE_ID,OFFICE_NAME FROM LH_OFFICE WHERE COM_ID = '"+comId+"'";
+		String sql = "select id,departname from t_s_depart where parentdepartid = '"+comId+"'";
 		SQLQuery query = systemService.getSession().createSQLQuery(sql);
 		List list = query.list();
 		StringBuffer sb = new StringBuffer();
