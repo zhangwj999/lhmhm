@@ -136,7 +136,7 @@
 					<td align="right"><label class="Validform_label">病人：</label></td>
 					<td class="value">
 						<input name="patientId"  type="hidden" value="${applyPage.patientId}" id="patientId"> 
-						<input name="patientName" class="inputxt"  id="patientName" value="${patientName}" readonly="readonly" datatype="s1-32" />
+						<input name="patientName" class="inputxt"  id="patientName" value="${applyPage.patientName}" readonly="readonly" datatype="s1-32" />
 				 		<t:choose hiddenName="patientId" hiddenid="fId" url="applyController.do?patients" name="patientList" icon="icon-search" title="病人列表" textname="fName" isclear="true" inputTextname="patientName"></t:choose>
 				      	<span class="Validform_checktip"></span>
 					</td>
