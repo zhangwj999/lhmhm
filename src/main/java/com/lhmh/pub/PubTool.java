@@ -300,4 +300,32 @@ public class PubTool{
 		return wordlist;
 	}
 	
+	/**
+	* 实现对word输入流读取饼填充模板，返回修改后的 HWPFDocument对象
+	* 
+	* @param is 文件的读入流
+	* @param apply 待填充的申请单
+	* @param systemService 一个系统级的对象
+	*/
+	public static void replaceDocTemplate( InputStream is, ApplyEntity apply, SystemService systemService )
+	{
+		HWPFDocument hdt = null;
+		try{
+			hdt = new HWPFDocument( is );
+		}catch (IOException e1){
+			e1.printStackTrace();
+		}
+		Fields fields = hdt.getFields();
+		
+		//读取word文本内容
+		Range range = hdt.getRange();
+		
+		List datas = getApplyPrintWordDatas( apply, systemService )
+
+		for( int i = 0; i < datas.length; i++ ){
+			Map tmpMap = ( Map )datas.get( i );
+			range.replaceText( "${" + tmpMap.get( "name" ) + "}", tmpMap.get( "value" ) );
+		}
+		return hdt;
+	}
 }

@@ -932,7 +932,9 @@ public class ApplyController extends BaseController {
 	@RequestMapping(params = "webOffice")
 	public ModelAndView webOffice( ApplyEntity apply, HttpServletRequest req ) {
 		if ( StringUtil.isNotEmpty( apply.getId() ) ) {
+			throw new RunttimeException( "请先选择申请单！" )
 		}
+		req.setAttribute( "applyId", apply.getId() );//业务主键
 		req.setAttribute( "fileType", "doc" );//doc,xls,ppt,wps
 		req.setAttribute( "docId", "yesihava" );//麻蛋没鸟用啊
 		
@@ -953,7 +955,11 @@ public class ApplyController extends BaseController {
 	}
 	
 	@RequestMapping(params = "getDoc")
-	public void getDoc(HttpServletRequest request, Integer fileId, HttpServletResponse response) {
+	public void getDoc(HttpServletRequest request, ApplyEntity apply, Integer fileId, HttpServletResponse response) {
+		if ( StringUtil.isNotEmpty( apply.getId() ) ) {
+			throw new RunttimeException( "请先选择申请单！" )
+		}
+		apply = applyService.getEntity(ApplyEntity.class, apply.getId());
 		// 从数据库取得数据
 		try {
 			response.setContentType("application/x-msdownload;");
@@ -963,15 +969,17 @@ public class ApplyController extends BaseController {
 			HttpServletRequest req = ( ( HttpServletRequest ) request );
 			InputStream bis = new FileInputStream( req.getRealPath( "/" ) + 
 					"export/template/apply_template.docx" );
+			HWPFDocument htd = PubTool.replaceDocTemplate( bis, apply, systemService );
 			BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
-			byte[] buff = new byte[2048];
-			int bytesRead;
-			long lTotalLen = 0;
-			while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
-				bos.write(buff, 0, bytesRead);
-				lTotalLen += bytesRead;
-			}
-			response.setHeader("Content-Length", String.valueOf(lTotalLen));
+			htd.write( bos );
+			// byte[] buff = new byte[2048];
+			// int bytesRead;
+			// long lTotalLen = 0;
+			// while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+			// 	bos.write(buff, 0, bytesRead);
+			// 	lTotalLen += bytesRead;
+			// }
+			response.setHeader("Content-Length", String.valueOf( bis.availableLength() ) );
 			bis.close();
 			bos.flush();
 			bos.close();
