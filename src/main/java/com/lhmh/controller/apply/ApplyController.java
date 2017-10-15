@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hwpf.HWPFDocument;
 import org.hibernate.SQLQuery;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
@@ -28,7 +29,6 @@ import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.RoletoJson;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.tag.core.easyui.TagUtil;
-import org.jeecgframework.web.demo.entity.test.WebOfficeEntity;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
@@ -49,6 +49,7 @@ import com.lhmh.entity.lhpatieninfo.LhPatieninfoEntity;
 import com.lhmh.pub.PubTool;
 import com.lhmh.service.apply.ApplyServiceI;
 import com.lhmh.service.filepathsave.FilepathsaveServiceI;
+import com.sun.star.uno.RuntimeException;
 
 /**   
  * @Title: Controller
@@ -931,9 +932,8 @@ public class ApplyController extends BaseController {
 	 */
 	@RequestMapping(params = "webOffice")
 	public ModelAndView webOffice( ApplyEntity apply, HttpServletRequest req ) {
-		if ( StringUtil.isNotEmpty( apply.getId() ) ) {
-			throw new RunttimeException( "请先选择申请单！" )
-		}
+		String id = req.getParameter( "id" );
+		apply = applyService.get( ApplyEntity.class, id );
 		req.setAttribute( "applyId", apply.getId() );//业务主键
 		req.setAttribute( "fileType", "doc" );//doc,xls,ppt,wps
 		req.setAttribute( "docId", "yesihava" );//麻蛋没鸟用啊
@@ -956,30 +956,23 @@ public class ApplyController extends BaseController {
 	
 	@RequestMapping(params = "getDoc")
 	public void getDoc(HttpServletRequest request, ApplyEntity apply, Integer fileId, HttpServletResponse response) {
-		if ( StringUtil.isNotEmpty( apply.getId() ) ) {
-			throw new RunttimeException( "请先选择申请单！" )
-		}
-		apply = applyService.getEntity(ApplyEntity.class, apply.getId());
+		String id = request.getParameter( "id" );
+		apply = applyService.get( ApplyEntity.class, id );
 		// 从数据库取得数据
 		try {
-			response.setContentType("application/x-msdownload;");
+			response.reset();
+			response.setContentType("bin");
 			response.setHeader("Content-disposition", "attachment; filename="
 					+ new String( ( "会诊单明细.doc" ).getBytes("GBK"), "ISO8859-1"));
 			//从数据库中读取出来	, 输出给下载用
 			HttpServletRequest req = ( ( HttpServletRequest ) request );
 			InputStream bis = new FileInputStream( req.getRealPath( "/" ) + 
-					"export/template/apply_template.docx" );
+					"export/template/apply_template.doc" );
+			System.out.println(  bis.available()  );
+			int len = bis.available();
 			HWPFDocument htd = PubTool.replaceDocTemplate( bis, apply, systemService );
 			BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
 			htd.write( bos );
-			// byte[] buff = new byte[2048];
-			// int bytesRead;
-			// long lTotalLen = 0;
-			// while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
-			// 	bos.write(buff, 0, bytesRead);
-			// 	lTotalLen += bytesRead;
-			// }
-			response.setHeader("Content-Length", String.valueOf( bis.availableLength() ) );
 			bis.close();
 			bos.flush();
 			bos.close();

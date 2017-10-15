@@ -22,9 +22,8 @@ function MyOnloadFunc(){
 	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
 	TANGER_OCX_bDocOpen = true;
 	//设置为全屏
-	TANGER_OCX_OBJ.FullScreenMode= true;
+// 	TANGER_OCX_OBJ.FullScreenMode= true;
 	AddMyMenuItems();
-	OpenDocTemplate();
 	OpenDocTemplate();
 	copyDataToDoc();
 	setDocProperties();
@@ -43,7 +42,6 @@ function setDocProperties(){
 }
 //打开文书word模板
 function OpenDocTemplate() {
-	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
 	TANGER_OCX_OBJ.Titlebar = false;	//标题栏显示控制
 	TANGER_OCX_OBJ.Statusbar = false;	//状态栏显示控制
 	TANGER_OCX_OBJ.Toolbars =false;		//工具栏显示控制
@@ -194,9 +192,8 @@ function forprint(){
 
 //自定义菜单
 function AddMyMenuItems(){
-	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
  	try{
-		TANGER_OCX_OBJ.AddCustomButtonOnMenu(2,"打印",true,2);
+		TANGER_OCX_OBJ.AddCustomButtonOnMenu(0,"打印",true);
 	}catch(err){
 		alert("不能创建新对象："+ err.number +":" + err.description);
 	}finally{
@@ -205,7 +202,6 @@ function AddMyMenuItems(){
 
 function getProspect(primaryKey){
 	  if(docName=='lmapplyWritProspect'){
-		  TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
 		  var url = findPositonImage(primaryKey);
 		  var shape =TANGER_OCX_OBJ.ActiveDocument.Shapes.AddPicture(url); 
 		  shape.height="120"; 

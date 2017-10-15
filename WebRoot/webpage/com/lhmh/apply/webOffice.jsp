@@ -26,7 +26,7 @@
 function WebOffice1_NotifyCtrlReady() {
 	document.all.WebOffice1.ShowToolBar(0);
 	document.all.WebOffice1.OptionFlag |= 128;
-	document.all.WebOffice1.LoadOriginalFile("./applyController.do?getDoc&fileId=1&applyId=${applyId}", 'doc');
+	document.all.WebOffice1.LoadOriginalFile("./applyController.do?getDoc&id=${applyId}&fileId=1", 'doc');
 	ProtectFull()
 }
 // ---------------------== 关闭页面时调用此函数，关闭文件 ==---------------------- //

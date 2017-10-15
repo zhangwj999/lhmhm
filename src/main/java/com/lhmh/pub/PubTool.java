@@ -16,6 +16,9 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.usermodel.Fields;
+import org.apache.poi.hwpf.usermodel.Range;
 import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.pojo.base.TSUser;
@@ -307,7 +310,7 @@ public class PubTool{
 	* @param apply 待填充的申请单
 	* @param systemService 一个系统级的对象
 	*/
-	public static void replaceDocTemplate( InputStream is, ApplyEntity apply, SystemService systemService )
+	public static HWPFDocument replaceDocTemplate( InputStream is, ApplyEntity apply, SystemService systemService )
 	{
 		HWPFDocument hdt = null;
 		try{
@@ -315,17 +318,18 @@ public class PubTool{
 		}catch (IOException e1){
 			e1.printStackTrace();
 		}
-		Fields fields = hdt.getFields();
 		
 		//读取word文本内容
 		Range range = hdt.getRange();
 		
-		List datas = getApplyPrintWordDatas( apply, systemService )
+		List datas = getApplyPrintWordDatas( apply, systemService );
 
-		for( int i = 0; i < datas.length; i++ ){
+		for( int i = 0; i < datas.size(); i++ ){
 			Map tmpMap = ( Map )datas.get( i );
-			range.replaceText( "${" + tmpMap.get( "name" ) + "}", tmpMap.get( "value" ) );
+			String valTmp = tmpMap.get( "value" ) == null ? "" : ( String )tmpMap.get( "value" );
+			range.replaceText( "${" + tmpMap.get( "name" ) + "}", valTmp );
 		}
+//		System.out.println( range.text() );
 		return hdt;
 	}
 }

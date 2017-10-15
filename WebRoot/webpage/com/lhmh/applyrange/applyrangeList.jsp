@@ -17,8 +17,7 @@
    <t:dgCol title="结束时间" field="endDate" ></t:dgCol>
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
-   <t:dgFunOpt title="开始" exp="status#eq#30" funname="open(id)"/>
-   <!-- <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/> -->
+   <t:dgFunOpt title="开始" exp="status#eq#30" funname="beginDate"/>
    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
@@ -135,9 +134,7 @@
 		listJpeg( '2' )
 	}
 
-	// 调用接口修改状态，然后调用服务打开终端软件
-	function open( id ){
-		console.log( id )
+	function innerBeginDate(){
 		var rowData = $("#applyrangeList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择要开始的记录");
@@ -147,7 +144,7 @@
 			tip("请选择一条记录再开始");
 			return;
 		}
-		var url = "applyrangeController.do?uploading&id="+rowData.id
+		var url = "applyrangeController.do?beginDate&id="+rowData.id
 		$.messager.confirm("确认", "确认开始吗？", function (r) {  
 			if ( r ) {
 				$.ajax({
@@ -155,12 +152,17 @@
 					method: 'GET',
 					dataType: 'json'
 				}).done( function( data ){
-					window.open( "wangYiMusic://" )
+					$("#applyrangeList").datagrid("reload")
+					window.location.href = "WangYiMusic://"
 				}).fail( function(){
 					$.messager.error( '修改申请单状态失败！' )
 				})
 			}
 		});
+	}
+	// 调用接口修改状态，然后调用服务打开终端软件
+	function beginDate(){
+		setTimeout( innerBeginDate, 0 ) // 先执行选中当前行，后执行开始操作，用一个定时器来处理
 	}
 	
 </script>

@@ -21,7 +21,8 @@
    <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap('1')"></t:dgToolBar>
 	<t:dgToolBar title="资料上传" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg('1')"></t:dgToolBar>
 <%--    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar> --%>
-   <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
+<%--    <t:dgToolBar title="模板生成（插件版）" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar> --%>
+   <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?webOffice" onclick="webOffice()"></t:dgToolBar>
    
   </t:datagrid>
   </div>
@@ -139,5 +140,13 @@
 		
 		window.open("applyController.do?applyprint&id="+rowData.id);
 	}
-	
+	function webOffice(){
+		var rowData = $("#applyList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择生成模板的记录");
+			return;
+		}
+		
+		window.open("applyController.do?webOffice&id="+rowData.id);
+	}
  </script>

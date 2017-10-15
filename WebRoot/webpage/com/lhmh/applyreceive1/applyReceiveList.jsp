@@ -17,6 +17,8 @@
    <t:dgCol title="结束时间" field="endDate" ></t:dgCol>
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
+   <t:dgFunOpt title="接收" exp="status#eq#30" funname="begin"></t:dgFunOpt>
+   <t:dgFunOpt title="接收" exp="status#eq#31" funname="begin"></t:dgFunOpt>
 <%--    <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/> --%>
 <%--    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
@@ -110,5 +112,9 @@
 		}
 		
 		listJpeg( '2' )
+	}
+	function begin(){
+		$("#applyreceiveList").datagrid("reload");
+		window.location.href = "WangYiMusic://"
 	}
 </script>
