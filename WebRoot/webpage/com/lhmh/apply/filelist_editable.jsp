@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>会诊申文件清单</title>
+		<title>会诊文件清单</title>
 		<meta charset="UTF-8"/>
 		<script>
 			var applyId = '${applyId}'

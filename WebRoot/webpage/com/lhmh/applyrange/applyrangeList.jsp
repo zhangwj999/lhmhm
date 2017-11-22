@@ -21,7 +21,7 @@
    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
-   <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar>
+<%--    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar> --%>
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
   	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
@@ -153,7 +153,7 @@
 					dataType: 'json'
 				}).done( function( data ){
 					$("#applyrangeList").datagrid("reload")
-					window.location.href = "WangYiMusic://"
+					window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
 				}).fail( function(){
 					$.messager.error( '修改申请单状态失败！' )
 				})

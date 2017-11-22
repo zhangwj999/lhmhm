@@ -117,7 +117,8 @@
 						<c:when test="${applyPage.returnResion != null}">
 							<td align="right"><label class="Validform_label">退回原因：</label></td>
 							<td class="value">
-								<t:dictSelect field="returnResion" hasLabel="false" typeGroupCode="backcause" defaultVal="${applyPage.returnResion}"/> 
+								<t:dictSelect field="returnResion" hasLabel="false" defaultVal="${applyauditPage.returnResion}" 
+									dictTable="LH_FEEDBACK_REASON" dictField="ID" dictText="NAME"/>
 							</td>
 						</c:when>
 						<c:otherwise>

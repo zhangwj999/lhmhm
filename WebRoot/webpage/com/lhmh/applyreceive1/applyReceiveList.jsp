@@ -5,12 +5,12 @@
   <t:datagrid name="applyreceiveList" title="远程会诊" actionUrl="applyReceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
-   <t:dgCol title="申请日期" field="date1" query="true"></t:dgCol>
+   <t:dgCol title="申请日期" field="date1"></t:dgCol>
    <t:dgCol title="病人姓名" field="patientName" query="true" ></t:dgCol>
    <t:dgCol title="科室" field="officeId" replace="${officesReplace}"></t:dgCol>
    <t:dgCol title="拟请会诊科室" field="apofficeId" replace="${officesReplace}"></t:dgCol>
    <t:dgCol title="拟请会诊单位" field="apcomId" replace="${comsReplace}"></t:dgCol>
-   <t:dgCol title="拟会诊时间" field="apdate1" ></t:dgCol>
+   <t:dgCol title="拟会诊时间" field="apdate1" query="true" queryMode="group"></t:dgCol>
    <t:dgCol title="预计开始时间" field="pbeginDate" ></t:dgCol>
    <t:dgCol title="预计结束时间" field="pendDate" ></t:dgCol>
    <t:dgCol title="开始时间" field="beginDate" ></t:dgCol>
@@ -22,6 +22,7 @@
 <%--    <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/> --%>
 <%--    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/> --%>
    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
+   <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap('2')"></t:dgToolBar>
    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar>
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
@@ -113,8 +114,30 @@
 		
 		listJpeg( '2' )
 	}
+	function videoCap( type ){
+		var rowData = $("#applyList").datagrid("getSelected");
+		if (!rowData || rowData.length == 0) {
+			tip("请选择拍照上传资料的记录");
+			return;
+		}
+		if (rowData.length > 1) {
+			tip("请选择一条记录再拍照上传资料");
+			return;
+		}
+		
+		var status = rowData.status;
+		if(status != "32" && status != "33"){
+			tip("请选择结束状态的记录再拍照上传资料");
+			return;
+		}
+		
+		window.open("applyController.do?videoCap&id="+rowData.id + "&type=" + type );
+	}
 	function begin(){
 		$("#applyreceiveList").datagrid("reload");
-		window.location.href = "WangYiMusic://"
+		window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
 	}
+	$(function(){
+		$('#applyreceiveListtb').find( 'input[name=apdate1_begin]' ).val( '${date1}' )
+	})
 </script>

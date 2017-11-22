@@ -96,6 +96,10 @@ public class ApplyController extends BaseController {
 
 		List<LhOfficeEntity> officeList = systemService.getList(LhOfficeEntity.class);
 		request.setAttribute("officesReplace", RoletoJson.listToReplaceStr(officeList, "officeName", "officeId"));
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+		String today = sdf.format(Calendar.getInstance().getTime());
+		request.setAttribute( "date1", today);
 		return new ModelAndView("com/lhmh/apply/applyList");
 	}
 
@@ -111,19 +115,24 @@ public class ApplyController extends BaseController {
 	@RequestMapping(params = "datagrid")
 	public void datagrid(ApplyEntity apply,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
 		CriteriaQuery cq = new CriteriaQuery(ApplyEntity.class, dataGrid);
-		String date1 = apply.getDate1();
+//		System.out.println( "悟空传 " + request.getParameter( "searchColums" ) );
+		
+		String date1Begin = request.getParameter( "date1_begin" );
+		// 为null是第一次访问，第二次请求是个空串
+		if( request.getParameter( "searchColums" ) == null ){
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+			date1Begin = sdf.format(Calendar.getInstance().getTime());
+		}
+		if( StringUtil.isNotEmpty( date1Begin ) ){
+			cq.ge( "date1", date1Begin );
+		}
+		String date1End = request.getParameter( "date1_end" );
+		if( StringUtil.isNotEmpty( date1End ) ){
+			cq.le( "date1", date1End);
+		}
 		String applyId = apply.getApplyId();
 		String patientName = apply.getPatientName();
 		
-		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
-		String today = sdf.format(Calendar.getInstance().getTime());
-		
-		if(date1 != null && !"".equals(date1)){
-			apply.setDate1("*" + date1 + "*");
-		}else{
-			// 测试需要  暂时去掉
-//			apply.setDate1(today);
-		}
 		if(applyId != null && !"".equals(applyId)){
 			apply.setApplyId("*" + applyId + "*");
 		}
@@ -135,6 +144,7 @@ public class ApplyController extends BaseController {
 		TSUser user = ResourceUtil.getSessionUserName();
 		apply.setCrtUser(user.getUserName());
 					
+		System.out.println( request.getParameterMap().get( "field" ) );
 		//查询条件组装器
 		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, apply, request.getParameterMap());
 		this.applyService.getDataGridReturn(cq, true);

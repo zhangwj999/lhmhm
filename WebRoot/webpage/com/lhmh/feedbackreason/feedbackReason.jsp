@@ -3,18 +3,22 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>会诊申请退回</title>
+  <title>驳回原因</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
  </head>
  <body style="overflow-y: hidden" scroll="no">
-  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="applyauditController.do?save">
-			<input id="id" name="id" type="hidden" value="${applyauditPage.id }">
+  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="feedbackReasonController.do?save">
+			<input id="id" name="id" type="hidden" value="${feedbackReasonPage.id }">
 			<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 				<tr>
-					<td align="right"><label class="Validform_label">退回原因：</label></td>
+					<td align="right">
+						<label class="Validform_label">
+							描述:
+						</label>
+					</td>
 					<td class="value">
-						<t:dictSelect field="returnResion" hasLabel="false" defaultVal="${applyauditPage.returnResion}" 
-							dictTable="LH_FEEDBACK_REASON" dictField="ID" dictText="NAME"/>
+						<textarea class="inputxt" id="name" name="name" 
+							style="width:70%;height:70px;" datatype="*">${feedbackReasonPage.name}</textarea>
 						<span class="Validform_checktip"></span>
 					</td>
 				</tr>

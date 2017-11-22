@@ -5,7 +5,7 @@
   <t:datagrid name="applyList" title="会诊申请" actionUrl="applyController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
-   <t:dgCol title="申请日期" field="date1" query="true"></t:dgCol>
+   <t:dgCol title="申请日期" field="date1" query="true" queryMode="group"></t:dgCol>
    <t:dgCol title="病人姓名" field="patientName" query="true" ></t:dgCol>
    <t:dgCol title="科室" field="officeId" replace="${officesReplace}"></t:dgCol>
    <t:dgCol title="拟请会诊科室" field="apofficeId" replace="${officesReplace}"></t:dgCol>
@@ -31,7 +31,7 @@
  <script type="text/javascript">
  	// 初始化将下拉框默认不可选择
 	window.onload = function(){
-	var sels = document.getElementsByName("select");
+		var sels = document.getElementsByName("select");
 		for (var i = 0; i < sels.length; i++) {
 			var sel = sels[i];
 			sel.disabled = "disabled";
@@ -149,4 +149,8 @@
 		
 		window.open("applyController.do?webOffice&id="+rowData.id);
 	}
+	
+	$(function(){
+		$('#applyListtb').find( 'input[name=date1_begin]' ).val( '${date1}' )
+	})
  </script>

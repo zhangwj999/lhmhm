@@ -71,7 +71,10 @@ public class ApplyReceiveController extends BaseController {
 	public ModelAndView applyReceive(HttpServletRequest request) {
 		List<LhcomEntity> comList = systemService.getList(LhcomEntity.class);
 		request.setAttribute("comsReplace", RoletoJson.listToReplaceStr(comList, "comName", "comId"));
-
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+		String today = sdf.format(Calendar.getInstance().getTime());
+		request.setAttribute( "date1", today);
 		List<LhOfficeEntity> officeList = systemService.getList(LhOfficeEntity.class);
 		request.setAttribute("officesReplace", RoletoJson.listToReplaceStr(officeList, "officeName", "officeId"));
 		
@@ -91,13 +94,22 @@ public class ApplyReceiveController extends BaseController {
 	public void datagrid(ApplyReceiveEntity applyReceive,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
 		CriteriaQuery cq = new CriteriaQuery(ApplyReceiveEntity.class, dataGrid);
 		
-		String date1 = applyReceive.getDate1();
+		String date1Begin = request.getParameter( "date1_begin" );
+		// 为null是第一次访问，第二次请求是个空串
+		if( request.getParameter( "searchColums" ) == null ){
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+			date1Begin = sdf.format(Calendar.getInstance().getTime());
+		}
+		if( StringUtil.isNotEmpty( date1Begin ) ){
+			cq.ge( "date1", date1Begin );
+		}
+		String date1End = request.getParameter( "date1_end" );
+		if( StringUtil.isNotEmpty( date1End ) ){
+			cq.le( "date1", date1End);
+		}
 		String applyId = applyReceive.getApplyId();
 		String patientName = applyReceive.getPatientName();
 		String status = applyReceive.getStatus();
-		
-		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
-		String today = sdf.format(Calendar.getInstance().getTime());
 		
 		// 部门编码
 		TSUser user = ResourceUtil.getSessionUserName();
@@ -108,11 +120,6 @@ public class ApplyReceiveController extends BaseController {
 			applyReceive.setRoomId( e.getRoomId() );
 		}
 		
-		if(date1 != null && !"".equals(date1)){
-			applyReceive.setDate1("*" + date1 + "*");
-		}else{
-			applyReceive.setDate1("*");
-		}
 		if(applyId != null && !"".equals(applyId)){
 			applyReceive.setApplyId("*" + applyId + "*");
 		}
