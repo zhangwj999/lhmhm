@@ -44,8 +44,10 @@ import com.lhmh.entity.filepathsave.FilepathsaveEntity;
 import com.lhmh.entity.hishareattach.HiShareAttachEntity;
 import com.lhmh.entity.lhcom.LhcomEntity;
 import com.lhmh.entity.lhdoctor.LhdoctorEntity;
+import com.lhmh.entity.lhmeetroom.LhMeetRoomEntity;
 import com.lhmh.entity.lhoffice.LhOfficeEntity;
 import com.lhmh.entity.lhpatieninfo.LhPatieninfoEntity;
+import com.lhmh.entity.office.OfficeEntity;
 import com.lhmh.pub.PubTool;
 import com.lhmh.service.apply.ApplyServiceI;
 import com.lhmh.service.filepathsave.FilepathsaveServiceI;
@@ -958,9 +960,47 @@ public class ApplyController extends BaseController {
 	@RequestMapping(params = "applyprint")
 	public ModelAndView applyprint( ApplyEntity apply, HttpServletRequest req ) {
 		String id = req.getParameter( "id" );
-		apply = applyService.get( ApplyEntity.class, id );
-		List dataList = PubTool.getApplyPrintWordDatas( apply, systemService );
-		req.setAttribute( "docData" , dataList );
+		
+		String sql = "select a.*, b.depart_name com_name, c.depart_name ap_com_name " +
+				" from lh_apply a left join ts_depart b on a.com_id=b.id left join ts_depart c" +
+				" on a.ap_com_id=c.id";
+//		//科室
+//		List<OfficeEntity> ol = systemService.findHql( "from OfficeEntity where id='" + apply.getOfficeId() + "'" );
+//		Map m2 = new HashMap();
+//		m2.put( "name", "officeName" );
+//		if( ol != null && ol.size() > 0 ){
+//			OfficeEntity o = ol.get( 0 );
+//			m2.put( "value", o.getFname() );
+//		}else{
+//			m2.put( "value", "" );
+//		}
+//		rlt.add( m2 );
+//		
+//		//拟会诊科室
+//		ol = systemService.findHql( "from OfficeEntity where id='" + apply.getApofficeId() + "'" );
+//		Map m3 = new HashMap();
+//		m3.put( "name", "apofficeName" );
+//		if( ol != null && ol.size() > 0 ){
+//			OfficeEntity o = ol.get( 0 );
+//			m3.put( "value", o.getFname() );
+//		}else{
+//			m3.put( "value", "" );
+//		}
+//		rlt.add( m3 );
+//		
+//		//会诊室
+//		List<LhMeetRoomEntity> ll = systemService.findHql( "from LhMeetRoomEntity where id='" + apply.getRoomId() + "'" );
+//		Map m4 = new HashMap();
+//		m4.put( "name", "roomName" );
+//		if( ll != null && ll.size() > 0 ){
+//			LhMeetRoomEntity l = ll.get( 0 );
+//			m4.put( "value", l.getRoomName() );
+//		}else{
+//			m4.put( "value", "" );
+//		}
+//		rlt.add( m4 );
+//		List dataList = PubTool.getApplyPrintWordDatas( apply, systemService );
+//		req.setAttribute( "docData" , dataList );
 		return new ModelAndView("com/lhmh/apply/applyprint");
 	}
 	

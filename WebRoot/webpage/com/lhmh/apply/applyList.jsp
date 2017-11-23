@@ -22,7 +22,8 @@
 	<t:dgToolBar title="资料上传" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg('1')"></t:dgToolBar>
 <%--    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?listJpeg" onclick="listJpeg()"></t:dgToolBar> --%>
 <%--    <t:dgToolBar title="模板生成（插件版）" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar> --%>
-   <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?webOffice" onclick="webOffice()"></t:dgToolBar>
+<%--    <t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?webOffice" onclick="webOffice()"></t:dgToolBar> --%>
+	<t:dgToolBar title="申请单打印" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
    
   </t:datagrid>
   </div>

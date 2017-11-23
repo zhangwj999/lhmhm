@@ -33,7 +33,10 @@
 			
 			<div class="divBody">
 				<div class="left-container">
-					<div id="camera_info"></div>
+<!-- 					<div id="camera_info"></div> -->
+					<div class="take_snapshots_container">
+						<input type="button" id="take_snapshots" value="拍照" />
+					</div>
 					<div id="camera">
 						<div class="placeholder">
 							Your browser does not support camera access.<br>
@@ -42,9 +45,6 @@
 							&mdash; modern, secure, fast browser from Google.<br>
 							It's free.
 						</div>
-					</div>
-					<div class="take_snapshots_container">
-						<input type="button" id="take_snapshots" value="拍照" />
 					</div>
 				</div>
 		
