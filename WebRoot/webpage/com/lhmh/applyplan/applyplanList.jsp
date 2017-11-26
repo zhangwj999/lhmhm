@@ -65,7 +65,7 @@
 	function detailWord(){
 		var rowData = $("#applyplanList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		
@@ -75,7 +75,7 @@
 	function applyprint(){
 		var rowData = $("#applyplanList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		

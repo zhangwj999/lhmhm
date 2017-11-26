@@ -23,7 +23,8 @@
 <%--    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar> --%>
 <%--    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar> --%>
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
-<t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
+   <t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
+   <t:dgToolBar title="打开视频软件" icon="icon-putout" url="" onclick="openBuGu()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>
@@ -90,7 +91,7 @@
 	function detailWord(){
 		var rowData = $("#applyrangeList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		
@@ -99,7 +100,7 @@
 	function applyprint(){
 		var rowData = $("#applyrangeList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		
@@ -153,7 +154,7 @@
 					dataType: 'json'
 				}).done( function( data ){
 					$("#applyrangeList").datagrid("reload")
-					window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
+// 					window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
 				}).fail( function(){
 					$.messager.error( '修改申请单状态失败！' )
 				})
@@ -164,5 +165,7 @@
 	function beginDate(){
 		setTimeout( innerBeginDate, 0 ) // 先执行选中当前行，后执行开始操作，用一个定时器来处理
 	}
-	
+	function openBuGu(){
+		window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
+	}
 </script>

@@ -17,7 +17,7 @@
    <t:dgCol title="结束时间" field="endDate" ></t:dgCol>
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
-   <t:dgConfOpt title="完成" exp="status#eq#33" url="applyfinishController.do?finish&id={id}" message="确定完成吗？"/>
+   <t:dgConfOpt title="完成" exp="reportStatus#eq#2" url="applyfinishController.do?finish&id={id}" message="确定完成吗？"/>
     <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
   	<t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('all')"></t:dgToolBar>
 <t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
@@ -53,7 +53,7 @@
 	function detailWord(){
 		var rowData = $("#applyfinishList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		
@@ -62,7 +62,7 @@
 	function applyprint(){
 		var rowData = $("#applyfinishList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
-			tip("请选择生成模板的记录");
+			tip("请选择打印申请的记录");
 			return;
 		}
 		
