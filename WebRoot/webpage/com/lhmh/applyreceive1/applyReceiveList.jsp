@@ -2,7 +2,7 @@
 <%@include file="/context/mytags.jsp"%>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:1px;">
-  <t:datagrid name="applyreceiveList" title="远程会诊" actionUrl="applyReceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="applyreceiveList" title="远程会诊接收" actionUrl="applyReceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
    <t:dgCol title="申请日期" field="date1"></t:dgCol>
