@@ -194,7 +194,7 @@ public class ApplyrangeController extends BaseController {
 			message = "结果录入更新成功";
 			ApplyrangeEntity t = applyrangeService.get(ApplyrangeEntity.class, applyrange.getId());
 			try {
-				t.setStatus("33");
+//				t.setStatus("33");
 				MyBeanUtils.copyBeanNotNull2Bean(applyrange, t);
 				applyrangeService.saveOrUpdate(t);
 				systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);

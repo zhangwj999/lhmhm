@@ -95,6 +95,8 @@ public class ApplyfinishEntity implements java.io.Serializable {
 	private java.lang.String doctorId;
 	/**拟请会诊专家名称*/
 	private java.lang.String doctorName;
+	/**reportStatus*/
+	private java.lang.String reportStatus;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -111,6 +113,22 @@ public class ApplyfinishEntity implements java.io.Serializable {
 	 */
 	public void setComId(java.lang.String comId){
 		this.comId = comId;
+	}
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String 报告状态
+	 */
+	@Column(name ="REPORT_STATUS",nullable=false,length=1)
+	public java.lang.String getReportStatus() {
+		return reportStatus;
+	}
+	
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String 报告状态
+	 */
+	public void setReportStatus(java.lang.String reportStatus) {
+		this.reportStatus = reportStatus;
 	}
 	/**
 	 *方法: 取得java.lang.String

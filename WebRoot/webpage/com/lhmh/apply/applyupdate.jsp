@@ -11,15 +11,17 @@
 		var sels = document.getElementsByTagName("select");
 		sels[0].disabled = "disabled";
 		
-		var sel = document.getElementById("comId");
-		sel.addEventListener("onchange", office(), false);
-		var selap = document.getElementById("apcomId");
-		selap.addEventListener("onchange", apoffice(), false);
+		$( '#comId' ).on( 'change', office )
+		$( '#apcomId' ).on( 'change', apoffice )
+	//		var sel = document.getElementById("comId");
+	//		sel.addEventListener("onchange", office(), false);
+	//		var selap = document.getElementById("apcomId");
+	//		selap.addEventListener("onchange", apoffice(), false);
 		
-		$("#comId").attr("onchange","office()");
-		$("#apcomId").attr("onchange","apoffice()");
+	//		$("#comId").attr("onchange","office()");
+	//		$("#apcomId").attr("onchange","apoffice()");
 	}
-
+	// 会诊单位 onchange 方法
 	// 会诊单位 onchange 方法
 	function office(){
 		var comId = $("#comId").val();
@@ -27,8 +29,8 @@
 			type : "get",
 			async: false,
 			url : "applyController.do?changeOffice&comId="+comId,
-			success : function voluation(data, textStatus){
-				var selre = data.substring(data.indexOf("msg")+6,data.indexOf("obj")-3);
+			success : function(data, textStatus){
+				var selre = data.substring(data.indexOf("option")-1,data.indexOf("obj")-12);
 				var sel = selre.replace(/[\\]/g,"");
 				$("#officeId").html(sel);
 			},
@@ -49,8 +51,8 @@
 			type : "get",
 			async: false,
 			url : "applyController.do?changeOffice&comId="+comId,
-			success : function voluation(data, textStatus){
-				var selre = data.substring(data.indexOf("msg")+6,data.indexOf("obj")-3);
+			success : function(data, textStatus){
+				var selre = data.substring(data.indexOf("option")-1,data.indexOf("obj")-12);
 				var sel = selre.replace(/[\\]/g,"");
 				$("#apofficeId").html(sel);
 			},

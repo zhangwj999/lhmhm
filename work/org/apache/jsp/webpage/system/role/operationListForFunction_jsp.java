@@ -72,17 +72,15 @@ static {
       out = pageContext.getOut();
       _jspx_out = out;
 
-      out.write('\r');
       out.write('\n');
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
  
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 
-      out.write('\r');
       out.write('\n');
       //  c:set
       org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_005fset_005f0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
@@ -98,27 +96,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         return;
       }
       _005fjspx_005ftagPool_005fc_005fset_0026_005fvar_005fvalue_005fnobody.reuse(_jspx_th_c_005fset_005f0);
-      out.write('\r');
       out.write('\n');
       if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
-      out.write("\r\n");
-      out.write("<script type=\"text/javascript\">\r\n");
-      out.write("function submitOperation() {\r\n");
+      out.write("\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("function submitOperation() {\n");
       out.write("\tvar functionId = \"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${functionId}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-      out.write("\";\r\n");
-      out.write("\tvar roleId = $(\"#rid\").val();\r\n");
-      out.write("\tvar operationcodes = \"\";\r\n");
-      out.write("\t$(\"input[name='operationCheckbox']\").each(function(i){\r\n");
-      out.write("\t\t   if(this.checked){\r\n");
-      out.write("\t\t\t   operationcodes+=this.value+\",\";\r\n");
-      out.write("\t\t   }\r\n");
-      out.write("\t });\r\n");
-      out.write("\toperationcodes=escape(operationcodes); \r\n");
-      out.write("\tdoSubmit(\"roleController.do?updateOperation&functionId=\" + functionId + \"&roleId=\" + roleId+\"&operationcodes=\"+operationcodes);\r\n");
-      out.write("}\r\n");
-      out.write("</script>\r\n");
+      out.write("\";\n");
+      out.write("\tvar roleId = $(\"#rid\").val();\n");
+      out.write("\tvar operationcodes = \"\";\n");
+      out.write("\t$(\"input[name='operationCheckbox']\").each(function(i){\n");
+      out.write("\t\t   if(this.checked){\n");
+      out.write("\t\t\t   operationcodes+=this.value+\",\";\n");
+      out.write("\t\t   }\n");
+      out.write("\t });\n");
+      out.write("\toperationcodes=escape(operationcodes); \n");
+      out.write("\tdoSubmit(\"roleController.do?updateOperation&functionId=\" + functionId + \"&roleId=\" + roleId+\"&operationcodes=\"+operationcodes);\n");
+      out.write("}\n");
+      out.write("</script>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
@@ -149,18 +146,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write('\r');
           out.write('\n');
           out.write('	');
           if (_jspx_meth_c_005fif_005f0(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
-          out.write('\r');
           out.write('\n');
           out.write('	');
           if (_jspx_meth_c_005fif_005f1(_jspx_th_c_005fforEach_005f0, _jspx_page_context, _jspx_push_body_count_c_005fforEach_005f0))
             return true;
-          out.write("\r\n");
-          out.write("\t<br>\r\n");
+          out.write("\n");
+          out.write("\t<br>\n");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -193,16 +188,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
+        out.write("\n");
         out.write("\t\t<span class=\"icon ");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${operation.TSIcon.iconClas}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\">&nbsp;</span>\r\n");
+        out.write("\">&nbsp;</span>\n");
         out.write("\t\t<input style=\"width: 20px;\" type=\"checkbox\" name=\"operationCheckbox\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${operation.operationcode}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" checked=\"checked\" />");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${operation.operationname}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\r\n");
-        out.write("\t ");
+        out.write('\n');
+        out.write('	');
+        out.write(' ');
         int evalDoAfterBody = _jspx_th_c_005fif_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;
@@ -229,14 +225,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     int _jspx_eval_c_005fif_005f1 = _jspx_th_c_005fif_005f1.doStartTag();
     if (_jspx_eval_c_005fif_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
-        out.write("\r\n");
-        out.write("\t\t<span class=\"icon group_add\">&nbsp;</span>\r\n");
+        out.write("\n");
+        out.write("\t\t<span class=\"icon group_add\">&nbsp;</span>\n");
         out.write("\t\t<input style=\"width: 20px;\" type=\"checkbox\" name=\"operationCheckbox\" value=\"");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${operation.operationcode}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
         out.write("\" />");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${operation.operationname}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\r\n");
-        out.write("\t ");
+        out.write('\n');
+        out.write('	');
+        out.write(' ');
         int evalDoAfterBody = _jspx_th_c_005fif_005f1.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
           break;

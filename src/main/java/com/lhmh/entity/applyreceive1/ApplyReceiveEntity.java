@@ -95,6 +95,8 @@ public class ApplyReceiveEntity implements java.io.Serializable {
 	private java.lang.String rptDetail;
 	/**id*/
 	private java.lang.String id;
+	/**reportStatus*/
+	private java.lang.String reportStatus;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -103,6 +105,22 @@ public class ApplyReceiveEntity implements java.io.Serializable {
 	@Column(name ="COM_ID",nullable=false,length=32)
 	public java.lang.String getComId(){
 		return this.comId;
+	}
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String 报告状态
+	 */
+	@Column(name ="REPORT_STATUS",nullable=false,length=1)
+	public java.lang.String getReportStatus() {
+		return reportStatus;
+	}
+	
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String 报告状态
+	 */
+	public void setReportStatus(java.lang.String reportStatus) {
+		this.reportStatus = reportStatus;
 	}
 
 	/**

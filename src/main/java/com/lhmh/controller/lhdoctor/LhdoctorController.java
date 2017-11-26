@@ -25,6 +25,7 @@ import org.jeecgframework.core.util.MyBeanUtils;
 import com.lhmh.entity.lhcom.LhcomEntity;
 import com.lhmh.entity.lhdoctor.LhdoctorEntity;
 import com.lhmh.entity.lhoffice.LhOfficeEntity;
+import com.lhmh.entity.pricekind.PriceKindEntity;
 import com.lhmh.service.lhdoctor.LhdoctorServiceI;
 
 /**   
@@ -70,6 +71,9 @@ public class LhdoctorController extends BaseController {
 
 		List<LhOfficeEntity> officeList = systemService.getList(LhOfficeEntity.class);
 		request.setAttribute("officesReplace", RoletoJson.listToReplaceStr(officeList, "officeName", "officeId"));
+		
+		List<PriceKindEntity> priceList = systemService.getList(PriceKindEntity.class);
+		request.setAttribute("payKindReplace", RoletoJson.listToReplaceStr(priceList, "priceName", "id"));
 		return new ModelAndView("com/lhmh/lhdoctor/lhdoctorList");
 	}
 

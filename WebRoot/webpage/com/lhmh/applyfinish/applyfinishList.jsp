@@ -2,7 +2,7 @@
 <%@include file="/context/mytags.jsp"%>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:1px;">
-  <t:datagrid name="applyfinishList" title="会诊完成" actionUrl="applyfinishController.do?datagrid" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="applyfinishList" title="会诊申请单归档" actionUrl="applyfinishController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
    <t:dgCol title="申请日期" field="date1" query="true"></t:dgCol>
@@ -20,7 +20,7 @@
    <t:dgConfOpt title="完成" exp="status#eq#33" url="applyfinishController.do?finish&id={id}" message="确定完成吗？"/>
     <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
   	<t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('all')"></t:dgToolBar>
-  	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="applyprint()"></t:dgToolBar>
+<t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>

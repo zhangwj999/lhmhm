@@ -9,8 +9,8 @@
    <t:dgCol title="医生编号" field="doctorId" query="true"></t:dgCol>
    <t:dgCol title="医生姓名" field="doctorName" query="true"></t:dgCol>
    <t:dgCol title="职务岗位" field="positionId"  dictionary="postype"></t:dgCol>
-   <t:dgCol title="收费类型标准" field="payKind" dictionary="paykind"></t:dgCol>
-      <t:dgCol title="用户编号" field="doctorPk" ></t:dgCol>
+   <t:dgCol title="收费类型标准" field="payKind" replace="${payKindReplace}"></t:dgCol>
+   <t:dgCol title="用户编号" field="doctorPk" ></t:dgCol>
    <t:dgCol title="联系方式" field="tel" ></t:dgCol>
    <t:dgCol title="优势擅长" field="fmemo" ></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>

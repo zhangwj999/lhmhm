@@ -108,10 +108,12 @@ public class ApplyfinishController extends BaseController {
 			applyfinish.setPatientName("*" + patientName + "*");
 		}
 		
+		applyfinish.setReportStatus( "2" );
+		
 		if(status != null && !"".equals(status)){
 			applyfinish.setStatus(status);
 		}else{
-			applyfinish.setStatus("33");
+			applyfinish.setStatus("32");
 		}
 		
 		//查询条件组装器

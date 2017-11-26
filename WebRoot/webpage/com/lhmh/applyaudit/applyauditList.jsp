@@ -14,10 +14,10 @@
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
     <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
    	<t:dgConfOpt title="审核通过" exp="status#eq#01" url="applyauditController.do?present&id={id}" message="确定该记录审核通过吗？"/>
-   	<t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar>
-   	<t:dgToolBar title="退回" icon="icon-back" url="applyauditController.do?back" onclick="openback()"></t:dgToolBar>
+<%--    	<t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar> --%>
+   	<t:dgToolBar title="退回申请" icon="icon-back" url="applyauditController.do?back" onclick="openback()"></t:dgToolBar>
   	<t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
-   	<t:dgToolBar title="模板生成" icon="icon-putout" url="applyController.do?detailword" onclick="applyprint()"></t:dgToolBar>
+<t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>

@@ -48,6 +48,7 @@ import com.lhmh.entity.lhmeetroom.LhMeetRoomEntity;
 import com.lhmh.entity.lhoffice.LhOfficeEntity;
 import com.lhmh.entity.lhpatieninfo.LhPatieninfoEntity;
 import com.lhmh.entity.office.OfficeEntity;
+import com.lhmh.entity.pricekind.PriceKindEntity;
 import com.lhmh.pub.PubTool;
 import com.lhmh.service.apply.ApplyServiceI;
 import com.lhmh.service.filepathsave.FilepathsaveServiceI;
@@ -106,6 +107,25 @@ public class ApplyController extends BaseController {
 	}
 
 	/**
+	 * 会诊申请列表 页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "applyFileUpload")
+	public ModelAndView applyFileUpload(HttpServletRequest request) {
+		List<LhcomEntity> comList = systemService.getList(LhcomEntity.class);
+		request.setAttribute("comsReplace", RoletoJson.listToReplaceStr(comList, "comName", "comId"));
+
+		List<LhOfficeEntity> officeList = systemService.getList(LhOfficeEntity.class);
+		request.setAttribute("officesReplace", RoletoJson.listToReplaceStr(officeList, "officeName", "officeId"));
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+		String today = sdf.format(Calendar.getInstance().getTime());
+		request.setAttribute( "date1", today);
+		return new ModelAndView("com/lhmh/apply/applyFileUpload");
+	}
+	
+	/**
 	 * easyui AJAX请求数据
 	 * 
 	 * @param request
@@ -117,7 +137,6 @@ public class ApplyController extends BaseController {
 	@RequestMapping(params = "datagrid")
 	public void datagrid(ApplyEntity apply,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
 		CriteriaQuery cq = new CriteriaQuery(ApplyEntity.class, dataGrid);
-//		System.out.println( "悟空传 " + request.getParameter( "searchColums" ) );
 		
 		String date1Begin = request.getParameter( "date1_begin" );
 		// 为null是第一次访问，第二次请求是个空串
@@ -751,9 +770,10 @@ public class ApplyController extends BaseController {
 	 */
 	@RequestMapping(params = "doctors")
 	public String doctors(ApplyEntity apply, HttpServletRequest request, HttpServletResponse response) {
-		String apcomId = apply.getApcomId();
-		System.out.println(apcomId);
-		System.out.println(apply.toString());
+		
+		List<PriceKindEntity> priceList = systemService.getList(PriceKindEntity.class);
+		request.setAttribute("payKindReplace", RoletoJson.listToReplaceStr(priceList, "priceName", "id"));
+		
 		request.setAttribute("apcomId", request.getParameter("apcomId"));
 		return "com/lhmh/apply/doctors";
 	}
@@ -961,46 +981,33 @@ public class ApplyController extends BaseController {
 	public ModelAndView applyprint( ApplyEntity apply, HttpServletRequest req ) {
 		String id = req.getParameter( "id" );
 		
-		String sql = "select a.*, b.depart_name com_name, c.depart_name ap_com_name " +
-				" from lh_apply a left join ts_depart b on a.com_id=b.id left join ts_depart c" +
-				" on a.ap_com_id=c.id";
-//		//科室
-//		List<OfficeEntity> ol = systemService.findHql( "from OfficeEntity where id='" + apply.getOfficeId() + "'" );
-//		Map m2 = new HashMap();
-//		m2.put( "name", "officeName" );
-//		if( ol != null && ol.size() > 0 ){
-//			OfficeEntity o = ol.get( 0 );
-//			m2.put( "value", o.getFname() );
-//		}else{
-//			m2.put( "value", "" );
-//		}
-//		rlt.add( m2 );
-//		
-//		//拟会诊科室
-//		ol = systemService.findHql( "from OfficeEntity where id='" + apply.getApofficeId() + "'" );
-//		Map m3 = new HashMap();
-//		m3.put( "name", "apofficeName" );
-//		if( ol != null && ol.size() > 0 ){
-//			OfficeEntity o = ol.get( 0 );
-//			m3.put( "value", o.getFname() );
-//		}else{
-//			m3.put( "value", "" );
-//		}
-//		rlt.add( m3 );
-//		
-//		//会诊室
-//		List<LhMeetRoomEntity> ll = systemService.findHql( "from LhMeetRoomEntity where id='" + apply.getRoomId() + "'" );
-//		Map m4 = new HashMap();
-//		m4.put( "name", "roomName" );
-//		if( ll != null && ll.size() > 0 ){
-//			LhMeetRoomEntity l = ll.get( 0 );
-//			m4.put( "value", l.getRoomName() );
-//		}else{
-//			m4.put( "value", "" );
-//		}
-//		rlt.add( m4 );
-//		List dataList = PubTool.getApplyPrintWordDatas( apply, systemService );
-//		req.setAttribute( "docData" , dataList );
+		String sql = " select  " +
+				" 	A.*,B.PATIENT_AGE,B.PATIENT_SEX,B.MEDICAL_CARD,C.OFFICE_NAME,D.OFFICE_NAME AP_OFFICE_NAME,E.ROOM_NAME,F.DEPARTNAME COM_NAME,G.DEPARTNAME AP_COM_NAME " +
+				" from " +
+				" 	lh_apply a left join " +
+				" 	lh_patientnouse b on a.PATIENT_ID=b.PATIENT_ID left join  " +
+				" 	lh_office c on a.OFFICE_ID=c.OFFICE_ID left join " +
+				" 	lh_office d on a.APOFFICE_ID=d.OFFICE_ID left join " +
+				" 	lh_meetroom e on a.ROOM_ID=e.ROOM_ID left join  " +
+				" 	t_s_depart f on a.COM_ID=f.ID left join " +
+				" 	t_s_depart g on a.apcom_id=g.ID " +
+				" where a.id='"+ id + "'";
+		List<Map<String, Object>> rlt = systemService.findForJdbc( sql );
+		req.setAttribute( "docData" , rlt.get( 0 ) );
+		
+		String sql2 = " select b.* " +
+		" from  " +
+		" 	t_s_typegroup a, t_s_type b " +
+		" where " +
+		" 	a.id=b.typegroupid " +
+		"     and a.typegroupcode='sex' ";
+		List<Map<String, Object>> sex = systemService.findForJdbc( sql );
+		Map sexEnum = new HashMap();
+		for( Map o : sex ){
+			sexEnum.put( o.get( "ID" ), o.get( "ID" ) );
+		}
+		req.setAttribute( "sexEnum" , sexEnum );
+		
 		return new ModelAndView("com/lhmh/apply/applyprint");
 	}
 	

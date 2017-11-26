@@ -86,9 +86,8 @@
 						</label>
 					</td>
 					<td class="value">
-					<t:dictSelect field="payKind" typeGroupCode="paykind"
-                		defaultVal="${lhdoctorPage.payKind}" hasLabel="false" title=""></t:dictSelect>
-
+						<t:dictSelect id="payKind" field="payKind" hasLabel="false" 
+							defaultVal="${lhdoctorPage.payKind}" dictTable="LH_PRICE_KIND" dictField="ID" dictText="PRICE_NAME"/> 
 						<span class="Validform_checktip"></span>
 					</td>
 				</tr>

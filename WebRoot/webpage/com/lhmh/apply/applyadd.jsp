@@ -57,7 +57,7 @@
 						<td class="value" nowrap>
 							<input name="doctorId" type="hidden" value="${applyPage.doctorId}" id="doctorId">
 							<input name="doctorName" class="inputxt" value="${doctorName}" id="doctorName" readonly="readonly" datatype="*" /> 
-							<t:choose hiddenName="doctorId" hiddenid="id" url="applyController.do?doctors" name="doctorList" icon="icon-search" title="专家列表" textname="doctorName" isclear="true"></t:choose>
+							<t:choose hiddenName="doctorId" hiddenid="doctorId" url="applyController.do?doctors" name="doctorList" icon="icon-search" title="专家列表" textname="doctorName" isclear="true"></t:choose>
 							<span class="Validform_checktip">角色可多选</span>
 						</td>
 						<td align="right"><label class="Validform_label">拟会诊时间：</label></td>

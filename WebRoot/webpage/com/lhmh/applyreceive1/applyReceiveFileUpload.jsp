@@ -2,7 +2,7 @@
 <%@include file="/context/mytags.jsp"%>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:1px;">
-  <t:datagrid name="applyreceiveList" title="远程会诊" actionUrl="applyReceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="applyreceivefileuploadList" title="会诊资料上传" actionUrl="applyReceiveController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="编号" field="id" hidden="false"></t:dgCol>
    <t:dgCol title="申请单号" field="applyId" query="true" ></t:dgCol>
    <t:dgCol title="申请日期" field="date1"></t:dgCol>
@@ -18,16 +18,17 @@
    <t:dgCol title="状态" field="status" query="true" dictionary="apstatus"></t:dgCol>
    <t:dgCol title="报告状态" field="reportStatus" query="true" dictionary="reportstat"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
-   <t:dgFunOpt title="接收" exp="reportStatus#eq#0" funname="begin()"></t:dgFunOpt>
+   <t:dgConfOpt title="报告完成" exp="reportStatus#eq#1" url="applyController.do?receiveDone&id={id}" message="确定结束吗？"/>
+<%--    <t:dgFunOpt title="报告完成" exp="status#eq#30" funname="begin"></t:dgFunOpt> --%>
+<%--    <t:dgFunOpt title="接收" exp="status#eq#31" funname="begin"></t:dgFunOpt> --%>
 <%--    <t:dgConfOpt title="开始" exp="status#eq#30" url="applyrangeController.do?beginDate&id={id}" message="确定开始吗？"/> --%>
 <%--    <t:dgConfOpt title="结束" exp="status#eq#31" url="applyrangeController.do?endDate&id={id}" message="确定结束吗？"/> --%>
 <%--    <t:dgToolBar title="查看" icon="icon-search" url="applyController.do?detail" onclick="openDetail()" funname="detail"></t:dgToolBar> --%>
-<%--    <t:dgToolBar title="拍照上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap('2')"></t:dgToolBar> --%>
-<%--    <t:dgToolBar title="资料上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar> --%>
-<%--    <t:dgToolBar title="会诊报告" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar> --%>
+   <t:dgToolBar title="会诊报告录入" icon="icon-edit" url="applyrangeController.do?addorupdate" onclick="openreport()"></t:dgToolBar>
+   <t:dgToolBar title="拍照直接上传" icon="icon-putout" url="applyController.do?videoCap" onclick="videoCap('2')"></t:dgToolBar>
+   <t:dgToolBar title="选择文件上传" icon="icon-putout" url="applyrangeController.do?uploading" onclick="addListJpeg()"></t:dgToolBar>
    <t:dgToolBar title="资料查看" icon="icon-putout" url="applyController.do?datadetail" onclick="listJpeg('1')"></t:dgToolBar>
-   <t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
-   <t:dgToolBar title="打开视频软件" icon="icon-putout" url="" onclick="openBuGu()"></t:dgToolBar>
+<t:dgToolBar title="打印申请" icon="icon-putout" url="applyController.do?applyprint" onclick="applyprint()"></t:dgToolBar>
   </t:datagrid>
   </div>
  </div>
@@ -135,8 +136,7 @@
 		window.open("applyController.do?videoCap&id="+rowData.id + "&type=" + type );
 	}
 	function begin(){
-		console.log( 'begin' )
-		var rowData = $("#applyreceiveList").datagrid("getSelected");
+		var rowData = $("#applyreceivefileuploadList").datagrid("getSelected");
 		if (!rowData || rowData.length == 0) {
 			tip("请选择要开始的记录");
 			return;
@@ -145,22 +145,18 @@
 			tip("请选择一条记录再开始");
 			return;
 		}
-		var url = "applyReceiveController.do?receive&id="+rowData.id
+		var url = "applyReceiveController.do?receiveDone&id="+rowData.id
 		$.ajax({
 			url: url,
 			method: 'GET',
 			dataType: 'json'
 		}).done( function( data ){
 			$("#applyreceiveList").datagrid("reload");
-			window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
 		}).fail( function(){
 			$.messager.error( '修改申请单状态失败！' )
 		})
 	}
-	function openBuGu(){
-		window.location.href = "SisenMESS://Server=192.168.2.59&UserNo=001&UserPass=&UserOnlineState=1"
-	}
 	$(function(){
-		$('#applyreceiveListtb').find( 'input[name=apdate1_begin]' ).val( '${date1}' )
+		$('#applyreceivefileuploadListtb').find( 'input[name=apdate1_begin]' ).val( '${date1}' )
 	})
 </script>

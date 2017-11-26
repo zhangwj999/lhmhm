@@ -82,6 +82,24 @@ public class ApplyReceiveController extends BaseController {
 	}
 
 	/**
+	 * 会诊接收列表 页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "applyReceiveFileUpload")
+	public ModelAndView applyReceiveFileUpload(HttpServletRequest request) {
+		List<LhcomEntity> comList = systemService.getList(LhcomEntity.class);
+		request.setAttribute("comsReplace", RoletoJson.listToReplaceStr(comList, "comName", "comId"));
+		
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyyMMdd");
+		String today = sdf.format(Calendar.getInstance().getTime());
+		request.setAttribute( "date1", today);
+		List<LhOfficeEntity> officeList = systemService.getList(LhOfficeEntity.class);
+		request.setAttribute("officesReplace", RoletoJson.listToReplaceStr(officeList, "officeName", "officeId"));
+		
+		return new ModelAndView("com/lhmh/applyreceive1/applyReceiveFileUpload");
+	}
+	/**
 	 * easyui AJAX请求数据
 	 * 
 	 * @param request
@@ -157,7 +175,56 @@ public class ApplyReceiveController extends BaseController {
 		return j;
 	}
 
-
+	/**
+	 * 接收，修改报告状态为待录入
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "receive")
+	@ResponseBody
+	public AjaxJson receive(ApplyReceiveEntity applyReceive, HttpServletRequest request) {
+		AjaxJson j = new AjaxJson();
+		if (StringUtil.isNotEmpty(applyReceive.getId())) {
+			message = "接收成功";
+			try {
+				String id = request.getParameter("id");
+				String sql="UPDATE LH_APPLY SET REPORT_STATUS = '1' WHERE ID = '" + id + "'";
+				systemService.executeSql( sql );
+				systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
+			} catch (Exception e) {
+				e.printStackTrace();
+				message = "接收失败";
+			}
+		}
+		j.setMsg(message);
+		return j;
+	}
+	
+	/**
+	 * 接收，修改报告状态为已录入
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "receiveDone")
+	@ResponseBody
+	public AjaxJson receiveDone(ApplyReceiveEntity applyReceive, HttpServletRequest request) {
+		AjaxJson j = new AjaxJson();
+		if (StringUtil.isNotEmpty(applyReceive.getId())) {
+			message = "接收成功";
+			try {
+				String id = request.getParameter("id");
+				String sql="UPDATE LH_APPLY SET REPORT_STATUS = '2' WHERE ID = '" + id + "'";
+				systemService.executeSql( sql );
+				systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
+			} catch (Exception e) {
+				e.printStackTrace();
+				message = "接收失败";
+			}
+		}
+		j.setMsg(message);
+		return j;
+	}
+	
 	/**
 	 * 添加会诊接收
 	 * 
